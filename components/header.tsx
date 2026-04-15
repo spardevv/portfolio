@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
-import { useLocale } from "@/lib/locale-context"
-import { content } from "@/lib/content"
-import { Moon, Sun, Globe, Menu, X, Home, User, BookOpen } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useLocale } from "@/lib/locale-context";
+import { content } from "@/lib/content";
+import { Moon, Sun, Globe, Menu, X, Home, User, BookOpen } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
-  const { locale, toggleLocale } = useLocale()
-  const { resolvedTheme, setTheme } = useTheme()
-  const pathname = usePathname()
-  const t = content[locale].nav
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const { locale, toggleLocale } = useLocale();
+  const { resolvedTheme, setTheme } = useTheme();
+  const pathname = usePathname();
+  const t = content[locale].nav;
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navItems = [
     { label: t.home, href: "/", icon: Home },
     { label: t.about, href: "/sobre", icon: User },
-    { label: t.blog, href: "/blog", icon: BookOpen },
-  ]
+    // { label: t.blog, href: "/blog", icon: BookOpen },
+  ];
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
-  }
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
     <motion.header
@@ -36,16 +36,19 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
     >
       <div className="mx-auto max-w-5xl flex items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors">
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+        >
           spardev
         </Link>
 
         {/* Desktop nav - icons only, expand on hover or when active */}
         <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item, index) => {
-            const Icon = item.icon
-            const active = isActive(item.href)
-            const showLabel = active || hoveredItem === item.href
+            const Icon = item.icon;
+            const active = isActive(item.href);
+            const showLabel = active || hoveredItem === item.href;
 
             return (
               <motion.div
@@ -80,7 +83,7 @@ export function Header() {
                   </AnimatePresence>
                 </Link>
               </motion.div>
-            )
+            );
           })}
         </nav>
 
@@ -96,7 +99,9 @@ export function Header() {
             aria-label="Toggle language"
           >
             <Globe className="h-4 w-4" />
-            <span className="font-mono text-xs font-medium">{locale === "pt-BR" ? "EN" : "PT"}</span>
+            <span className="font-mono text-xs font-medium">
+              {locale === "pt-BR" ? "EN" : "PT"}
+            </span>
           </motion.button>
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
@@ -104,7 +109,9 @@ export function Header() {
             transition={{ duration: 0.3, delay: 0.4 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
             className="rounded-full p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
             aria-label="Toggle theme"
           >
@@ -179,8 +186,8 @@ export function Header() {
           >
             <nav className="flex flex-col gap-2 px-6 py-4">
               {navItems.map((item, index) => {
-                const Icon = item.icon
-                const active = isActive(item.href)
+                const Icon = item.icon;
+                const active = isActive(item.href);
                 return (
                   <motion.div
                     key={item.href}
@@ -201,7 +208,7 @@ export function Header() {
                       <span className="font-medium">{item.label}</span>
                     </Link>
                   </motion.div>
-                )
+                );
               })}
             </nav>
             <motion.div
@@ -215,18 +222,26 @@ export function Header() {
                 className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <Globe className="h-4 w-4" />
-                <span className="font-mono text-xs font-medium">{locale === "pt-BR" ? "EN" : "PT"}</span>
+                <span className="font-mono text-xs font-medium">
+                  {locale === "pt-BR" ? "EN" : "PT"}
+                </span>
               </button>
               <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
                 className="rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
-                {resolvedTheme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {resolvedTheme === "dark" ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
               </button>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
-  )
+  );
 }
