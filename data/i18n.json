@@ -1,7 +1,7 @@
 {
   "pt-BR": {
     "nav": {
-      "home": "Inicio",
+      "home": "Início",
       "about": "Sobre",
       "services": "O que desenvolvo",
       "skills": "Skills",
@@ -9,61 +9,73 @@
       "blog": "Blog"
     },
     "hero": {
-      "greeting": "Ola, eu sou",
+      "greeting": "Olá, eu sou",
       "name": "Gabriel Fernandes Ramos",
       "role": "Desenvolvedor Full Stack",
-      "description": "Construo aplicacoes web e mobile eficientes, escalaveis e seguras. Focado em entregar experiencias incriveis para o usuario.",
-      "cta": "Conheca meu trabalho",
+      "description": "Construo aplicações web e mobile eficientes, escaláveis e seguras. Focado em entregar experiências incríveis para o usuário.",
+      "cta": "Conheça meu trabalho",
       "downloadCv": "Baixar CV"
     },
     "about": {
       "title": "Sobre mim",
-      "subtitle": "Desenvolvedor apaixonado por criar solucoes",
-      "intro": "Sou desenvolvedor Full Stack com solida experiencia em Kotlin, React.js, GraphQL e Tailwind. Tenho atuado no desenvolvimento de aplicacoes web e mobile, focando em entregar solucoes eficientes, escalaveis e seguras.",
+      "subtitle": "Desenvolvedor apaixonado por criar soluções",
+      "intro": "Sou desenvolvedor Full Stack com sólida experiência em Kotlin, React.js, GraphQL e Tailwind. Tenho atuado no desenvolvimento de aplicações web e mobile, focando em entregar soluções eficientes, escaláveis e seguras.",
       "location": {
-        "label": "Localizacao",
-        "value": "Sao Paulo, Brasil"
+        "label": "Localização",
+        "value": "Mato Grosso, Brasil"
       },
       "experience": {
-        "label": "Experiencia",
-        "value": "+3 anos"
+        "label": "Experiência",
+        "value": "+5 anos"
       },
       "status": {
         "label": "Status",
-        "value": "Disponivel"
+        "value": "Disponível"
       },
       "sections": {
         "trajectory": {
-          "title": "Trajetoria",
+          "title": "Trajetória",
           "items": [
             {
               "title": "Desenvolvedor Full Stack",
-              "company": "Ticpass & Customize sua marca",
-              "period": "06/2025 - 12/2025",
-              "description": "Desenvolvi um aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance."
+              "company": "Ticmais.com",
+              "period": "07/2025 - 01/2026",
+              "description": "Desenvolvi um aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Apliquei conceitos de Domain-Driven Design (DDD) para estruturar camadas de domínio com maior coesão às regras de negócio. Otimizei processos críticos reduzindo consumo de memória e crashes. Implementei a rotina de pagamentos no painel administrativo web com integração ao MercadoPago e realizei integrações com SDKs das adquirentes PagSeguro, Gertec e Stone para processamento de pagamentos e impressão."
             },
             {
               "title": "Desenvolvedor Full Stack",
               "company": "Pagway",
-              "period": "12/2024 - 05/2025",
-              "description": "Refatorei parte do sistema monolitico, extraindo um servico externo com Remix e ReactJS, melhorando a performance e modernizando a interface."
+              "period": "12/2024 - 06/2025",
+              "description": "Refatorei parte de um sistema monolítico, extraindo um serviço externo com Remix e React, melhorando a performance e modernizando a interface. Corrigi cálculos críticos de taxas e implementei testes unitários para garantir a confiabilidade da API. Desenvolvi um link de pagamento customizável com integração ao SDK da Entrepay, aumentando a segurança das transações. Otimizei rotinas de pagamento em PDV, reduzindo o tempo de resposta na comunicação com SDKs. Introduzi práticas ágeis na equipe, melhorando o fluxo de entregas e reduzindo falhas em produção."
             },
             {
               "title": "Analista Desenvolvedor",
               "company": "Agenda Assessoria",
               "period": "10/2023 - 12/2024",
-              "description": "Realizei manutencao continua do sistema, desenvolvi interfaces responsivas e conduzi testes de seguranca que reduziram 90% das vulnerabilidades."
+              "description": "Atuei na manutenção contínua do sistema, corrigindo bugs e melhorando a estabilidade e performance da aplicação. Desenvolvi interfaces responsivas focadas em experiência do usuário. Identifiquei gargalos de performance e implementei melhorias que reduziram o tempo de carregamento. Colaborei na evolução da arquitetura front-end, aumentando a escalabilidade do sistema. Participei da construção de regras de negócio para cálculos de empréstimos consignados e conduzi testes de segurança que reduziram em 90% as vulnerabilidades."
+            },
+            {
+              "title": "Desenvolvedor Web",
+              "company": "Datweb Sistemas",
+              "period": "08/2022 - 04/2023",
+              "description": "Atuei no desenvolvimento de um sistema ERP integrado à SEFAZ para emissão de notas fiscais. Contribuí com a criação de funcionalidades web, integrações com APIs e melhorias internas do sistema. Trabalhei com foco em performance, organização de código e boas práticas, utilizando metodologias ágeis e versionamento em equipe."
+            },
+            {
+              "title": "Suporte de Sistemas",
+              "company": "Datweb Sistemas",
+              "period": "02/2020 - 08/2022",
+              "description": "Atuei no suporte técnico a clientes, realizando atendimento via chat e telefone, treinamentos e implantação de sistemas. Desenvolvi habilidades sólidas em comunicação, análise e resolução de problemas, garantindo uma experiência eficiente para os usuários."
             }
           ]
         },
         "education": {
-          "title": "Formacao",
+          "title": "Formação",
           "items": [
             {
-              "title": "Analise e Desenvolvimento de Sistemas",
+              "title": "Análise e Desenvolvimento de Sistemas",
               "institution": "Faculdade Impacta de Tecnologia",
               "period": "2024 - 2026",
-              "description": "Graduacao em andamento com foco em engenharia de software e desenvolvimento de sistemas."
+              "description": "Graduação em andamento com foco em engenharia de software e desenvolvimento de sistemas."
             }
           ]
         },
@@ -81,7 +93,7 @@
               "year": "2024"
             },
             {
-              "title": "React.js Avancado",
+              "title": "React.js Avançado",
               "issuer": "Alura",
               "year": "2023"
             },
@@ -97,15 +109,15 @@
           "items": [
             {
               "title": "Qualidade",
-              "description": "Codigo limpo, bem documentado e com testes automatizados."
+              "description": "Código limpo, bem documentado e com testes automatizados."
             },
             {
-              "title": "Colaboracao",
-              "description": "Trabalho em equipe, comunicacao clara e feedback constante."
+              "title": "Colaboração",
+              "description": "Trabalho em equipe, comunicação clara e feedback constante."
             },
             {
               "title": "Aprendizado",
-              "description": "Busca continua por novas tecnologias e melhores praticas."
+              "description": "Busca contínua por novas tecnologias e melhores práticas."
             },
             {
               "title": "Entrega",
@@ -117,50 +129,50 @@
     },
     "services": {
       "title": "O que desenvolvo",
-      "description": "Servicos personalizados para transformar sua ideia em realidade digital.",
+      "description": "Serviços personalizados para transformar sua ideia em realidade digital.",
       "items": [
         {
           "title": "Aplicativos Mobile",
-          "description": "Apps nativos e hibridos para Android e iOS com foco em performance e experiencia do usuario.",
+          "description": "Apps nativos e híbridos para Android e iOS com foco em performance e experiência do usuário.",
           "icon": "smartphone"
         },
         {
           "title": "Sistemas Web",
-          "description": "Aplicacoes web completas, desde landing pages ate sistemas complexos com dashboards e integracao de APIs.",
+          "description": "Aplicações web completas, desde landing pages até sistemas complexos com dashboards e integração de APIs.",
           "icon": "globe"
         },
         {
-          "title": "Prototipacao",
-          "description": "Prototipos interativos e wireframes para validar sua ideia antes do desenvolvimento.",
+          "title": "Prototipação",
+          "description": "Protótipos interativos e wireframes para validar sua ideia antes do desenvolvimento.",
           "icon": "figma"
         },
         {
           "title": "APIs e Backend",
-          "description": "Desenvolvimento de APIs robustas, microservicos e integracao com sistemas externos.",
+          "description": "Desenvolvimento de APIs robustas, microsserviços e integração com sistemas externos.",
           "icon": "server"
         },
         {
-          "title": "Consultoria Tecnica",
-          "description": "Analise de requisitos, arquitetura de software e orientacao para seu projeto.",
+          "title": "Consultoria Técnica",
+          "description": "Análise de requisitos, arquitetura de software e orientação para o seu projeto.",
           "icon": "lightbulb"
         },
         {
-          "title": "Manutencao",
-          "description": "Suporte continuo, correcao de bugs e melhorias em sistemas existentes.",
+          "title": "Manutenção",
+          "description": "Suporte contínuo, correção de bugs e melhorias em sistemas existentes.",
           "icon": "wrench"
         }
       ]
     },
     "skills": {
       "title": "Skills",
-      "description": "Tecnologias e ferramentas que utilizo no dia a dia para criar solucoes de alta qualidade.",
+      "description": "Tecnologias e ferramentas que utilizo no dia a dia para criar soluções de alta qualidade.",
       "categories": {
         "backend": "Backend",
         "frontend": "Frontend",
         "database": "Banco de Dados",
         "devops": "DevOps & Cloud",
         "tools": "Ferramentas",
-        "practices": "Praticas"
+        "practices": "Práticas"
       }
     },
     "projects": {
@@ -170,23 +182,23 @@
       "items": [
         {
           "title": "Ticpass",
-          "description": "Aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Aplicando conceitos de DDD para estruturar camadas de dominio.",
+          "description": "Aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Aplicando conceitos de DDD para estruturar camadas de domínio.",
           "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         },
         {
           "title": "Pagway",
-          "description": "Refatoracao de sistema monolitico, extraindo um servico externo com Remix e ReactJS, melhorando a performance e modernizando a interface.",
+          "description": "Refatoração de sistema monolítico, extraindo um serviço externo com Remix e ReactJS, melhorando a performance e modernizando a interface.",
           "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         },
         {
           "title": "Agenda Assessoria",
-          "description": "Manutencao continua do sistema, desenvolvimento de interfaces responsivas e testes de seguranca que reduziram 90% das vulnerabilidades.",
+          "description": "Manutenção contínua do sistema, desenvolvimento de interfaces responsivas e testes de segurança que reduziram 90% das vulnerabilidades.",
           "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         }
       ]
@@ -199,7 +211,7 @@
       "title": "Blog",
       "description": "Pensamentos sobre desenvolvimento, tecnologia e carreira.",
       "readMore": "Ler mais",
-      "backHome": "Voltar ao inicio",
+      "backHome": "Voltar ao início",
       "noPosts": "Nenhum post encontrado."
     }
   },
@@ -226,11 +238,11 @@
       "intro": "I'm a Full Stack developer with solid experience in Kotlin, React.js, GraphQL and Tailwind. I've been working on developing web and mobile applications, focusing on delivering efficient, scalable and secure solutions.",
       "location": {
         "label": "Location",
-        "value": "Sao Paulo, Brazil"
+        "value": "Mato Grosso, Brazil"
       },
       "experience": {
         "label": "Experience",
-        "value": "+3 years"
+        "value": "+5 years"
       },
       "status": {
         "label": "Status",
@@ -242,21 +254,33 @@
           "items": [
             {
               "title": "Full Stack Developer",
-              "company": "Ticpass & Customize sua marca",
-              "period": "06/2025 - 12/2025",
-              "description": "Developed a ticketing app in Kotlin to replace a legacy system, significantly improving usability and performance."
+              "company": "Ticmais.com",
+              "period": "07/2025 - 01/2026",
+              "description": "Developed a ticketing application in Kotlin to replace a legacy system, significantly improving usability and performance. Applied Domain-Driven Design (DDD) concepts to structure domain layers aligned with business rules. Optimized critical processes, reducing memory overhead and application crashes. Implemented payment workflows in the admin web panel integrating with MercadoPago, and worked with SDKs from PagSeguro, Gertec, and Stone for payment processing and printing."
             },
             {
               "title": "Full Stack Developer",
               "company": "Pagway",
-              "period": "12/2024 - 05/2025",
-              "description": "Refactored part of the monolithic system, extracting an external service with Remix and ReactJS, improving performance and modernizing the interface."
+              "period": "12/2024 - 06/2025",
+              "description": "Refactored part of a monolithic system by extracting an external service using Remix and React, improving performance and modernizing the UI. Fixed critical fee calculation issues and implemented unit tests to ensure API reliability. Built a customizable payment link integrated with the Entrepay SDK, increasing transaction security. Optimized POS payment routines, reducing latency in SDK communication. Introduced agile practices to improve delivery flow and reduce production issues."
             },
             {
-              "title": "Developer Analyst",
+              "title": "Software Developer Analyst",
               "company": "Agenda Assessoria",
               "period": "10/2023 - 12/2024",
-              "description": "Performed continuous system maintenance, developed responsive interfaces and conducted security tests that reduced 90% of vulnerabilities."
+              "description": "Maintained and improved system stability by fixing bugs and enhancing overall performance. Developed responsive user interfaces focused on user experience. Identified performance bottlenecks and implemented optimizations to reduce load times. Collaborated on front-end architecture improvements to enhance scalability. Contributed to business logic for payroll loan calculations and conducted security tests that reduced system vulnerabilities by 90%."
+            },
+            {
+              "title": "Web Developer",
+              "company": "Datweb Sistemas",
+              "period": "08/2022 - 04/2023",
+              "description": "Worked on the development of an ERP system integrated with SEFAZ for electronic invoice issuance. Contributed to building web features, API integrations, and internal improvements. Focused on performance, clean code, and best practices while working in an agile team environment with version control."
+            },
+            {
+              "title": "Systems Support Analyst",
+              "company": "Datweb Sistemas",
+              "period": "02/2020 - 08/2022",
+              "description": "Provided technical support via chat and phone, conducted user training sessions, and handled system implementations. Developed strong communication and problem-solving skills, ensuring efficient issue resolution and a high-quality user experience."
             }
           ]
         },
@@ -376,21 +400,21 @@
           "title": "Ticpass",
           "description": "Ticketing app in Kotlin to replace a legacy system, significantly improving usability and performance. Applying DDD concepts to structure domain layers.",
           "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         },
         {
           "title": "Pagway",
           "description": "Refactoring of monolithic system, extracting an external service with Remix and ReactJS, improving performance and modernizing the interface.",
           "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         },
         {
           "title": "Agenda Assessoria",
           "description": "Continuous system maintenance, responsive interface development and security tests that reduced 90% of vulnerabilities.",
           "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
-          "github": "https://github.com/gabrielframos",
+          "github": "https://github.com/spardevv",
           "link": null
         }
       ]

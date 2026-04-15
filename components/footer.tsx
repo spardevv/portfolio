@@ -1,19 +1,23 @@
-"use client"
+"use client";
 
-import { useLocale } from "@/lib/locale-context"
-import { content } from "@/lib/content"
-import { Github, Linkedin, Mail } from "lucide-react"
-import { motion } from "framer-motion"
+import { useLocale } from "@/lib/locale-context";
+import { content } from "@/lib/content";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Footer() {
-  const { locale } = useLocale()
-  const t = content[locale].footer
+  const { locale } = useLocale();
+  const t = content[locale].footer;
 
   const socialLinks = [
-    { href: "https://github.com/gabrielframos", icon: Github, label: "GitHub" },
-    { href: "https://linkedin.com/in/gabrielframos", icon: Linkedin, label: "LinkedIn" },
-    { href: "mailto:gabrielframos@outlook.com", icon: Mail, label: "Email" },
-  ]
+    { href: "https://github.com/spardevv", icon: Github, label: "GitHub" },
+    {
+      href: "https://linkedin.com/in/spardev",
+      icon: Linkedin,
+      label: "LinkedIn",
+    },
+    { href: "mailto:spardevv@gmail.com", icon: Mail, label: "Email" },
+  ];
 
   return (
     <motion.footer
@@ -50,7 +54,11 @@ export function Footer() {
                 key={link.label}
                 href={link.href}
                 target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                rel={
+                  link.href.startsWith("mailto")
+                    ? undefined
+                    : "noopener noreferrer"
+                }
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label={link.label}
                 whileHover={{ scale: 1.15, y: -2 }}
@@ -74,10 +82,11 @@ export function Footer() {
           className="mt-8 pt-6 border-t border-border text-center"
         >
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Gabriel Fernandes Ramos. {t.rights}
+            &copy; {new Date().getFullYear()} Gabriel Fernandes Ramos.{" "}
+            {t.rights}
           </p>
         </motion.div>
       </div>
     </motion.footer>
-  )
+  );
 }

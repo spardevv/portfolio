@@ -34,7 +34,7 @@ export function HeroSection() {
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/50 to-transparent blur-2xl opacity-50" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-border">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/582652974_17848789467613918_1007503240521686312_n.jpg-GoUR3dtxp1oKkAJKOX3740pFPqbMDm.png"
+                  src="/images/profile.jpg"
                   alt="Gabriel Fernandes Ramos"
                   fill
                   className="object-cover"

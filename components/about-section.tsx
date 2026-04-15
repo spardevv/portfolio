@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useLocale } from "@/lib/locale-context"
-import { content } from "@/lib/content"
-import Image from "next/image"
-import { MapPin, Calendar, Briefcase } from "lucide-react"
+import { useLocale } from "@/lib/locale-context";
+import { content } from "@/lib/content";
+import Image from "next/image";
+import { MapPin, Calendar, Briefcase } from "lucide-react";
 
 export function AboutSection() {
-  const { locale } = useLocale()
-  const t = content[locale]
+  const { locale } = useLocale();
+  const t = content[locale];
 
   return (
     <section id="about" className="py-24 px-4">
@@ -36,7 +36,7 @@ export function AboutSection() {
             <h3 className="text-2xl font-semibold text-foreground mb-6">
               {t.about.subtitle}
             </h3>
-            
+
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               {t.about.paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -47,22 +47,34 @@ export function AboutSection() {
               <div className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border">
                 <MapPin className="h-5 w-5 text-accent shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">{t.about.location.label}</p>
-                  <p className="text-sm font-medium text-foreground">{t.about.location.value}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t.about.location.label}
+                  </p>
+                  <p className="text-sm font-medium text-foreground">
+                    {t.about.location.value}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border">
                 <Calendar className="h-5 w-5 text-accent shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">{t.about.experience.label}</p>
-                  <p className="text-sm font-medium text-foreground">{t.about.experience.value}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t.about.experience.label}
+                  </p>
+                  <p className="text-sm font-medium text-foreground">
+                    {t.about.experience.value}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border">
                 <Briefcase className="h-5 w-5 text-accent shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">{t.about.status.label}</p>
-                  <p className="text-sm font-medium text-foreground">{t.about.status.value}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t.about.status.label}
+                  </p>
+                  <p className="text-sm font-medium text-foreground">
+                    {t.about.status.value}
+                  </p>
                 </div>
               </div>
             </div>
@@ -70,5 +82,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
