@@ -1,0 +1,410 @@
+{
+  "pt-BR": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre",
+      "services": "O que desenvolvo",
+      "skills": "Skills",
+      "projects": "Projetos",
+      "blog": "Blog"
+    },
+    "hero": {
+      "greeting": "Ola, eu sou",
+      "name": "Gabriel Fernandes Ramos",
+      "role": "Desenvolvedor Full Stack",
+      "description": "Construo aplicacoes web e mobile eficientes, escalaveis e seguras. Focado em entregar experiencias incriveis para o usuario.",
+      "cta": "Conheca meu trabalho",
+      "downloadCv": "Baixar CV"
+    },
+    "about": {
+      "title": "Sobre mim",
+      "subtitle": "Desenvolvedor apaixonado por criar solucoes",
+      "intro": "Sou desenvolvedor Full Stack com solida experiencia em Kotlin, React.js, GraphQL e Tailwind. Tenho atuado no desenvolvimento de aplicacoes web e mobile, focando em entregar solucoes eficientes, escalaveis e seguras.",
+      "location": {
+        "label": "Localizacao",
+        "value": "Sao Paulo, Brasil"
+      },
+      "experience": {
+        "label": "Experiencia",
+        "value": "+3 anos"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Disponivel"
+      },
+      "sections": {
+        "trajectory": {
+          "title": "Trajetoria",
+          "items": [
+            {
+              "title": "Desenvolvedor Full Stack",
+              "company": "Ticpass & Customize sua marca",
+              "period": "06/2025 - 12/2025",
+              "description": "Desenvolvi um aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance."
+            },
+            {
+              "title": "Desenvolvedor Full Stack",
+              "company": "Pagway",
+              "period": "12/2024 - 05/2025",
+              "description": "Refatorei parte do sistema monolitico, extraindo um servico externo com Remix e ReactJS, melhorando a performance e modernizando a interface."
+            },
+            {
+              "title": "Analista Desenvolvedor",
+              "company": "Agenda Assessoria",
+              "period": "10/2023 - 12/2024",
+              "description": "Realizei manutencao continua do sistema, desenvolvi interfaces responsivas e conduzi testes de seguranca que reduziram 90% das vulnerabilidades."
+            }
+          ]
+        },
+        "education": {
+          "title": "Formacao",
+          "items": [
+            {
+              "title": "Analise e Desenvolvimento de Sistemas",
+              "institution": "Faculdade Impacta de Tecnologia",
+              "period": "2024 - 2026",
+              "description": "Graduacao em andamento com foco em engenharia de software e desenvolvimento de sistemas."
+            }
+          ]
+        },
+        "certificates": {
+          "title": "Certificados",
+          "items": [
+            {
+              "title": "GraphQL",
+              "issuer": "Alura",
+              "year": "2024"
+            },
+            {
+              "title": "Android com Kotlin",
+              "issuer": "Alura",
+              "year": "2024"
+            },
+            {
+              "title": "React.js Avancado",
+              "issuer": "Alura",
+              "year": "2023"
+            },
+            {
+              "title": "Domain-Driven Design",
+              "issuer": "Alura",
+              "year": "2023"
+            }
+          ]
+        },
+        "values": {
+          "title": "Valores",
+          "items": [
+            {
+              "title": "Qualidade",
+              "description": "Codigo limpo, bem documentado e com testes automatizados."
+            },
+            {
+              "title": "Colaboracao",
+              "description": "Trabalho em equipe, comunicacao clara e feedback constante."
+            },
+            {
+              "title": "Aprendizado",
+              "description": "Busca continua por novas tecnologias e melhores praticas."
+            },
+            {
+              "title": "Entrega",
+              "description": "Compromisso com prazos e resultados que agregam valor."
+            }
+          ]
+        }
+      }
+    },
+    "services": {
+      "title": "O que desenvolvo",
+      "description": "Servicos personalizados para transformar sua ideia em realidade digital.",
+      "items": [
+        {
+          "title": "Aplicativos Mobile",
+          "description": "Apps nativos e hibridos para Android e iOS com foco em performance e experiencia do usuario.",
+          "icon": "smartphone"
+        },
+        {
+          "title": "Sistemas Web",
+          "description": "Aplicacoes web completas, desde landing pages ate sistemas complexos com dashboards e integracao de APIs.",
+          "icon": "globe"
+        },
+        {
+          "title": "Prototipacao",
+          "description": "Prototipos interativos e wireframes para validar sua ideia antes do desenvolvimento.",
+          "icon": "figma"
+        },
+        {
+          "title": "APIs e Backend",
+          "description": "Desenvolvimento de APIs robustas, microservicos e integracao com sistemas externos.",
+          "icon": "server"
+        },
+        {
+          "title": "Consultoria Tecnica",
+          "description": "Analise de requisitos, arquitetura de software e orientacao para seu projeto.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Manutencao",
+          "description": "Suporte continuo, correcao de bugs e melhorias em sistemas existentes.",
+          "icon": "wrench"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Tecnologias e ferramentas que utilizo no dia a dia para criar solucoes de alta qualidade.",
+      "categories": {
+        "backend": "Backend",
+        "frontend": "Frontend",
+        "database": "Banco de Dados",
+        "devops": "DevOps & Cloud",
+        "tools": "Ferramentas",
+        "practices": "Praticas"
+      }
+    },
+    "projects": {
+      "title": "Projetos",
+      "description": "Alguns dos projetos em que trabalhei recentemente.",
+      "viewAll": "Ver mais no GitHub",
+      "items": [
+        {
+          "title": "Ticpass",
+          "description": "Aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Aplicando conceitos de DDD para estruturar camadas de dominio.",
+          "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        },
+        {
+          "title": "Pagway",
+          "description": "Refatoracao de sistema monolitico, extraindo um servico externo com Remix e ReactJS, melhorando a performance e modernizando a interface.",
+          "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        },
+        {
+          "title": "Agenda Assessoria",
+          "description": "Manutencao continua do sistema, desenvolvimento de interfaces responsivas e testes de seguranca que reduziram 90% das vulnerabilidades.",
+          "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        }
+      ]
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados.",
+      "builtWith": "Feito com Next.js e Tailwind CSS"
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Pensamentos sobre desenvolvimento, tecnologia e carreira.",
+      "readMore": "Ler mais",
+      "backHome": "Voltar ao inicio",
+      "noPosts": "Nenhum post encontrado."
+    }
+  },
+  "en-US": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "What I build",
+      "skills": "Skills",
+      "projects": "Projects",
+      "blog": "Blog"
+    },
+    "hero": {
+      "greeting": "Hi, I'm",
+      "name": "Gabriel Fernandes Ramos",
+      "role": "Full Stack Developer",
+      "description": "I build efficient, scalable and secure web and mobile applications. Focused on delivering amazing user experiences.",
+      "cta": "See my work",
+      "downloadCv": "Download CV"
+    },
+    "about": {
+      "title": "About me",
+      "subtitle": "Developer passionate about creating solutions",
+      "intro": "I'm a Full Stack developer with solid experience in Kotlin, React.js, GraphQL and Tailwind. I've been working on developing web and mobile applications, focusing on delivering efficient, scalable and secure solutions.",
+      "location": {
+        "label": "Location",
+        "value": "Sao Paulo, Brazil"
+      },
+      "experience": {
+        "label": "Experience",
+        "value": "+3 years"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Available"
+      },
+      "sections": {
+        "trajectory": {
+          "title": "Career",
+          "items": [
+            {
+              "title": "Full Stack Developer",
+              "company": "Ticpass & Customize sua marca",
+              "period": "06/2025 - 12/2025",
+              "description": "Developed a ticketing app in Kotlin to replace a legacy system, significantly improving usability and performance."
+            },
+            {
+              "title": "Full Stack Developer",
+              "company": "Pagway",
+              "period": "12/2024 - 05/2025",
+              "description": "Refactored part of the monolithic system, extracting an external service with Remix and ReactJS, improving performance and modernizing the interface."
+            },
+            {
+              "title": "Developer Analyst",
+              "company": "Agenda Assessoria",
+              "period": "10/2023 - 12/2024",
+              "description": "Performed continuous system maintenance, developed responsive interfaces and conducted security tests that reduced 90% of vulnerabilities."
+            }
+          ]
+        },
+        "education": {
+          "title": "Education",
+          "items": [
+            {
+              "title": "Systems Analysis and Development",
+              "institution": "Faculdade Impacta de Tecnologia",
+              "period": "2024 - 2026",
+              "description": "Ongoing degree focused on software engineering and systems development."
+            }
+          ]
+        },
+        "certificates": {
+          "title": "Certificates",
+          "items": [
+            {
+              "title": "GraphQL",
+              "issuer": "Alura",
+              "year": "2024"
+            },
+            {
+              "title": "Android with Kotlin",
+              "issuer": "Alura",
+              "year": "2024"
+            },
+            {
+              "title": "Advanced React.js",
+              "issuer": "Alura",
+              "year": "2023"
+            },
+            {
+              "title": "Domain-Driven Design",
+              "issuer": "Alura",
+              "year": "2023"
+            }
+          ]
+        },
+        "values": {
+          "title": "Values",
+          "items": [
+            {
+              "title": "Quality",
+              "description": "Clean, well-documented code with automated tests."
+            },
+            {
+              "title": "Collaboration",
+              "description": "Teamwork, clear communication and constant feedback."
+            },
+            {
+              "title": "Learning",
+              "description": "Continuous pursuit of new technologies and best practices."
+            },
+            {
+              "title": "Delivery",
+              "description": "Commitment to deadlines and results that add value."
+            }
+          ]
+        }
+      }
+    },
+    "services": {
+      "title": "What I build",
+      "description": "Custom services to transform your idea into digital reality.",
+      "items": [
+        {
+          "title": "Mobile Apps",
+          "description": "Native and hybrid apps for Android and iOS focused on performance and user experience.",
+          "icon": "smartphone"
+        },
+        {
+          "title": "Web Systems",
+          "description": "Complete web applications, from landing pages to complex systems with dashboards and API integration.",
+          "icon": "globe"
+        },
+        {
+          "title": "Prototyping",
+          "description": "Interactive prototypes and wireframes to validate your idea before development.",
+          "icon": "figma"
+        },
+        {
+          "title": "APIs & Backend",
+          "description": "Robust API development, microservices and integration with external systems.",
+          "icon": "server"
+        },
+        {
+          "title": "Technical Consulting",
+          "description": "Requirements analysis, software architecture and guidance for your project.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Maintenance",
+          "description": "Ongoing support, bug fixes and improvements to existing systems.",
+          "icon": "wrench"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Technologies and tools I use daily to create high-quality solutions.",
+      "categories": {
+        "backend": "Backend",
+        "frontend": "Frontend",
+        "database": "Databases",
+        "devops": "DevOps & Cloud",
+        "tools": "Tools",
+        "practices": "Practices"
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Some of the projects I've worked on recently.",
+      "viewAll": "See more on GitHub",
+      "items": [
+        {
+          "title": "Ticpass",
+          "description": "Ticketing app in Kotlin to replace a legacy system, significantly improving usability and performance. Applying DDD concepts to structure domain layers.",
+          "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        },
+        {
+          "title": "Pagway",
+          "description": "Refactoring of monolithic system, extracting an external service with Remix and ReactJS, improving performance and modernizing the interface.",
+          "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        },
+        {
+          "title": "Agenda Assessoria",
+          "description": "Continuous system maintenance, responsive interface development and security tests that reduced 90% of vulnerabilities.",
+          "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
+          "github": "https://github.com/gabrielframos",
+          "link": null
+        }
+      ]
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "builtWith": "Built with Next.js and Tailwind CSS"
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Thoughts on development, technology and career.",
+      "readMore": "Read more",
+      "backHome": "Back to home",
+      "noPosts": "No posts found."
+    }
+  }
+}
