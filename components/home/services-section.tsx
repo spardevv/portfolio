@@ -1,9 +1,16 @@
-"use client"
+"use client";
 
-import { useLocale } from "@/lib/locale-context"
-import { content } from "@/lib/content"
-import { Smartphone, Globe, Figma, Server, Lightbulb, Wrench } from "lucide-react"
-import { motion } from "framer-motion"
+import { useLocale } from "@/lib/locale-context";
+import { content } from "@/lib/content";
+import {
+  Smartphone,
+  Globe,
+  Figma,
+  Server,
+  Lightbulb,
+  Wrench,
+} from "lucide-react";
+import { motion, easeOut } from "framer-motion";
 
 const iconMap = {
   smartphone: Smartphone,
@@ -12,7 +19,7 @@ const iconMap = {
   server: Server,
   lightbulb: Lightbulb,
   wrench: Wrench,
-}
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,16 +30,16 @@ const containerVariants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const titleVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: easeOut },
   },
-}
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50, scale: 0.9 },
@@ -40,13 +47,13 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: easeOut },
   },
-}
+};
 
 export function ServicesSection() {
-  const { locale } = useLocale()
-  const t = content[locale].services
+  const { locale } = useLocale();
+  const t = content[locale].services;
 
   return (
     <motion.section
@@ -81,7 +88,7 @@ export function ServicesSection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {t.items.map((service, index) => {
-            const Icon = iconMap[service.icon as keyof typeof iconMap]
+            const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
               <motion.div
                 key={index}
@@ -94,14 +101,15 @@ export function ServicesSection() {
                 className="group relative bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors cursor-pointer overflow-hidden"
               >
                 {/* Background glow effect on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
+                <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Icon container with animation */}
                 <motion.div
                   className="relative w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5"
-                  whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
+                  whileHover={{
+                    rotate: [0, -10, 10, 0],
+                    transition: { duration: 0.5, ease: easeOut },
+                  }}
                 >
                   <Icon className="w-7 h-7 text-primary" />
                 </motion.div>
@@ -118,13 +126,13 @@ export function ServicesSection() {
                   className="absolute bottom-0 left-0 h-1 bg-primary"
                   initial={{ width: "0%" }}
                   whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: easeOut }}
                 />
               </motion.div>
-            )
+            );
           })}
         </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }
