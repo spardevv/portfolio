@@ -176,7 +176,7 @@ export default function SobrePage() {
           </motion.section>
 
           {/* Certificates Section */}
-          {/* <motion.section
+          <motion.section
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -215,7 +215,7 @@ export default function SobrePage() {
                 </MotionDiv>
               ))}
             </div>
-          </motion.section> */}
+          </motion.section>
 
           {/* Values Section */}
           <motion.section

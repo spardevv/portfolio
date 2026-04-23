@@ -20,7 +20,7 @@ export function Header() {
   const navItems = [
     { label: t.home, href: "/", icon: Home },
     { label: t.about, href: "/sobre", icon: User },
-    // { label: t.blog, href: "/blog", icon: BookOpen },
+    { label: t.blog, href: "/blog", icon: BookOpen },
   ];
 
   const isActive = (href: string) => {

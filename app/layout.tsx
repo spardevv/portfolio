@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Fernandes Ramos | Full Stack Developer",
+  title: "Spardev | Full Stack Developer",
   description:
     "Portfolio de Gabriel Fernandes Ramos - Desenvolvedor Full Stack com experiencia em Kotlin, React.js, GraphQL e Tailwind.",
   icons: {
