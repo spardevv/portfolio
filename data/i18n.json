@@ -75,53 +75,7 @@
               "title": "Análise e Desenvolvimento de Sistemas",
               "institution": "Faculdade Estácio",
               "period": "2023 - 2026",
-              "description": "Graduação em andamento com foco em engenharia de software e desenvolvimento de sistemas."
-            }
-          ]
-        },
-        "certificates": {
-          "title": "Certificados",
-          "items": [
-            {
-              "title": "GraphQL",
-              "issuer": "Alura",
-              "year": "2024"
-            },
-            {
-              "title": "Android com Kotlin",
-              "issuer": "Alura",
-              "year": "2024"
-            },
-            {
-              "title": "React.js Avançado",
-              "issuer": "Alura",
-              "year": "2023"
-            },
-            {
-              "title": "Domain-Driven Design",
-              "issuer": "Alura",
-              "year": "2023"
-            }
-          ]
-        },
-        "values": {
-          "title": "Valores",
-          "items": [
-            {
-              "title": "Qualidade",
-              "description": "Código limpo, bem documentado e com testes automatizados."
-            },
-            {
-              "title": "Colaboração",
-              "description": "Trabalho em equipe, comunicação clara e feedback constante."
-            },
-            {
-              "title": "Aprendizado",
-              "description": "Busca contínua por novas tecnologias e melhores práticas."
-            },
-            {
-              "title": "Entrega",
-              "description": "Compromisso com prazos e resultados que agregam valor."
+              "description": "Graduação completa com foco em engenharia de software e desenvolvimento de sistemas."
             }
           ]
         }
@@ -181,24 +135,17 @@
       "viewAll": "Ver mais no GitHub",
       "items": [
         {
-          "title": "Ticpass",
-          "description": "Aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Aplicando conceitos de DDD para estruturar camadas de domínio.",
-          "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
-          "github": "https://github.com/spardevv",
+          "title": "style-system",
+          "description": "Um editor visual de design tokens em tempo real. Você escreve YAML no painel esquerdo, clica em Apply, e todos os componentes da tela se atualizam instantaneamente refletindo seus tokens de cores, tipografia, gradientes, sombras, espaçamentos e muito mais.",
+          "tech": ["HTML", "CSS", "JavaScript"],
+          "github": "https://github.com/spardevv/style-system",
           "link": null
         },
         {
-          "title": "Pagway",
-          "description": "Refatoração de sistema monolítico, extraindo um serviço externo com Remix e ReactJS, melhorando a performance e modernizando a interface.",
-          "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
-          "github": "https://github.com/spardevv",
-          "link": null
-        },
-        {
-          "title": "Agenda Assessoria",
-          "description": "Manutenção contínua do sistema, desenvolvimento de interfaces responsivas e testes de segurança que reduziram 90% das vulnerabilidades.",
-          "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
-          "github": "https://github.com/spardevv",
+          "title": "Atrium",
+          "description": "Plataforma Android moderna para operação de PDV em eventos e totens de autoatendimento.",
+          "tech": ["Java", "Kotlin", "Jetpack Compose"],
+          "github": "https://github.com/spardevv/atrium",
           "link": null
         }
       ]
@@ -219,30 +166,30 @@
     "nav": {
       "home": "Home",
       "about": "About",
-      "services": "What I build",
+      "services": "What I Build",
       "skills": "Skills",
       "projects": "Projects",
       "blog": "Blog"
     },
     "hero": {
-      "greeting": "Hi, I'm",
+      "greeting": "Hello, I'm",
       "name": "Gabriel Fernandes Ramos",
       "role": "Full Stack Developer",
-      "description": "I build efficient, scalable and secure web and mobile applications. Focused on delivering amazing user experiences.",
-      "cta": "See my work",
-      "downloadCv": "Download CV"
+      "description": "I build efficient, scalable, and secure web and mobile applications, focused on delivering outstanding user experiences.",
+      "cta": "Explore My Work",
+      "downloadCv": "Download Resume"
     },
     "about": {
-      "title": "About me",
-      "subtitle": "Developer passionate about creating solutions",
-      "intro": "I'm a Full Stack developer with solid experience in Kotlin, React.js, GraphQL and Tailwind. I've been working on developing web and mobile applications, focusing on delivering efficient, scalable and secure solutions.",
+      "title": "About Me",
+      "subtitle": "Developer passionate about building solutions",
+      "intro": "I am a Full Stack Developer with solid experience in Kotlin, React.js, GraphQL, and Tailwind. I have worked on web and mobile applications, focusing on delivering efficient, scalable, and secure solutions.",
       "location": {
         "label": "Location",
         "value": "Mato Grosso, Brazil"
       },
       "experience": {
         "label": "Experience",
-        "value": "+5 years"
+        "value": "5+ years"
       },
       "status": {
         "label": "Status",
@@ -250,37 +197,37 @@
       },
       "sections": {
         "trajectory": {
-          "title": "Career",
+          "title": "Career Journey",
           "items": [
             {
               "title": "Full Stack Developer",
               "company": "Ticmais.com",
               "period": "07/2025 - 01/2026",
-              "description": "Developed a ticketing application in Kotlin to replace a legacy system, significantly improving usability and performance. Applied Domain-Driven Design (DDD) concepts to structure domain layers aligned with business rules. Optimized critical processes, reducing memory overhead and application crashes. Implemented payment workflows in the admin web panel integrating with MercadoPago, and worked with SDKs from PagSeguro, Gertec, and Stone for payment processing and printing."
+              "description": "Developed a Kotlin-based ticketing application to replace a legacy system, significantly improving usability and performance. Applied Domain-Driven Design (DDD) concepts to structure domain layers with stronger business-rule cohesion. Optimized critical processes, reducing memory consumption and application crashes. Implemented payment routines in the web admin panel with MercadoPago integration and integrated SDKs from PagSeguro, Gertec, and Stone for payment processing and receipt printing."
             },
             {
               "title": "Full Stack Developer",
               "company": "Pagway",
               "period": "12/2024 - 06/2025",
-              "description": "Refactored part of a monolithic system by extracting an external service using Remix and React, improving performance and modernizing the UI. Fixed critical fee calculation issues and implemented unit tests to ensure API reliability. Built a customizable payment link integrated with the Entrepay SDK, increasing transaction security. Optimized POS payment routines, reducing latency in SDK communication. Introduced agile practices to improve delivery flow and reduce production issues."
+              "description": "Refactored part of a monolithic system by extracting an external service using Remix and React, improving performance and modernizing the interface. Fixed critical fee calculation issues and implemented unit tests to ensure API reliability. Developed a customizable payment link integrated with the Entrepay SDK, increasing transaction security. Optimized POS payment routines, reducing response time when communicating with SDKs. Introduced agile practices within the team, improving delivery flow and reducing production issues."
             },
             {
               "title": "Software Developer Analyst",
               "company": "Agenda Assessoria",
               "period": "10/2023 - 12/2024",
-              "description": "Maintained and improved system stability by fixing bugs and enhancing overall performance. Developed responsive user interfaces focused on user experience. Identified performance bottlenecks and implemented optimizations to reduce load times. Collaborated on front-end architecture improvements to enhance scalability. Contributed to business logic for payroll loan calculations and conducted security tests that reduced system vulnerabilities by 90%."
+              "description": "Worked on continuous system maintenance, fixing bugs and improving application stability and performance. Developed responsive interfaces focused on user experience. Identified performance bottlenecks and implemented optimizations that reduced loading times. Collaborated on the evolution of the front-end architecture, increasing system scalability. Participated in building business rules for payroll loan calculations and conducted security testing that reduced vulnerabilities by 90%."
             },
             {
               "title": "Web Developer",
               "company": "Datweb Sistemas",
               "period": "08/2022 - 04/2023",
-              "description": "Worked on the development of an ERP system integrated with SEFAZ for electronic invoice issuance. Contributed to building web features, API integrations, and internal improvements. Focused on performance, clean code, and best practices while working in an agile team environment with version control."
+              "description": "Worked on developing an ERP system integrated with SEFAZ for invoice issuance. Contributed to web features, API integrations, and internal system improvements. Focused on performance, code organization, and best practices using agile methodologies and collaborative version control."
             },
             {
-              "title": "Systems Support Analyst",
+              "title": "Systems Support",
               "company": "Datweb Sistemas",
               "period": "02/2020 - 08/2022",
-              "description": "Provided technical support via chat and phone, conducted user training sessions, and handled system implementations. Developed strong communication and problem-solving skills, ensuring efficient issue resolution and a high-quality user experience."
+              "description": "Provided technical support to clients through chat and phone assistance, training, and system deployment. Developed strong communication, analysis, and problem-solving skills while ensuring an efficient user experience."
             }
           ]
         },
@@ -289,72 +236,26 @@
           "items": [
             {
               "title": "Systems Analysis and Development",
-              "institution": "Faculdade Estácio",
+              "institution": "Estácio University",
               "period": "2023 - 2026",
-              "description": "Ongoing degree focused on software engineering and systems development."
-            }
-          ]
-        },
-        "certificates": {
-          "title": "Certificates",
-          "items": [
-            {
-              "title": "GraphQL",
-              "issuer": "Alura",
-              "year": "2024"
-            },
-            {
-              "title": "Android with Kotlin",
-              "issuer": "Alura",
-              "year": "2024"
-            },
-            {
-              "title": "Advanced React.js",
-              "issuer": "Alura",
-              "year": "2023"
-            },
-            {
-              "title": "Domain-Driven Design",
-              "issuer": "Alura",
-              "year": "2023"
-            }
-          ]
-        },
-        "values": {
-          "title": "Values",
-          "items": [
-            {
-              "title": "Quality",
-              "description": "Clean, well-documented code with automated tests."
-            },
-            {
-              "title": "Collaboration",
-              "description": "Teamwork, clear communication and constant feedback."
-            },
-            {
-              "title": "Learning",
-              "description": "Continuous pursuit of new technologies and best practices."
-            },
-            {
-              "title": "Delivery",
-              "description": "Commitment to deadlines and results that add value."
+              "description": "Finished degree focused on software engineering and systems development."
             }
           ]
         }
       }
     },
     "services": {
-      "title": "What I build",
-      "description": "Custom services to transform your idea into digital reality.",
+      "title": "What I Build",
+      "description": "Custom services to turn your ideas into digital reality.",
       "items": [
         {
-          "title": "Mobile Apps",
+          "title": "Mobile Applications",
           "description": "Native and hybrid apps for Android and iOS focused on performance and user experience.",
           "icon": "smartphone"
         },
         {
           "title": "Web Systems",
-          "description": "Complete web applications, from landing pages to complex systems with dashboards and API integration.",
+          "description": "Complete web applications, from landing pages to complex systems with dashboards and API integrations.",
           "icon": "globe"
         },
         {
@@ -364,17 +265,17 @@
         },
         {
           "title": "APIs & Backend",
-          "description": "Robust API development, microservices and integration with external systems.",
+          "description": "Development of robust APIs, microservices, and integrations with external systems.",
           "icon": "server"
         },
         {
           "title": "Technical Consulting",
-          "description": "Requirements analysis, software architecture and guidance for your project.",
+          "description": "Requirements analysis, software architecture, and technical guidance for your project.",
           "icon": "lightbulb"
         },
         {
           "title": "Maintenance",
-          "description": "Ongoing support, bug fixes and improvements to existing systems.",
+          "description": "Continuous support, bug fixing, and improvements for existing systems.",
           "icon": "wrench"
         }
       ]
@@ -385,7 +286,7 @@
       "categories": {
         "backend": "Backend",
         "frontend": "Frontend",
-        "database": "Databases",
+        "database": "Database",
         "devops": "DevOps & Cloud",
         "tools": "Tools",
         "practices": "Practices"
@@ -393,28 +294,14 @@
     },
     "projects": {
       "title": "Projects",
-      "description": "Some of the projects I've worked on recently.",
-      "viewAll": "See more on GitHub",
+      "description": "Some of the projects I’ve worked on recently.",
+      "viewAll": "View more on GitHub",
       "items": [
         {
-          "title": "Ticpass",
-          "description": "Ticketing app in Kotlin to replace a legacy system, significantly improving usability and performance. Applying DDD concepts to structure domain layers.",
-          "tech": ["Kotlin", "GraphQL", "React", "Tailwind", "Jetpack Compose"],
-          "github": "https://github.com/spardevv",
-          "link": null
-        },
-        {
-          "title": "Pagway",
-          "description": "Refactoring of monolithic system, extracting an external service with Remix and ReactJS, improving performance and modernizing the interface.",
-          "tech": ["Kotlin", "GraphQL", "React", "Remix", "Tailwind"],
-          "github": "https://github.com/spardevv",
-          "link": null
-        },
-        {
-          "title": "Agenda Assessoria",
-          "description": "Continuous system maintenance, responsive interface development and security tests that reduced 90% of vulnerabilities.",
-          "tech": ["Vue.js", "React", "TypeScript", "MySQL", "MongoDB"],
-          "github": "https://github.com/spardevv",
+          "title": "style-system",
+          "description": "A real-time visual design token editor. You write YAML in the left panel, click Apply, and every component on the screen instantly updates to reflect your color tokens, typography, gradients, shadows, spacing, and more.",
+          "tech": ["HTML", "CSS", "JavaScript"],
+          "github": "https://github.com/spardevv/style-system",
           "link": null
         }
       ]
@@ -425,7 +312,7 @@
     },
     "blog": {
       "title": "Blog",
-      "description": "Thoughts on development, technology and career.",
+      "description": "Thoughts on development, technology, and career.",
       "readMore": "Read more",
       "backHome": "Back to home",
       "noPosts": "No posts found."
