@@ -116,7 +116,7 @@ export function ProjectsSection() {
             variant="outline"
             size="lg"
             asChild
-            className="hover:border-primary hover:text-primary"
+            className="hover:border-primary hover:text-white dark:hover:text-primary"
           >
             <a
               href="https://github.com/spardevv"

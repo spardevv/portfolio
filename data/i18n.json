@@ -303,6 +303,13 @@
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
           "link": null
+        },
+        {
+          "title": "Atrium",
+          "description": "Modern Android platform for point-of-sale operation in events and self-service kiosks.",
+          "tech": ["Java", "Kotlin", "Jetpack Compose"],
+          "github": "https://github.com/spardevv/atrium",
+          "link": null
         }
       ]
     },
