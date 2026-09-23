@@ -8,6 +8,15 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    // Garante que o site sempre abra no topo, mesmo se o navegador tentar
+    // restaurar a posição de rolagem de uma sessão anterior.
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual"
+    }
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -53,17 +62,17 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
                 className="relative"
               >
                 <motion.span
-                  className="text-4xl font-bold text-foreground"
+                  className="font-display text-4xl font-medium tracking-tight text-foreground"
                   animate={{
                     textShadow: [
-                      "0 0 0px hsl(var(--primary))",
-                      "0 0 20px hsl(var(--primary))",
-                      "0 0 0px hsl(var(--primary))",
+                      "0 0 0px var(--primary)",
+                      "0 0 20px var(--primary)",
+                      "0 0 0px var(--primary)",
                     ],
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  spardev
+                  SPAR<span className="text-primary">.DEV_</span>
                 </motion.span>
               </motion.div>
 

@@ -20,6 +20,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  useEffect(() => {
+    document.documentElement.lang = locale === "en-US" ? "en" : "pt-BR"
+  }, [locale])
+
   const toggleLocale = () => {
     setLocale((prev) => {
       const next = prev === "pt-BR" ? "en-US" : "pt-BR"

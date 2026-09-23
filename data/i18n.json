@@ -5,20 +5,37 @@
       "about": "Sobre",
       "services": "O que desenvolvo",
       "skills": "Skills",
-      "projects": "Projetos"
+      "projects": "Trabalhos",
+      "contact": "Contato"
     },
+    "a11y": {
+      "toggleTheme": "Alternar tema",
+      "openMenu": "Abrir menu",
+      "closeMenu": "Fechar menu",
+      "backToTop": "Voltar ao topo",
+      "githubRepo": "Repositório no GitHub"
+    },
+    "marquee": ["Sistemas sérios", "Feito com método", "Acabamento em cada detalhe"],
     "hero": {
       "greeting": "Olá, eu sou",
       "name": "Gabriel Fernandes Ramos",
       "role": "Desenvolvedor Full Stack",
       "description": "Construo aplicações web e mobile eficientes, escaláveis e seguras. Focado em entregar experiências incríveis para o usuário.",
       "cta": "Conheça meu trabalho",
-      "downloadCv": "Baixar CV"
+      "downloadCv": "Baixar CV",
+      "cue": "role para baixo"
     },
     "about": {
       "title": "Sobre mim",
       "subtitle": "Desenvolvedor apaixonado por criar soluções",
       "intro": "Sou desenvolvedor Full Stack com experiência em C#, .NET, Kotlin, React.js, Vue.js, SQL e Entity Framework. Tenho atuado no desenvolvimento de aplicações web e mobile, focando em entregar soluções eficientes, escaláveis e seguras.",
+      "stripLeft": "Role para explorar",
+      "stripRight": "Minha história",
+      "photoSoon": "foto em breve",
+      "stats": {
+        "projects": "Projetos",
+        "languages": "Idiomas · PT, EN"
+      },
       "location": {
         "label": "Localização",
         "value": "Mato Grosso, Brasil"
@@ -131,13 +148,14 @@
       "title": "Projetos",
       "description": "Alguns dos projetos em que trabalhei recentemente.",
       "viewAll": "Ver mais no GitHub",
+      "viewSite": "Ver site",
       "items": [
         {
           "title": "style-system",
           "description": "Um editor visual de design tokens em tempo real. Você escreve YAML no painel esquerdo, clica em Apply, e todos os componentes da tela se atualizam instantaneamente refletindo seus tokens de cores, tipografia, gradientes, sombras, espaçamentos e muito mais.",
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
-          "link": null
+          "link": "https://stylesystem.spardevsvr.online/"
         },
         {
           "title": "Atrium",
@@ -145,17 +163,11 @@
           "tech": ["Java", "Kotlin", "Jetpack Compose"],
           "github": "https://github.com/spardevv/atrium",
           "link": null
-        },
-        {
-          "title": "Shadow Wizard Money Gang",
-          "description": "Sistema financeiro multiusuário para entradas, saídas e recorrências organizadas em cofres. Monorepo com NestJS, Expo e PostgreSQL.",
-          "tech": ["TypeScript", "NestJS", "Expo", "React Native", "PostgreSQL", "Drizzle ORM"],
-          "github": "https://github.com/spardevv/shadowwizard",
-          "link": null
         }
       ]
     },
     "footer": {
+      "cta": "Vamos trabalhar juntos?",
       "rights": "Todos os direitos reservados.",
       "builtWith": "Feito com Next.js e Tailwind CSS"
     }
@@ -166,20 +178,37 @@
       "about": "About",
       "services": "What I Build",
       "skills": "Skills",
-      "projects": "Projects"
+      "projects": "Works",
+      "contact": "Contact"
     },
+    "a11y": {
+      "toggleTheme": "Toggle theme",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "backToTop": "Back to top",
+      "githubRepo": "GitHub repository"
+    },
+    "marquee": ["Serious systems", "Built with method", "Every detail finished"],
     "hero": {
       "greeting": "Hello, I'm",
       "name": "Gabriel Fernandes Ramos",
       "role": "Full Stack Developer",
       "description": "I build efficient, scalable, and secure web and mobile applications, focused on delivering outstanding user experiences.",
       "cta": "Explore My Work",
-      "downloadCv": "Download Resume"
+      "downloadCv": "Download Resume",
+      "cue": "scroll down"
     },
     "about": {
       "title": "About Me",
       "subtitle": "Developer passionate about building solutions",
       "intro": "I am a Full Stack Developer with experience in C#, .NET, Kotlin, React.js, Vue.js, SQL, and Entity Framework. I have worked on web and mobile applications, focusing on delivering efficient, scalable, and secure solutions.",
+      "stripLeft": "Scroll to explore",
+      "stripRight": "My short story",
+      "photoSoon": "photo soon",
+      "stats": {
+        "projects": "Projects",
+        "languages": "Languages · PT, EN"
+      },
       "location": {
         "label": "Location",
         "value": "Mato Grosso, Brazil"
@@ -292,13 +321,14 @@
       "title": "Projects",
       "description": "Some of the projects I’ve worked on recently.",
       "viewAll": "View more on GitHub",
+      "viewSite": "Visit site",
       "items": [
         {
           "title": "style-system",
           "description": "A real-time visual design token editor. You write YAML in the left panel, click Apply, and every component on the screen instantly updates to reflect your color tokens, typography, gradients, shadows, spacing, and more.",
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
-          "link": null
+          "link": "https://stylesystem.spardevsvr.online/"
         },
         {
           "title": "Atrium",
@@ -306,17 +336,11 @@
           "tech": ["Java", "Kotlin", "Jetpack Compose"],
           "github": "https://github.com/spardevv/atrium",
           "link": null
-        },
-        {
-          "title": "Shadow Wizard Money Gang",
-          "description": "Multi-user financial system for income, expenses, and recurring transactions organized in vaults. Monorepo with NestJS, Expo, and PostgreSQL.",
-          "tech": ["TypeScript", "NestJS", "Expo", "React Native", "PostgreSQL", "Drizzle ORM"],
-          "github": "https://github.com/spardevv/shadowwizard",
-          "link": null
         }
       ]
     },
     "footer": {
+      "cta": "Let's work together?",
       "rights": "All rights reserved.",
       "builtWith": "Built with Next.js and Tailwind CSS"
     }

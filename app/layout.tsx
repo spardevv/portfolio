@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Outfit, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "next-themes";
 import { LocaleProvider } from "@/lib/locale-context";
 import { PageLoader } from "@/components/page-loader";
 import "./globals.css";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["200", "300", "400", "500"],
+  variable: "--font-outfit",
 });
 
-const geistMono = Geist_Mono({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.spardev.com"),
+  metadataBase: new URL("https://www.spardevv.com"),
   title: {
-    default: "Spardev | Desenvolvedor Full Stack",
-    template: "%s | Spardev",
+    default: "Spardevv | Desenvolvedor Full Stack",
+    template: "%s | Spardevv",
   },
   description:
     "Portfólio de Gabriel Fernandes Ramos, desenvolvedor Full Stack especializado em C#, .NET, Kotlin, React.js, Vue.js, SQL e Entity Framework. Desenvolvimento de aplicações web e mobile para projetos freelance.",
   keywords: [
     "Gabriel Fernandes Ramos",
-    "Spardev",
+    "Spardevv",
     "desenvolvedor full stack",
     "C#",
     ".NET",
@@ -40,32 +42,32 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Gabriel Fernandes Ramos",
-      url: "https://www.spardev.com",
+      url: "https://www.spardevv.com",
     },
   ],
   creator: "Gabriel Fernandes Ramos",
-  publisher: "Spardev",
+  publisher: "Spardevv",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.spardev.com",
-    siteName: "Spardev",
-    title: "Spardev | Desenvolvedor Full Stack",
+    url: "https://www.spardevv.com",
+    siteName: "Spardevv",
+    title: "Spardevv | Desenvolvedor Full Stack",
     description:
       "Portfólio de Gabriel Fernandes Ramos, desenvolvedor Full Stack especializado em C#, .NET, Kotlin, React.js, Vue.js, SQL e Entity Framework.",
     images: [
       {
         url: "/favicon.png",
-        alt: "Favicon do projeto Spardev",
+        alt: "Favicon do projeto Spardevv",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "Spardev | Desenvolvedor Full Stack",
+    title: "Spardevv | Desenvolvedor Full Stack",
     description:
       "Portfólio de Gabriel Fernandes Ramos, desenvolvedor Full Stack e freelancer.",
     images: ["/favicon.png"],
@@ -90,11 +92,11 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://www.spardev.com/#person",
+  "@id": "https://www.spardevv.com/#person",
   name: "Gabriel Fernandes Ramos",
-  alternateName: "Spardev",
-  url: "https://www.spardev.com/",
-  image: "https://www.spardev.com/images/profile.jpg",
+  alternateName: "Spardevv",
+  url: "https://www.spardevv.com/",
+  image: "https://www.spardevv.com/images/profile.jpg",
   jobTitle: "Desenvolvedor Full Stack",
   description:
     "Desenvolvedor Full Stack e freelancer especializado em C#, .NET, Kotlin, React.js, Vue.js, SQL e Entity Framework.",
@@ -110,7 +112,7 @@ const structuredData = {
   ],
   sameAs: [
     "https://github.com/spardevv",
-    "https://linkedin.com/in/spardev",
+    "https://linkedin.com/in/spardevv",
   ],
 };
 
@@ -129,7 +131,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${outfit.variable} ${dmSans.variable} font-sans antialiased`}
       >
         <script
           type="application/ld+json"
