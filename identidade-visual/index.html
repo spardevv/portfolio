@@ -1,0 +1,343 @@
+<!doctype html>
+<!--
+  SPAR.DEV_
+  Design feito por Rui, um amigo, com carinho.
+  Design made by Rui, a friend, with love.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e6e6e6">
+<title>spardev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--lt:#e6e6e6;--dk:#202020;--dk2:#191919;--ink:#111;--ac:#3fe6f0;--blue:#86b4f6;--f:"Outfit","DM Sans",system-ui,sans-serif;--u:"DM Sans",system-ui,sans-serif;--gut:clamp(18px,4.2vw,64px);--cv:clamp(40px,7vw,110px);color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--lt);color:#ececec;font:400 17px/1.6 var(--u);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:var(--gut)}
+/* fixed chrome */
+.hd{position:fixed;z-index:50;top:0;left:0;right:0;padding:26px var(--gut);display:flex;align-items:center;justify-content:space-between;color:#fff;mix-blend-mode:difference;pointer-events:none}
+.hd a,.hd button{pointer-events:auto}
+.logo{font:500 22px/1 var(--f);letter-spacing:-.01em}
+.nav{display:flex;gap:clamp(18px,2.6vw,36px);font:400 17px/1 var(--f);margin-right:190px}
+.nav a{position:relative}.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s}.nav a:hover::after{transform:scaleX(1)}
+.hdp{position:fixed;z-index:51;top:20px;right:var(--gut);display:flex;align-items:center;gap:4px}
+.pill{display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:99px;background:var(--ink);color:#fff;font:500 14px/1 var(--u);transition:background .3s,color .3s}
+.cir{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;font-size:15px;transition:transform .35s,background .3s,color .3s}
+.hdp:hover .cir,.btn:hover .cir{transform:rotate(45deg)}
+.on-dark .pill,.on-dark .cir{background:var(--ac);color:#111}
+.burger{display:none;pointer-events:auto;width:44px;height:44px;border-radius:50%;border:0;background:#ffffff26;color:#fff;font-size:20px;cursor:pointer}
+@media(max-width:820px){.nav{display:none}.burger{display:inline-grid;place-items:center;position:fixed;right:var(--gut);top:16px;z-index:60;mix-blend-mode:normal;background:#222d;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.hdp{display:none}}
+.soc{position:fixed;z-index:40;left:26px;bottom:26px;display:flex;flex-direction:column;gap:20px;color:#fff;mix-blend-mode:difference}
+.soc a{display:block;width:20px;height:20px}.soc svg{width:100%;height:100%;fill:currentColor;display:block}
+@media(max-width:820px){.soc{display:none}}
+.lgt{position:fixed;z-index:45;right:0;top:44%;width:48px;background:#fff;color:#111;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:12px;box-shadow:0 10px 30px #0003;border-radius:6px 0 0 6px}
+.lgt button{all:unset;cursor:pointer;font:600 12px/1 var(--u);letter-spacing:.08em;opacity:.4;padding:4px}
+.lgt button[aria-pressed=true]{opacity:1}.lgt i{width:16px;height:1px;background:#0004}
+.up{position:fixed;z-index:45;right:22px;bottom:22px;width:52px;height:52px;border-radius:50%;border:0;background:#111;color:#fff;font-size:18px;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;pointer-events:none}
+.up.show{opacity:1;transform:none;pointer-events:auto}
+.mnu{position:fixed;inset:0;z-index:58;background:#151515;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:0 var(--gut);transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.mnu.open{transform:none}
+.mnu a{font:300 clamp(40px,12vw,84px)/1.1 var(--f);letter-spacing:-.02em}
+/* hero */
+.hero{position:relative;height:max(720px,100vh);background:var(--lt);color:var(--ink);overflow:hidden;text-align:center}
+#blob{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .in{position:relative;z-index:2;padding:clamp(120px,19vh,200px) var(--gut) 0;pointer-events:none}
+.hi{font:300 clamp(17px,1.8vw,24px)/1 var(--f);margin:0}
+h1{margin:20px auto 0;font:300 clamp(38px,6.4vw,96px)/1.04 var(--f);letter-spacing:-.025em;max-width:14em}
+h1>span{display:block}
+.cue{position:absolute;z-index:3;left:50%;bottom:34px;transform:translateX(-50%);font:400 17px/1 var(--f);color:var(--ink)}
+/* dark body */
+.dark{position:relative;z-index:3;background:var(--dk);color:#ececec;margin-top:calc(var(--cv)*-1);border-radius:50% 50% 0 0/var(--cv) var(--cv) 0 0}
+.sec{padding-block:clamp(72px,10vw,150px)}
+.lead{font:300 clamp(26px,3.8vw,56px)/1.18 var(--f);letter-spacing:-.02em;max-width:22em;margin:0}
+.lead2{font:300 clamp(18px,1.9vw,26px)/1.45 var(--f);color:#a9a9a9;max-width:30em;margin:clamp(26px,3vw,44px) 0 0}
+.btn{display:inline-flex;align-items:center;gap:4px;margin-top:clamp(36px,4.4vw,64px)}
+.btn b{display:inline-flex;align-items:center;height:56px;padding:0 30px;border-radius:99px;background:var(--ac);color:#111;font:500 17px/1 var(--u);transition:background .3s}
+.btn .cir{width:56px;height:56px;background:var(--ac);color:#111;font-size:19px}
+.btn:hover b,.btn:hover .cir{background:#fff}
+.center{text-align:center}.center .lead,.center .lead2{margin-inline:auto}
+.strip{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0;font:300 15px/1 var(--f);color:#cfcfcf;border-bottom:1px solid #ffffff1f}
+.card{margin-top:clamp(30px,4vw,56px);border-radius:clamp(18px,2.6vw,36px);background:var(--lt);color:var(--ink);overflow:hidden;position:relative;padding:clamp(26px,5vw,72px) 0;display:grid;place-items:center}
+.card .mqs{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:6% 0;pointer-events:none}
+.mq{display:flex;white-space:nowrap;overflow:hidden}
+.mq div{display:flex;flex:none;animation:mq 40s linear infinite}
+.mq.r div{animation-direction:reverse}
+.mq span{font:200 clamp(44px,8vw,130px)/1 var(--f);letter-spacing:-.03em;padding-right:.5em;color:transparent;-webkit-text-stroke:1px #11111155}
+@keyframes mq{to{transform:translateX(-50%)}}
+.port{position:relative;z-index:1;width:clamp(150px,20vw,260px);aspect-ratio:3/4;border-radius:14px;background:linear-gradient(160deg,#cfcfcf,#9b9b9b);display:grid;place-items:center;color:#111;font:200 clamp(60px,9vw,120px)/1 var(--f);box-shadow:0 30px 60px -30px #0007}
+.port small{position:absolute;bottom:12px;font:500 11px/1 var(--u);letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin-top:clamp(50px,7vw,100px)}
+.stat{border-top:1px solid #ffffff2a;padding-top:20px}
+.stat small{display:block;font:500 12px/1.3 var(--u);letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+.stat b{display:block;font:200 clamp(64px,10vw,150px)/1 var(--f);letter-spacing:-.04em;margin-top:14px}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.h2{font:300 clamp(30px,4.6vw,68px)/1.1 var(--f);letter-spacing:-.025em;max-width:16em;margin:0 0 clamp(34px,5vw,70px)}
+.sv{display:grid;grid-template-columns:90px minmax(0,1.1fr) minmax(0,1.4fr);gap:24px;padding:clamp(26px,3.2vw,42px) 0;border-top:1px solid #ffffff22;align-items:start;transition:padding .35s}
+.sv:last-child{border-bottom:1px solid #ffffff22}
+.sv:hover{padding-left:14px}
+.sv .n{font:400 14px/1.6 var(--u);color:#8d8d8d}
+.sv h3{margin:0;font:300 clamp(24px,2.8vw,42px)/1.12 var(--f);letter-spacing:-.02em}
+.sv p{margin:0;color:#b4b4b4;max-width:36em;font-size:17px}
+@media(max-width:820px){.sv{grid-template-columns:44px 1fr}.sv p{grid-column:2}}
+/* works */
+.wk{border-top:1px solid #ffffff22}.wk:last-child{border-bottom:1px solid #ffffff22}
+.wh{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:70px minmax(0,1fr) auto 52px;gap:18px;align-items:center;padding:clamp(22px,2.6vw,36px) 0}
+.wh .n{font:400 14px/1 var(--u);color:#8d8d8d}
+.wh h3{margin:0;font:300 clamp(30px,5vw,76px)/1.05 var(--f);letter-spacing:-.03em;overflow-wrap:anywhere;transition:transform .4s,color .3s}
+.wh:hover h3,.wk.open h3{transform:translateX(12px)}
+.wh .tg{font:500 12px/1 var(--u);letter-spacing:.12em;text-transform:uppercase;color:#9a9a9a}
+.wh .cir{background:#ffffff1c;color:#fff;width:48px;height:48px}
+.wk.open .wh .cir{background:var(--ac);color:#111;transform:rotate(45deg)}
+.wd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);max-height:0;overflow:hidden;opacity:0;transition:max-height .65s cubic-bezier(.2,.7,.2,1),opacity .4s,padding .65s;padding:0 0 0 88px}
+.wk.open .wd{max-height:560px;opacity:1;padding:0 0 clamp(28px,3.4vw,48px) 88px}
+.wd p{margin:0 0 20px;font:300 clamp(19px,1.8vw,24px)/1.5 var(--f);color:#cfcfcf;max-width:28em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips>span{font:500 13px/1 var(--u);padding:10px 16px;border:1px solid #ffffff33;border-radius:99px;color:#e8e8e8}
+.th{aspect-ratio:16/10;border-radius:22px;position:relative;overflow:hidden;background:conic-gradient(from 210deg at 42% 58%,hsl(var(--h) 90% 72%),hsl(calc(var(--h) + 70) 90% 66%),hsl(calc(var(--h) + 150) 85% 72%),hsl(var(--h) 90% 72%));filter:saturate(1.1)}
+.th::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 40% at 30% 30%,#fff9,transparent 70%),radial-gradient(50% 50% at 75% 80%,#0004,transparent 70%);animation:drift 9s ease-in-out infinite alternate}
+.th::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,#fff5 50%,transparent 60%);animation:shine 4.5s ease-in-out infinite}
+@keyframes drift{to{transform:translate(6%,4%) scale(1.1)}}@keyframes shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.th.nda{background:#111;filter:none}.th.nda::before{background:radial-gradient(60% 60% at 50% 50%,#3fe6f022,transparent 70%)}
+.th.nda span{position:absolute;inset:0;display:grid;place-items:center;font:500 13px/1 var(--u);letter-spacing:.2em;text-transform:uppercase;color:#bbb;z-index:1}
+@media(max-width:820px){.wh{grid-template-columns:36px minmax(0,1fr) 44px}.wh .tg{grid-column:2;grid-row:2}.wh .cir{grid-row:1/3;grid-column:3;grid-row:1}.wd{grid-template-columns:1fr;padding-left:0}.wk.open .wd{padding-left:0}}
+/* trajetoria + stack */
+.grp{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-top:1px solid #ffffff22}
+.grp h5{margin:0;font:500 12px/1.6 var(--u);letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+@media(max-width:700px){.grp{grid-template-columns:1fr}}
+/* band + footer */
+.band{background:var(--ac);color:#111;overflow:hidden;padding:clamp(22px,3vw,40px) 0;position:relative;z-index:3}
+.band .mq span{color:#111;-webkit-text-stroke:0;font:300 clamp(40px,6.4vw,96px)/1.1 var(--f)}
+.band .mq span::after{content:"✦";font-size:.5em;margin-left:.8em;vertical-align:.2em}
+.ft{background:var(--dk2);position:relative;z-index:3;padding:clamp(80px,10vw,150px) 0 30px;overflow:hidden}
+.ft .big{font:300 clamp(36px,7vw,110px)/1.02 var(--f);letter-spacing:-.03em;margin:0}
+.ft .mail{display:inline-block;margin-top:26px;font:300 clamp(20px,2.6vw,38px)/1.2 var(--f);border-bottom:1px solid #ffffff55;padding-bottom:6px;transition:color .3s,border-color .3s}
+.ft .mail:hover{color:var(--ac);border-color:var(--ac)}
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:clamp(60px,8vw,120px);padding-top:30px;border-top:1px solid #ffffff22}
+.cols h6{margin:0 0 14px;font:500 12px/1 var(--u);letter-spacing:.14em;text-transform:uppercase;color:#8d8d8d}
+.cols a,.cols p{display:block;margin:0 0 8px;font:400 16px/1.4 var(--u)}.cols a:hover{color:var(--ac)}
+@media(max-width:800px){.cols{grid-template-columns:1fr 1fr}}
+.cr{margin:clamp(40px,6vw,80px) 0 0;font:300 clamp(16px,1.6vw,20px)/1.4 var(--f);color:#9a9a9a}
+.giant{margin-top:clamp(40px,6vw,90px);font:200 clamp(60px,21vw,340px)/.85 var(--f);letter-spacing:-.05em;color:#ffffff10;white-space:nowrap;text-align:center;user-select:none}
+/* streaming */
+.tk{opacity:0;position:relative}
+.go .tk{animation:tk .34s ease-out both;animation-delay:calc(var(--sb,0ms) + var(--d,0ms))}
+@keyframes tk{from{opacity:0;filter:blur(4px);transform:translateY(.25em)}to{opacity:1;filter:none;transform:none}}
+.w{display:inline-block;white-space:nowrap}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tk{opacity:1!important;animation:none!important}.rv{opacity:1;transform:none;transition:none}.mq div,.th::before,.th::after{animation:none}}
+</style>
+</head>
+<body>
+<header class="hd"><a class="logo" href="#top" aria-label="SPAR.DEV_">SPAR.DEV_</a><nav class="nav"><a href="#top" data-i="n1">Início</a><a href="#about" data-i="n2">Sobre</a><a href="#works" data-i="n3">Trabalhos</a></nav></header>
+<div class="hdp" id="hdp"><a class="pill" href="#contact" data-i="n4">Contato</a><a class="cir" href="#contact" aria-label="Contact">↗</a></div>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+<div class="mnu" id="mnu"><a href="#top" data-i="n1">Início</a><a href="#about" data-i="n2">Sobre</a><a href="#works" data-i="n3">Trabalhos</a><a href="#contact" data-i="n4">Contato</a></div>
+<div class="soc"><a href="#" data-todo="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2.3 7.2V18H8.9v-7.8zM7.6 6.2a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM10.4 10.2V18H13v-4.2c0-1.1.5-1.8 1.4-1.8s1.3.7 1.3 1.8V18h2.6v-4.8c0-2.1-1.1-3.2-2.8-3.2-1.2 0-2 .6-2.4 1.2h0v-1z"/></svg></a><a href="#" data-todo="github" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.900-2.400 4.700-4.600 5 .4.3.7.9.7 1.900v2.800c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></a></div>
+<div class="lgt" role="group" aria-label="Language"><button id="bpt" type="button" aria-pressed="true">PT</button><i></i><button id="ben" type="button" aria-pressed="false">EN</button></div>
+<button class="up" id="up" aria-label="Top">↑</button>
+
+<main id="top">
+<section class="hero" id="hero"><canvas id="blob" aria-hidden="true"></canvas>
+  <div class="in"><p class="hi" data-i="hi">Oi! eu sou o Sparda</p><h1><span data-i="h1a">Desenvolvedor Full-stack</span><span data-i="h1b">Sistemas sérios, bem feitos.</span></h1></div>
+  <div class="cue" data-i="cue">role para baixo</div>
+</section>
+
+<div class="dark">
+<section class="sec" id="intro"><div class="wrap center">
+  <p class="lead" data-i="i1">Sou um desenvolvedor full stack.</p>
+  <p class="lead2" data-i="i2">Trabalho com web, Android e APIs.</p>
+  <a class="btn" href="#about"><b data-i="cta1">Sobre mim</b><span class="cir">↗</span></a>
+</div></section>
+
+<section class="sec" id="about" style="padding-top:0"><div class="wrap">
+  <div class="strip"><span data-i="ab_l">Role para explorar</span><span data-i="ab_r">Minha história</span></div>
+  <div class="card"><div class="mqs" aria-hidden="true">
+    <div class="mq"><div><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span></div></div>
+    <div class="mq r"><div><span>WEB · MOBILE · API</span><span>WEB · MOBILE · API</span><span>WEB · MOBILE · API</span><span>WEB · MOBILE · API</span></div></div>
+    <div class="mq"><div><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span><span>FULL-STACK DEVELOPER</span></div></div></div>
+    <div class="port" aria-hidden="true">SP<small data-i="ph">foto em breve</small></div></div>
+  <div class="stats">
+    <div class="stat rv"><small data-i="s1">Projetos</small><b data-to="4">0</b></div>
+    <div class="stat rv"><small data-i="s2">Plataformas · Web, Mobile, API</small><b data-to="3">0</b></div>
+    <div class="stat rv"><small data-i="s3">Idiomas · PT, EN</small><b data-to="2">0</b></div>
+  </div>
+</div></section>
+
+<section class="sec" id="services" style="padding-top:0"><div class="wrap">
+  <h2 class="h2" data-i="sv_h">Transformando ideias em sistemas sólidos.</h2>
+  <div class="sv rv"><span class="n">01</span><h3 data-i="sv1h">Full Stack</h3><p data-i="sv1">a</p></div>
+  <div class="sv rv"><span class="n">02</span><h3 data-i="sv2h">Mobile</h3><p data-i="sv2">a</p></div>
+  <div class="sv rv"><span class="n">03</span><h3 data-i="sv3h">APIs</h3><p data-i="sv3">a</p></div>
+  <div class="sv rv"><span class="n">04</span><h3 data-i="sv4h">Infra</h3><p data-i="sv4">a</p></div>
+</div></section>
+
+<section class="sec" id="works" style="padding-top:0"><div class="wrap">
+  <h2 class="h2" data-i="wk_h">Meus trabalhos.</h2>
+  <div class="wk open"><button class="wh" aria-expanded="true"><span class="n">01</span><h3>style-system</h3><span class="tg" data-i="t1tag">Web · Ferramenta</span><span class="cir">↗</span></button>
+    <div class="wd"><div><p data-i="t1">a</p><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div><div class="th" style="--h:215"></div></div></div>
+  <div class="wk"><button class="wh" aria-expanded="false"><span class="n">02</span><h3>Atrium</h3><span class="tg" data-i="t2tag">Android · PDV</span><span class="cir">↗</span></button>
+    <div class="wd"><div><p data-i="t2">a</p><div class="chips"><span>Kotlin</span><span>Java</span><span>Jetpack Compose</span></div></div><div class="th" style="--h:150"></div></div></div>
+  <div class="wk"><button class="wh" aria-expanded="false"><span class="n">03</span><h3>Shadow Wizard Money Gang</h3><span class="tg" data-i="t3tag">Mobile · API</span><span class="cir">↗</span></button>
+    <div class="wd"><div><p data-i="t3">a</p><div class="chips"><span>TypeScript</span><span>NestJS</span><span>Expo</span><span>React Native</span><span>PostgreSQL</span><span>Drizzle</span></div></div><div class="th" style="--h:335"></div></div></div>
+  <div class="wk"><button class="wh" aria-expanded="false"><span class="n">04</span><h3>██████████</h3><span class="tg" data-i="t4tag">Sob NDA</span><span class="cir">↗</span></button>
+    <div class="wd"><div><p data-i="t4">a</p><div class="chips"><span data-i="t4c">em breve</span></div></div><div class="th nda"><span data-i="t4s">Sub sigillo</span></div></div></div>
+</div></section>
+
+<section class="sec" id="path" style="padding-top:0"><div class="wrap">
+  <h2 class="h2" data-i="tr_h">Trajetória e ferramentas.</h2>
+  <div class="sv rv"><span class="n">01</span><h3 data-i="f1h">a</h3><p data-i="f1">a</p></div>
+  <div class="sv rv"><span class="n">02</span><h3 data-i="f2h">a</h3><p data-i="f2">a</p></div>
+  <div class="sv rv"><span class="n">03</span><h3 data-i="f3h">a</h3><p data-i="f3">a</p></div>
+  <div style="margin-top:clamp(40px,6vw,90px)">
+    <div class="grp"><h5 data-i="g1">Linguagens e frameworks</h5><div class="chips"><span>TypeScript</span><span>React · Next.js</span><span>Node · NestJS</span><span>Kotlin · Java</span><span>C# · .NET</span><span>Spring Boot</span></div></div>
+    <div class="grp"><h5 data-i="g2">Dados</h5><div class="chips"><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>DynamoDB</span></div></div>
+    <div class="grp"><h5 data-i="g3">Infra</h5><div class="chips"><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>GitHub Actions</span></div></div>
+    <div class="grp" style="border-bottom:1px solid #ffffff22"><h5 data-i="g4">Práticas</h5><div class="chips"><span>Clean Code</span><span>TDD</span><span>DDD</span><span>Microservices</span><span>REST · GraphQL</span></div></div>
+  </div>
+</div></section>
+</div>
+
+<div class="band" aria-hidden="true"><div class="mq"><div><span>Sistemas sérios</span><span>Feito com método</span><span>Acabamento em cada detalhe</span><span>Sistemas sérios</span><span>Feito com método</span><span>Acabamento em cada detalhe</span></div></div></div>
+</main>
+
+<footer class="ft" id="contact"><div class="wrap">
+  <h2 class="big" data-i="ct_h">Vamos trabalhar juntos?</h2>
+  <a class="mail" href="#" data-todo="email">hello@spar.dev</a>
+  <div class="cols">
+    <div><h6 data-i="fl">Links</h6><a href="#top" data-i="n1">Início</a><a href="#works" data-i="n3">Trabalhos</a><a href="#about" data-i="n2">Sobre</a><a href="#contact" data-i="n4">Contato</a></div>
+    <div><h6 data-i="fs">Redes</h6><a href="#" data-todo="email">Email</a><a href="#" data-todo="linkedin">LinkedIn</a><a href="#" data-todo="github">GitHub</a></div>
+    <div><h6 data-i="ft">Hora local</h6><p id="clock">--:--</p></div>
+    <div><h6 data-i="fv">Versão</h6><p>2026 © Edition</p></div>
+  </div>
+  <p class="cr" data-i="cr">Design feito por Rui, um amigo, com carinho.</p>
+  <div class="giant" aria-hidden="true">SPAR.DEV_</div>
+</div></footer>
+
+<script>
+(function(){
+/* dados */
+var SITE={
+ email:"hello@spar.dev",
+ github:"",    
+ linkedin:"",  
+ photo:"",     
+ timezone:"America/Sao_Paulo",tzLabel:"GMT-3"
+};
+/* textos: [pt, en] */
+var T={
+n1:["Início","Home"],n2:["Sobre","About"],n3:["Trabalhos","Works"],n4:["Contato","Contact"],
+hi:["Oi! eu sou o Sparda","Hi! I'm Sparda"],h1a:["Desenvolvedor Full-stack","Full-stack Developer"],h1b:["Sistemas sérios, bem feitos.","Serious systems, built right."],cue:["role para baixo","scroll down"],
+i1:["Sou um desenvolvedor full stack que constrói sistemas rápidos, escaláveis e bem acabados, do backend ao app, da ideia ao deploy.","I'm a full stack developer building fast, scalable and well-finished systems, from backend to app, from idea to deploy."],
+i2:["Trabalho com web, Android e APIs usando TypeScript, Kotlin, Java, Node e NestJS, entre outras ferramentas.","I work across web, Android and APIs with TypeScript, Kotlin, Java, Node and NestJS, among other tools."],
+cta1:["Sobre mim","About me"],ab_l:["Role para explorar","Scroll to explore"],ab_r:["Minha história","My short story"],ph:["foto em breve","photo soon"],
+s1:["Projetos","Projects"],s2:["Plataformas · Web, Mobile, API","Platforms · Web, Mobile, API"],s3:["Idiomas · PT, EN","Languages · PT, EN"],
+sv_h:["Transformando ideias em sistemas sólidos.","Turning ideas into solid systems."],
+sv1h:["Desenvolvimento Full Stack","Full Stack Development"],sv1:["Aplicações web escaláveis com TypeScript, React, Next.js, Node e NestJS: backends robustos, APIs seguras e código limpo.","Scalable web applications with TypeScript, React, Next.js, Node and NestJS: robust backends, secure APIs and clean code."],
+sv2h:["Mobile e Android","Mobile and Android"],sv2:["Apps nativos e multiplataforma com Kotlin, Java, Jetpack Compose, Expo e React Native.","Native and cross-platform apps with Kotlin, Java, Jetpack Compose, Expo and React Native."],
+sv3h:["APIs e Arquitetura","APIs and Architecture"],sv3:["APIs REST e GraphQL bem desenhadas, com PostgreSQL, MongoDB, Redis e DynamoDB, focadas em desempenho e segurança.","Well-designed REST and GraphQL APIs with PostgreSQL, MongoDB, Redis and DynamoDB, focused on performance and security."],
+sv4h:["Infra e Boas práticas","Infra and Best practices"],sv4:["Docker, Kubernetes, AWS, Terraform e GitHub Actions, com Clean Code, TDD, DDD e microsserviços.","Docker, Kubernetes, AWS, Terraform and GitHub Actions, with Clean Code, TDD, DDD and microservices."],
+wk_h:["Meus trabalhos e soluções.","My work and solutions."],
+t1tag:["Web · Ferramenta","Web · Tool"],t1:["Editor de design tokens em tempo real. Escreva YAML e veja cor, tipografia, gradiente, sombra e espaçamento atualizarem nos componentes na hora.","A real-time design token editor. Write YAML and watch color, typography, gradient, shadow and spacing update across components instantly."],
+t2tag:["Android · PDV","Android · POS"],t2:["Plataforma Android moderna para ponto de venda em eventos e quiosques de autoatendimento.","A modern Android platform for point-of-sale at events and self-service kiosks."],
+t3tag:["Mobile · API","Mobile · API"],t3:["Sistema financeiro multiusuário para controlar receitas, despesas e recorrências, organizado em cofres.","A multi-user finance system to track income, expenses and recurring transactions, organized in vaults."],
+t4tag:["Sob NDA","Under NDA"],t4:["Projeto sob contrato de confidencialidade. As luzes acendem quando o contrato terminar.","A project under a confidentiality agreement. The lights come on when the contract ends."],t4c:["em breve","soon"],t4s:["Sub sigillo","Sub sigillo"],
+tr_h:["Trajetória e ferramentas.","Path and tools."],
+f1h:["Formação","Education"],f1:["A base técnica e o hábito de aprender rápido.","The technical foundation and the habit of learning fast."],
+f2h:["Desenvolvedor pleno","Mid-level developer"],f2:["Conhecimento consolidado e esforço virando resultado.","Knowledge consolidated, effort turning into results."],
+f3h:["Agora","Now"],f3:["Full stack em produtos web e mobile, projetos próprios e um contrato ainda sob NDA.","Full stack across web and mobile products, personal projects and a contract still under NDA."],
+g1:["Linguagens e frameworks","Languages and frameworks"],g2:["Dados","Data"],g3:["Infra","Infra"],g4:["Práticas","Practices"],
+ct_h:["Vamos trabalhar juntos?","Let's work together?"],cr:["Design feito por Rui, um amigo, com carinho.","Design by Rui, a friend, with love."],fl:["Links","Links"],fs:["Redes","Socials"],ft:["Hora local","Local time"],fv:["Versão","Version"]};
+var bpt=document.getElementById("bpt"),ben=document.getElementById("ben");
+function setLang(l){var i=l==="en"?1:0;document.documentElement.lang=l==="en"?"en":"pt-BR";
+ document.querySelectorAll("[data-i]").forEach(function(e){var t=T[e.getAttribute("data-i")];if(t)e.textContent=t[i]});
+ if(window.__stReady){ST.forEach(function(e){if(e.hasAttribute("data-i")){e.__p=0;e.classList.remove("go");prep(e);var r=e.getBoundingClientRect();if(r.top<innerHeight*1.2&&r.bottom>0&&e.offsetParent&&e.closest(".wd")===null)run(e);else if(sio){sio.observe(e)}else e.classList.add("go")}})}
+ bpt.setAttribute("aria-pressed",i===0);ben.setAttribute("aria-pressed",i===1);try{localStorage.setItem("spar-lang",l)}catch(e){}}
+bpt.onclick=function(){setLang("pt")};ben.onclick=function(){setLang("en")};
+var sv=null;try{sv=localStorage.getItem("spar-lang")}catch(e){}
+if(sv!=="en"&&sv!=="pt")sv=(navigator.language||"pt").slice(0,2)==="en"?"en":"pt";
+setLang(sv==="en"?"en":"pt");
+/* streaming text */
+window.__stReady=0;
+var ST=[].slice.call(document.querySelectorAll('[data-i],.wh h3,.chips span,.giant')).filter(function(e){return !e.closest(".mnu")&&!e.closest(".nav")&&!e.closest(".hdp")&&!e.closest(".cols")&&!e.classList.contains("giant")});
+function prep(el){if(el.__p)return;el.__p=1;var mode=(el.textContent.trim().length<=48&&el.tagName!=="P")?"c":"w";
+ var tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),nodes=[],t;while(t=tw.nextNode())nodes.push(t);
+ var toks=[];
+ nodes.forEach(function(nd){var txt=nd.nodeValue;if(!txt.trim()){return}var fr=document.createDocumentFragment();
+  if(mode==="w"){txt.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){fr.appendChild(document.createTextNode(p))}else{var sp=document.createElement("span");sp.className="tk";sp.textContent=p;fr.appendChild(sp);toks.push(sp)}})}
+  else{txt.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){fr.appendChild(document.createTextNode(p))}else{var w=document.createElement("span");w.className="w";Array.from(p).forEach(function(ch){var sp=document.createElement("span");sp.className="tk";sp.textContent=ch;w.appendChild(sp);toks.push(sp)});fr.appendChild(w)}})}
+  nd.parentNode.replaceChild(fr,nd)});
+ var step=Math.min(mode==="c"?38:26,1500/Math.max(1,toks.length));toks.forEach(function(k,i){k.style.setProperty("--d",Math.round(i*step)+"ms")});
+ var base=0;if(el.closest(".hero"))base=({"hi":150,"h1a":450,"h1b":1000,"cue":1700})[el.getAttribute("data-i")]||300;
+ el.style.setProperty("--sb",base+"ms")}
+function run(el){el.classList.remove("go");void el.offsetWidth;el.classList.add("go")}
+var sio=null;
+if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches){sio=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);sio.unobserve(x.target)}})},{threshold:.15});}
+ST.forEach(prep);ST.forEach(function(el){if(sio)sio.observe(el);else el.classList.add("go")});window.__stReady=1;
+setTimeout(function(){ST.forEach(function(e){if(!e.classList.contains("go")&&sio&&e.offsetParent&&!e.closest(".wd")&&e.getBoundingClientRect().top<innerHeight)run(e)})},2500);
+/* aplica SITE (links, foto, e-mail) */
+[].slice.call(document.querySelectorAll("[data-todo]")).forEach(function(a){var k=a.getAttribute("data-todo"),v=SITE[k];
+ if(k==="email"&&v){a.href="mailto:"+v;if(a.classList.contains("mail"))a.textContent=v}
+ else if(v){a.href=v;a.target="_blank";a.rel="noopener"}
+ else a.addEventListener("click",function(e){e.preventDefault()})});
+if(SITE.photo){var pt=document.querySelector(".port");if(pt){pt.innerHTML="";pt.style.background="none";var im=new Image();im.alt="";im.src=SITE.photo;im.style.cssText="width:100%;height:100%;object-fit:cover;border-radius:14px;filter:grayscale(1) contrast(1.05)";pt.appendChild(im)}}
+/* works accordion */
+var wks=[].slice.call(document.querySelectorAll(".wk"));
+function openWk(w){wks.forEach(function(x){var o=x===w;x.classList.toggle("open",o);x.querySelector(".wh").setAttribute("aria-expanded",o)});
+ setTimeout(function(){[].slice.call(w.querySelectorAll(".wd [data-i],.wd .chips span")).forEach(function(e){if(sio)sio.unobserve(e);run(e)})},60)}
+wks.forEach(function(w){var h=w.querySelector(".wh");h.addEventListener("click",function(){if(w.classList.contains("open")){w.classList.remove("open");h.setAttribute("aria-expanded","false")}else openWk(w)});
+ w.addEventListener("mouseenter",function(){if(matchMedia("(hover:hover)").matches&&!w.classList.contains("open"))openWk(w)})});
+/* reveal + counters */
+var rvs=[].slice.call(document.querySelectorAll(".rv"));
+function cnt(el){var to=+el.getAttribute("data-to"),t0=performance.now();(function f(n){var k=Math.min(1,(n-t0)/1300),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(f)})(t0)}
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");var b=x.target.querySelector("[data-to]");if(b)cnt(b);io.unobserve(x.target)}})},{threshold:.2});rvs.forEach(function(e){io.observe(e)})}else{rvs.forEach(function(e){e.classList.add("in");var b=e.querySelector("[data-to]");if(b)b.textContent=b.getAttribute("data-to")})}
+/* chrome: dark pill, up button, menu, clock */
+var hdp=document.getElementById("hdp"),up=document.getElementById("up"),dark=document.querySelector(".dark"),hero=document.getElementById("hero");
+function onS(){var y=scrollY,hb=hero.offsetHeight-80;hdp.classList.toggle("on-dark",y>hb);up.classList.toggle("show",y>500)}
+addEventListener("scroll",onS,{passive:true});onS();
+up.onclick=function(){scrollTo({top:0,behavior:"smooth"})};
+var bg=document.getElementById("burger"),mn=document.getElementById("mnu");
+function tm(o){mn.classList.toggle("open",o);bg.setAttribute("aria-expanded",o);bg.textContent=o?"✕":"☰"}
+bg.onclick=function(){tm(!mn.classList.contains("open"))};[].slice.call(mn.querySelectorAll("a")).forEach(function(a){a.onclick=function(){tm(false)}});
+var ck=document.getElementById("clock");function tick(){try{ck.textContent=new Intl.DateTimeFormat("pt-BR",{hour:"2-digit",minute:"2-digit",timeZone:SITE.timezone}).format(new Date())+" · "+SITE.tzLabel}catch(e){}}tick();setInterval(tick,20000);
+/* blob de vidro (WebGL) */
+(function(){var cv=document.getElementById("blob"),gl=null;try{gl=cv.getContext("webgl",{antialias:true,alpha:false})}catch(e){}
+ if(!gl){cv.style.background="radial-gradient(circle at 50% 120%,#cfcfcf 0,#d9d9d9 40%,transparent 41%)";return}
+ var VS="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+ var FS="precision highp float;uniform vec2 res;uniform float t;uniform vec2 m;"+
+ "vec3 env(vec3 d){float top=smoothstep(.45,.95,d.y);float bar=smoothstep(.86,.99,sin(d.x*5.+1.3+d.y*2.))*smoothstep(-.3,.5,d.y);float side=smoothstep(.55,1.,-d.x)*.9;float side2=smoothstep(.7,1.,d.x)*.6;vec3 b=mix(vec3(.5),vec3(.82),d.y*.5+.5);return b+vec3(top*1.1+bar*.7+side+side2);}"+
+ "void main(){vec2 uv=(gl_FragCoord.xy*2.-res)/min(res.x,res.y);float asp=res.x/res.y;vec2 p=uv-vec2(m.x*.12,-.62+m.y*.08);"+
+ "float R=min(.98,max(.62*asp+.25,.78));p+=.055*vec2(sin(2.9*p.y+t*.8+1.),cos(2.4*p.x+t*.65));p+=.03*vec2(sin(5.1*p.y-t*1.1),cos(4.3*p.x+t*.9));"+
+ "float d=length(p);float aa=3./min(res.x,res.y);float mask=1.-smoothstep(R-aa,R+aa,d);"+
+ "vec3 bg=vec3(.902);if(mask<=0.){gl_FragColor=vec4(bg,1.);return;}"+
+ "float z=sqrt(max(R*R-d*d,.0001));vec3 n=normalize(vec3(p,z));vec3 I=vec3(0.,0.,-1.);"+
+ "vec3 col;vec3 iors=vec3(.68,.655,.63);"+
+ "col.r=env(refract(I,n,iors.r)).r;col.g=env(refract(I,n,iors.g)).g;col.b=env(refract(I,n,iors.b)).b;"+
+ "float f=pow(1.-n.z,2.2);vec3 refl=env(reflect(I,n));"+
+ "float th=f*3.2+t*.05+n.x*.6;vec3 film=.5+.5*cos(6.2832*(th+vec3(0.,.33,.67)));"+
+ "col=mix(col*.86,refl,f*.75);col+=film*pow(f,1.4)*.9;col=mix(bg*.97,col,.92);"+
+ "gl_FragColor=vec4(mix(bg,col,mask),1.);}";
+ function sh(t,s){var x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);return x}
+ var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,VS));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(pr);
+ if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){cv.style.background="#e6e6e6";return}
+ gl.useProgram(pr);var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+ var lc=gl.getAttribLocation(pr,"p");gl.enableVertexAttribArray(lc);gl.vertexAttribPointer(lc,2,gl.FLOAT,false,0,0);
+ var ur=gl.getUniformLocation(pr,"res"),ut=gl.getUniformLocation(pr,"t"),um=gl.getUniformLocation(pr,"m");
+ var tm=0,mx=0,my=0,tx=0,ty=0,vis=true;
+ function size(){var b=cv.getBoundingClientRect(),d=Math.min(1.6,devicePixelRatio||1);cv.width=Math.max(2,Math.round(b.width*d));cv.height=Math.max(2,Math.round(b.height*d));gl.viewport(0,0,cv.width,cv.height)}
+ function fr(){mx+=(tx-mx)*.06;my+=(ty-my)*.06;gl.uniform2f(ur,cv.width,cv.height);gl.uniform1f(ut,tm);gl.uniform2f(um,mx,my);gl.drawArrays(gl.TRIANGLES,0,3)}
+ hero.addEventListener("pointermove",function(e){var b=hero.getBoundingClientRect();tx=((e.clientX-b.left)/b.width)*2-1;ty=-(((e.clientY-b.top)/b.height)*2-1)});
+ if("IntersectionObserver" in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe(hero);
+ addEventListener("resize",function(){clearTimeout(window.__rz);window.__rz=setTimeout(function(){size();fr()},120)});
+ size();fr();(function loop(){if(vis){tm+=.012;fr()}requestAnimationFrame(loop)})()})();
+})();
+</script>
+</body>
+</html>
