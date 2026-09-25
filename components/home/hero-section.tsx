@@ -17,8 +17,12 @@ export function HeroSection() {
     <section id="home">
       <div
         id="hero-light"
-        className="relative flex min-h-[max(720px,100vh)] flex-col overflow-hidden px-4 pb-10 pt-32 text-center md:pt-40"
-        style={{ backgroundColor: "var(--hero-bg)", color: "var(--hero-ink)" }}
+        className="relative flex min-h-[max(720px,100vh)] flex-col overflow-hidden px-4 pt-32 text-center md:pt-40"
+        style={{
+          backgroundColor: "var(--hero-bg)",
+          color: "var(--hero-ink)",
+          paddingBottom: `calc(${CURVE} + 2.5rem)`,
+        }}
       >
         <HeroGlassBlob />
 
