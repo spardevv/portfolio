@@ -10,7 +10,7 @@ import { MotionSection, MotionDiv, fadeInUp, staggerContainer } from "@/componen
 
 const PROJECT_HUES: Record<string, number> = {
   "style-system": 215,
-  Atrium: 150,
+  Zenkaigym: 335,
 };
 const FALLBACK_HUES = [215, 150, 335, 20, 280];
 
