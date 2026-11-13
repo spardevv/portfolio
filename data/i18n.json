@@ -155,14 +155,16 @@
           "description": "Um editor visual de design tokens em tempo real. Você escreve YAML no painel esquerdo, clica em Apply, e todos os componentes da tela se atualizam instantaneamente refletindo seus tokens de cores, tipografia, gradientes, sombras, espaçamentos e muito mais.",
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
-          "link": "https://stylesystem.spardevsvr.online/"
+          "link": "https://stylesystem.spardevsvr.online/",
+          "image": "/images/projects/style-system.png"
         },
         {
           "title": "Zenkaigym",
           "description": "App Android gratuito e offline para planejamento de treino e dieta, com visual em estilo mangá. Você informa seus dados e o app sugere metas de calorias, divisão de treino e plano de refeições, e você decide aceitar, ajustar ou descartar. Sem login, sem anúncios e com tudo salvo no próprio aparelho.",
           "tech": ["Kotlin", "Jetpack Compose", "Room"],
           "github": "https://github.com/spardevv/zenkaigym",
-          "link": "https://zenkaigym.spardevsvr.online/"
+          "link": "https://zenkaigym.spardevsvr.online/",
+          "image": "/images/projects/zenkaigym.png"
         }
       ]
     },
@@ -328,14 +330,16 @@
           "description": "A real-time visual design token editor. You write YAML in the left panel, click Apply, and every component on the screen instantly updates to reflect your color tokens, typography, gradients, shadows, spacing, and more.",
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
-          "link": "https://stylesystem.spardevsvr.online/"
+          "link": "https://stylesystem.spardevsvr.online/",
+          "image": "/images/projects/style-system.png"
         },
         {
           "title": "Zenkaigym",
           "description": "Free, offline Android app for workout and diet planning with a manga-style look. You enter your data and the app suggests calorie targets, a training split, and a meal plan, and you decide whether to accept, adjust, or discard each suggestion. No login, no ads, and everything stays on your device.",
           "tech": ["Kotlin", "Jetpack Compose", "Room"],
           "github": "https://github.com/spardevv/zenkaigym",
-          "link": "https://zenkaigym.spardevsvr.online/"
+          "link": "https://zenkaigym.spardevsvr.online/",
+          "image": "/images/projects/zenkaigym.png"
         }
       ]
     },

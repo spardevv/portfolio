@@ -119,22 +119,34 @@ export function ProjectsSection() {
                           background: `conic-gradient(from 210deg at 42% 58%, hsl(${hue} 90% 72%), hsl(${hue + 70} 90% 66%), hsl(${hue + 150} 85% 72%), hsl(${hue} 90% 72%))`,
                         }}
                       >
-                        <div
-                          aria-hidden="true"
-                          className="absolute -inset-[20%] animate-[th-drift_9s_ease-in-out_infinite_alternate] motion-reduce:animate-none"
-                          style={{
-                            background:
-                              "radial-gradient(40% 40% at 30% 30%, rgba(255,255,255,0.6), transparent 70%), radial-gradient(50% 50% at 75% 80%, rgba(0,0,0,0.25), transparent 70%)",
-                          }}
-                        />
-                        <div
-                          aria-hidden="true"
-                          className="absolute inset-0 animate-[th-shine_4.5s_ease-in-out_infinite] motion-reduce:animate-none"
-                          style={{
-                            background:
-                              "linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%)",
-                          }}
-                        />
+                        {"image" in project && project.image ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            loading="lazy"
+                            className="absolute inset-0 h-full w-full object-cover object-top"
+                          />
+                        ) : (
+                          <>
+                            <div
+                              aria-hidden="true"
+                              className="absolute -inset-[20%] animate-[th-drift_9s_ease-in-out_infinite_alternate] motion-reduce:animate-none"
+                              style={{
+                                background:
+                                  "radial-gradient(40% 40% at 30% 30%, rgba(255,255,255,0.6), transparent 70%), radial-gradient(50% 50% at 75% 80%, rgba(0,0,0,0.25), transparent 70%)",
+                              }}
+                            />
+                            <div
+                              aria-hidden="true"
+                              className="absolute inset-0 animate-[th-shine_4.5s_ease-in-out_infinite] motion-reduce:animate-none"
+                              style={{
+                                background:
+                                  "linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%)",
+                              }}
+                            />
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
