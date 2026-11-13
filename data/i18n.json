@@ -156,7 +156,7 @@
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
           "link": "https://stylesystem.spardevsvr.online/",
-          "images": ["/images/projects/style-system-landing.webp", "/images/projects/style-system.png"]
+          "images": ["/images/projects/style-system-landing.webp"]
         },
         {
           "title": "Zenkaigym",
@@ -331,7 +331,7 @@
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
           "link": "https://stylesystem.spardevsvr.online/",
-          "images": ["/images/projects/style-system-landing.webp", "/images/projects/style-system.png"]
+          "images": ["/images/projects/style-system-landing.webp"]
         },
         {
           "title": "Zenkaigym",
