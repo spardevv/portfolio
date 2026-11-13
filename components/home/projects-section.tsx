@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/locale-context";
 import { content } from "@/lib/content";
 import { ExternalLink, Github, Plus } from "lucide-react";
@@ -13,6 +13,32 @@ const PROJECT_HUES: Record<string, number> = {
   Zenkaigym: 335,
 };
 const FALLBACK_HUES = [215, 150, 335, 20, 280];
+
+function ProjectImages({ images, alt }: { images: string[]; alt: string }) {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (images.length < 2) return;
+    const id = setInterval(() => setCurrent((c) => (c + 1) % images.length), 4000);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  return (
+    <>
+      {images.map((src, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={src}
+          src={src}
+          alt={alt}
+          className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+    </>
+  );
+}
 
 export function ProjectsSection() {
   const { locale } = useLocale();
@@ -119,14 +145,8 @@ export function ProjectsSection() {
                           background: `conic-gradient(from 210deg at 42% 58%, hsl(${hue} 90% 72%), hsl(${hue + 70} 90% 66%), hsl(${hue + 150} 85% 72%), hsl(${hue} 90% 72%))`,
                         }}
                       >
-                        {"image" in project && project.image ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            loading="lazy"
-                            className="absolute inset-0 h-full w-full object-cover object-top"
-                          />
+                        {"images" in project && project.images.length > 0 ? (
+                          <ProjectImages images={project.images} alt={project.title} />
                         ) : (
                           <>
                             <div

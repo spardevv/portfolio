@@ -156,7 +156,7 @@
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
           "link": "https://stylesystem.spardevsvr.online/",
-          "image": "/images/projects/style-system.png"
+          "images": ["/images/projects/style-system-landing.webp", "/images/projects/style-system.png"]
         },
         {
           "title": "Zenkaigym",
@@ -164,7 +164,7 @@
           "tech": ["Kotlin", "Jetpack Compose", "Room"],
           "github": "https://github.com/spardevv/zenkaigym",
           "link": "https://zenkaigym.spardevsvr.online/",
-          "image": "/images/projects/zenkaigym.png"
+          "images": ["/images/projects/zenkaigym.png"]
         }
       ]
     },
@@ -331,7 +331,7 @@
           "tech": ["HTML", "CSS", "JavaScript"],
           "github": "https://github.com/spardevv/style-system",
           "link": "https://stylesystem.spardevsvr.online/",
-          "image": "/images/projects/style-system.png"
+          "images": ["/images/projects/style-system-landing.webp", "/images/projects/style-system.png"]
         },
         {
           "title": "Zenkaigym",
@@ -339,7 +339,7 @@
           "tech": ["Kotlin", "Jetpack Compose", "Room"],
           "github": "https://github.com/spardevv/zenkaigym",
           "link": "https://zenkaigym.spardevsvr.online/",
-          "image": "/images/projects/zenkaigym.png"
+          "images": ["/images/projects/zenkaigym.png"]
         }
       ]
     },
