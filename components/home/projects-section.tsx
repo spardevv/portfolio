@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { useLocale } from "@/lib/locale-context";
 import { content } from "@/lib/content";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Plus, X } from "lucide-react";
@@ -52,13 +52,55 @@ export function ProjectsSection() {
   const a11y = content[locale].a11y;
   const items = t.items;
   const [open, setOpen] = useState<number | null>(null);
-  const project = open === null ? null : items[open];
+  // Último projeto exibido: continua montado durante a animação de fechar
+  const [shown, setShown] = useState(0);
+  const project = items[shown];
   const total = String(items.length).padStart(2, "0");
+  // Posição/escala do cartão de origem, usadas pela animação de abrir/fechar
+  const [origin, setOrigin] = useState<CSSProperties>({});
+  // Direção da troca entre projetos dentro do modal (anterior/próximo)
+  const [swapDir, setSwapDir] = useState(0);
+
+  /** Mede o cartão do projeto `i` relativo ao centro da tela e à largura do modal. */
+  const measureTile = (i: number): CSSProperties => {
+    const tile = document.querySelector<HTMLElement>(`[data-project-tile="${i}"]`);
+    if (!tile) return {};
+    const r = tile.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const modalW = Math.min(1100, vw - 32);
+    // Mantém a origem dentro da tela (no carrossel o cartão pode estar fora de vista)
+    const cx = Math.min(Math.max(r.left + r.width / 2, 0), vw);
+    const cy = Math.min(Math.max(r.top + r.height / 2, 0), vh);
+    return {
+      "--from-x": `${Math.round(cx - vw / 2)}px`,
+      "--from-y": `${Math.round(cy - vh / 2)}px`,
+      "--from-s": Math.min(1, Math.max(0.25, r.width / modalW)).toFixed(3),
+    } as CSSProperties;
+  };
+
+  const openProject = (i: number) => {
+    setOrigin(measureTile(i));
+    setSwapDir(0);
+    setShown(i);
+    setOpen(i);
+  };
+  const closeProject = () => {
+    // Mede de novo: o usuário pode ter navegado para outro projeto dentro do modal
+    if (open !== null) setOrigin(measureTile(open));
+    setOpen(null);
+  };
 
   // Carrossel do mobile (deslize horizontal + indicadores)
   const { trackRef, active: slide, onScroll: onTrackScroll, goTo } = useSnapCarousel();
 
-  const step = (dir: 1 | -1) => setOpen((i) => (i === null ? i : (i + dir + items.length) % items.length));
+  const step = (dir: 1 | -1) => {
+    if (open === null) return;
+    const next = (open + dir + items.length) % items.length;
+    setSwapDir(dir);
+    setShown(next);
+    setOpen(next);
+  };
 
   return (
     <MotionSection
@@ -105,7 +147,8 @@ export function ProjectsSection() {
               <TiltCard className="h-full">
               <button
                 type="button"
-                onClick={() => setOpen(index)}
+                data-project-tile={index}
+                onClick={() => openProject(index)}
                 aria-label={`${t.open}: ${p.title}`}
                 className="gallery-tile group relative block h-full w-full overflow-hidden rounded-[4px] border border-border text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
               >
@@ -147,11 +190,13 @@ export function ProjectsSection() {
       </div>
 
       {/* Lightbox com os detalhes do projeto */}
-      <Dialog open={project !== null} onOpenChange={(v) => !v && setOpen(null)}>
-        {project && open !== null && (
+      <Dialog open={open !== null} onOpenChange={(v) => !v && closeProject()}>
+        {project && (
           <DialogContent
             showCloseButton={false}
-            className="max-h-[92svh] w-[min(1100px,calc(100%-2rem))] max-w-none gap-0 overflow-y-auto rounded-[4px] border-border bg-card p-0 sm:max-w-none"
+            style={origin}
+            overlayClassName="project-modal-overlay bg-black/60"
+            className="project-modal max-h-[92svh] w-[min(1100px,calc(100%-2rem))] max-w-none gap-0 overflow-y-auto rounded-[4px] border-border bg-card p-0 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] sm:max-w-none"
           >
             {/* Fechar com fundo sólido: fica visível mesmo sobre imagens claras */}
             <DialogClose
@@ -160,23 +205,28 @@ export function ProjectsSection() {
             >
               <X className="h-4 w-4" />
             </DialogClose>
-            <div className="grid md:grid-cols-[1.35fr_1fr]">
-              <div className="relative aspect-[16/11] bg-black md:aspect-auto md:min-h-[520px]">
+            <div
+              key={shown}
+              className={`grid md:grid-cols-[1.35fr_1fr] ${swapDir ? "modal-swap" : ""}`}
+              style={{ "--swap-dir": `${swapDir * 24}px` } as CSSProperties}
+            >
+              <div className="modal-media relative aspect-[16/11] overflow-hidden bg-black md:aspect-auto md:min-h-[520px]">
                 <RotatingImages images={imagesOf(project)} alt={project.title} />
               </div>
 
-              <div className="flex flex-col p-6 md:p-8">
-                <span className="label-caps text-accent-soft">
-                  {String(open + 1).padStart(2, "0")} / {total}
+              {/* Cada filho entra em sequência (--i controla o atraso) */}
+              <div className="modal-stagger flex flex-col p-6 md:p-8">
+                <span className="label-caps text-accent-soft" style={{ "--i": 0 } as CSSProperties}>
+                  {String(shown + 1).padStart(2, "0")} / {total}
                 </span>
-                <DialogTitle className="poster mt-3 text-[clamp(44px,5vw,72px)] font-black text-foreground">
+                <DialogTitle className="poster mt-3 text-[clamp(44px,5vw,72px)] font-black text-foreground" style={{ "--i": 1 } as CSSProperties}>
                   {project.title}
                 </DialogTitle>
-                <DialogDescription className="mt-5 text-[14px] leading-[1.75] text-muted-foreground">
+                <DialogDescription className="mt-5 text-[14px] leading-[1.75] text-muted-foreground" style={{ "--i": 2 } as CSSProperties}>
                   {project.description}
                 </DialogDescription>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2" style={{ "--i": 3 } as CSSProperties}>
                   {project.tech.map((tech) => (
                     <span key={tech} className="rounded-[3px] border border-border-strong px-2.5 py-1 text-[12px] text-foreground">
                       {tech}
@@ -184,7 +234,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="mt-8 flex flex-wrap items-center gap-4" style={{ "--i": 4 } as CSSProperties}>
                   {project.link && (
                     <a
                       href={project.link}
@@ -211,21 +261,21 @@ export function ProjectsSection() {
                 </div>
 
                 {items.length > 1 && (
-                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-border pt-5 md:mt-10">
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-border pt-5 md:mt-10" style={{ "--i": 5 } as CSSProperties}>
                     <button
                       type="button"
                       onClick={() => step(-1)}
                       className="label-caps inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <ArrowLeft className="h-4 w-4" />
-                      {items[(open - 1 + items.length) % items.length].title}
+                      {items[(shown - 1 + items.length) % items.length].title}
                     </button>
                     <button
                       type="button"
                       onClick={() => step(1)}
                       className="label-caps inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      {items[(open + 1) % items.length].title}
+                      {items[(shown + 1) % items.length].title}
                       <ArrowRight className="h-4 w-4" />
                     </button>
                   </div>

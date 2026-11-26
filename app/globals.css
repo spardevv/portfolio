@@ -228,6 +228,99 @@ main > section,
   mix-blend-mode: multiply;
 }
 
+/* ---------- Modal de projeto ----------
+   Abre "crescendo" a partir do cartão clicado e fecha encolhendo de volta para ele.
+   --from-x/--from-y/--from-s são calculados no clique (posição e escala do cartão). */
+.project-modal[data-state="open"] {
+  animation: project-modal-in 560ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.project-modal[data-state="closed"] {
+  animation: project-modal-out 360ms cubic-bezier(0.6, 0, 0.85, 0.25) both;
+}
+@keyframes project-modal-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--from-x, 0px), var(--from-y, 24px)) scale(var(--from-s, 0.92));
+  }
+  45% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes project-modal-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--from-x, 0px), var(--from-y, 24px)) scale(var(--from-s, 0.92));
+  }
+}
+
+/* Fundo: escurece e desfoca a página aos poucos */
+.project-modal-overlay[data-state="open"] {
+  animation: project-overlay-in 420ms ease-out both;
+}
+.project-modal-overlay[data-state="closed"] {
+  animation: project-overlay-out 320ms ease-in both;
+}
+@keyframes project-overlay-in {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to { opacity: 1; backdrop-filter: blur(6px); }
+}
+@keyframes project-overlay-out {
+  from { opacity: 1; backdrop-filter: blur(6px); }
+  to { opacity: 0; backdrop-filter: blur(0); }
+}
+
+/* Conteúdo entra em sequência depois que a janela se abre */
+.project-modal[data-state="open"] .modal-stagger > * {
+  animation: modal-item-in 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(260ms + var(--i, 0) * 55ms);
+}
+@keyframes modal-item-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Imagem com leve zoom de assentamento */
+.project-modal[data-state="open"] .modal-media img {
+  animation: modal-media-in 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes modal-media-in {
+  from { transform: scale(1.08); }
+  to { transform: none; }
+}
+
+/* Troca entre projetos dentro do modal (anterior/próximo) */
+.modal-swap {
+  animation: modal-swap-in 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes modal-swap-in {
+  from { opacity: 0; transform: translateX(var(--swap-dir, 24px)); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-modal[data-state="open"],
+  .project-modal-overlay[data-state="open"] {
+    animation: project-overlay-in 200ms ease-out both;
+  }
+  .project-modal[data-state="closed"],
+  .project-modal-overlay[data-state="closed"] {
+    animation: project-overlay-out 160ms ease-in both;
+  }
+  .project-modal[data-state="open"] .modal-stagger > *,
+  .project-modal[data-state="open"] .modal-media img,
+  .modal-swap {
+    animation: none;
+  }
+}
+
 /* Seta da dica "Deslize" no carrossel de projetos */
 @keyframes swipe-hint {
   0%, 100% { transform: translateX(0); }
