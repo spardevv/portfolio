@@ -6,7 +6,8 @@
       "services": "O que desenvolvo",
       "skills": "Skills",
       "projects": "Trabalhos",
-      "contact": "Contato"
+      "contact": "Contato",
+      "experience": "Trajetória"
     },
     "a11y": {
       "toggleTheme": "Alternar tema",
@@ -15,37 +16,42 @@
       "backToTop": "Voltar ao topo",
       "githubRepo": "Repositório no GitHub"
     },
-    "marquee": ["Sistemas sérios", "Feito com método", "Acabamento em cada detalhe"],
+    "marquee": [
+      "Sistemas sérios",
+      "Feito com método",
+      "Acabamento em cada detalhe"
+    ],
     "hero": {
       "greeting": "Olá, eu sou",
       "name": "Gabriel Fernandes Ramos",
       "role": "Desenvolvedor Full Stack",
-      "description": "Construo aplicações web e mobile eficientes, escaláveis e seguras. Focado em entregar experiências incríveis para o usuário.",
+      "description": "Há mais de {years} anos desenvolvo aplicações web e mobile eficientes, escaláveis e seguras: de sistemas financeiros e ERPs a apps de pagamento, com DDD, boas práticas e metodologia ágil.",
       "cta": "Conheça meu trabalho",
       "downloadCv": "Baixar CV",
-      "cue": "role para baixo"
+      "cue": "role para baixo",
+      "stack": ".NET / C# · Kotlin · React.js · TypeScript",
+      "current": "Atualmente na UNIVAG",
+      "location": "Cuiabá, MT",
+      "posterTop": "Desenvolvedor",
+      "posterBottom": "Full Stack."
     },
     "about": {
       "title": "Sobre mim",
-      "subtitle": "Desenvolvedor apaixonado por criar soluções",
-      "intro": "Sou desenvolvedor Full Stack com experiência em C#, .NET, Kotlin, React.js, Vue.js, SQL e Entity Framework. Tenho atuado no desenvolvimento de aplicações web e mobile, focando em entregar soluções eficientes, escaláveis e seguras.",
-      "stripLeft": "Role para explorar",
-      "stripRight": "Minha história",
-      "photoSoon": "foto em breve",
+      "subtitle": "Software sólido para regras de negócio complexas",
+      "intro": "Desenvolvedor Full Stack com mais de {years} anos de experiência em tecnologia, desde 2020, e atuação consolidada em C#/.NET, Kotlin, React.js e TypeScript. Trabalho com manutenção de sistemas, otimização de performance, integração de APIs e criação de interfaces intuitivas, aplicando Domain-Driven Design (DDD) e Scrum para entregar soluções alinhadas às necessidades do negócio.",
       "stats": {
+        "years": "Anos de experiência",
+        "companies": "Empresas",
         "projects": "Projetos",
         "languages": "Idiomas · PT, EN"
       },
       "location": {
         "label": "Localização",
-        "value": "Mato Grosso, Brasil"
-      },
-      "experience": {
-        "label": "Experiência"
+        "value": "Cuiabá, Mato Grosso, Brasil"
       },
       "education": {
         "label": "Formação",
-        "value": "Análise e Desenvolvimento de Sistemas"
+        "value": "Análise e Desenvolvimento de Sistemas · Estácio, 12/2025"
       },
       "sections": {
         "trajectory": {
@@ -53,47 +59,128 @@
           "items": [
             {
               "title": "Desenvolvedor Full Stack",
-              "company": "Ticmais.com",
-              "period": "07/2025 - 01/2026",
-              "description": "Desenvolvi um aplicativo de ticketing em Kotlin para substituir um sistema legado, melhorando significativamente a usabilidade e a performance. Apliquei conceitos de Domain-Driven Design (DDD) para estruturar camadas de domínio com maior coesão às regras de negócio. Otimizei processos críticos reduzindo consumo de memória e crashes. Implementei a rotina de pagamentos no painel administrativo web com integração ao MercadoPago e realizei integrações com SDKs das adquirentes PagSeguro, Gertec e Stone para processamento de pagamentos e impressão."
+              "company": "UNIVAG",
+              "period": "06/2026 – Presente",
+              "current": true,
+              "context": "Várzea Grande, MT · Módulo financeiro de um ERP",
+              "bullets": [
+                "Desenvolvo a parte financeira de um ERP com C#, .NET e Entity Framework.",
+                "Modelo e manipulo dados financeiros em MSSQL.",
+                "Uso GitLab para versionamento e controle do fluxo de desenvolvimento da equipe."
+              ],
+              "tools": [
+                "C#",
+                ".NET",
+                "Entity Framework",
+                "MSSQL",
+                "GitLab"
+              ]
+            },
+            {
+              "title": "Desenvolvedor Full Stack",
+              "company": "Ticpass & Customize sua marca",
+              "period": "06/2025 – 12/2025",
+              "current": false,
+              "context": "Projeto: Ticpass",
+              "bullets": [
+                "Desenvolvi um app de ticketing em Kotlin para substituir um sistema legado, melhorando muito a usabilidade e a performance.",
+                "Apliquei Domain-Driven Design (DDD) para estruturar as camadas de domínio com maior coesão às regras de negócio.",
+                "Reduzi overhead de memória e crashes otimizando processos críticos do app.",
+                "Implementei a rotina de pagamentos do painel administrativo web integrada ao MercadoPago.",
+                "Integrei SDKs das adquirentes PagSeguro, Gertec e Stone para pagamento e impressão no app."
+              ],
+              "tools": [
+                "Kotlin",
+                "Jetpack Compose",
+                "Room",
+                "GraphQL",
+                "React",
+                "Tailwind",
+                "MercadoPago",
+                "GitLab"
+              ]
             },
             {
               "title": "Desenvolvedor Full Stack",
               "company": "Pagway",
-              "period": "12/2024 - 06/2025",
-              "description": "Refatorei parte de um sistema monolítico, extraindo um serviço externo com Remix e React, melhorando a performance e modernizando a interface. Corrigi cálculos críticos de taxas e implementei testes unitários para garantir a confiabilidade da API. Desenvolvi um link de pagamento customizável com integração ao SDK da Entrepay, aumentando a segurança das transações. Otimizei rotinas de pagamento em PDV, reduzindo o tempo de resposta na comunicação com SDKs. Introduzi práticas ágeis na equipe, melhorando o fluxo de entregas e reduzindo falhas em produção."
+              "period": "12/2024 – 05/2025",
+              "current": false,
+              "context": "Cuiabá, MT · Projeto: Pagway",
+              "bullets": [
+                "Refatorei parte do monólito, extraindo um serviço externo com Remix e React, melhorando performance e interface.",
+                "Corrigi cálculos críticos de taxas e implementei testes unitários para garantir a precisão da API.",
+                "Desenvolvi um link de pagamento personalizável integrado ao SDK da Entrepay, aumentando a segurança dos pagamentos por cartão.",
+                "Otimizei a rotina de pagamento do PDV, reduzindo a espera na comunicação com o SDK de pagamento e impressão.",
+                "Introduzi metodologias ágeis na equipe, melhorando o fluxo de entregas e reduzindo erros em produção."
+              ],
+              "tools": [
+                "Remix",
+                "React",
+                "Kotlin",
+                "GraphQL",
+                "Tailwind",
+                "Postman",
+                "GitLab"
+              ]
             },
             {
               "title": "Analista Desenvolvedor",
               "company": "Agenda Assessoria",
-              "period": "10/2023 - 12/2024",
-              "description": "Atuei na manutenção contínua do sistema, corrigindo bugs e melhorando a estabilidade e performance da aplicação. Desenvolvi interfaces responsivas focadas em experiência do usuário. Identifiquei gargalos de performance e implementei melhorias que reduziram o tempo de carregamento. Colaborei na evolução da arquitetura front-end, aumentando a escalabilidade do sistema. Participei da construção de regras de negócio para cálculos de empréstimos consignados e conduzi testes de segurança que reduziram em 90% as vulnerabilidades."
+              "period": "10/2023 – 12/2024",
+              "current": false,
+              "context": "Cuiabá, MT · Recad Online, ConsigPrev e AgendaPrev",
+              "bullets": [
+                "Mantive o sistema continuamente, corrigindo bugs e melhorando estabilidade e performance.",
+                "Desenvolvi telas e interfaces responsivas com foco em uma experiência fluida.",
+                "Resolvi gargalos de performance, reduzindo o tempo de carregamento.",
+                "Participei da criação dos fluxos de cálculo de empréstimos consignados, garantindo conformidade com as regras de negócio.",
+                "Conduzi testes de segurança que reduziram em 90% as vulnerabilidades do sistema."
+              ],
+              "tools": [
+                "Vue.js",
+                "React",
+                "TypeScript",
+                "C#",
+                ".NET",
+                "MySQL",
+                "MongoDB",
+                "Jest",
+                "Azure DevOps",
+                "AWS SDK",
+                "Prisma"
+              ]
             },
             {
               "title": "Desenvolvedor Web",
               "company": "Datweb Sistemas",
-              "period": "08/2022 - 04/2023",
-              "description": "Atuei no desenvolvimento de um sistema ERP integrado à SEFAZ para emissão de notas fiscais. Contribuí com a criação de funcionalidades web, integrações com APIs e melhorias internas do sistema. Trabalhei com foco em performance, organização de código e boas práticas, utilizando metodologias ágeis e versionamento em equipe."
-            },
-            {
-              "title": "Suporte de Sistemas",
-              "company": "Datweb Sistemas",
-              "period": "02/2020 - 08/2022",
-              "description": "Atuei no suporte técnico a clientes, realizando atendimento via chat e telefone, treinamentos e implantação de sistemas. Desenvolvi habilidades sólidas em comunicação, análise e resolução de problemas, garantindo uma experiência eficiente para os usuários."
+              "period": "08/2022 – 04/2023",
+              "current": false,
+              "context": "Várzea Grande, MT · ERP integrado com a SEFAZ",
+              "bullets": [
+                "Desenvolvi integrações de emissão e manifesto de notas fiscais com a SEFAZ.",
+                "Fiz ajustes e melhorias no módulo financeiro do sistema.",
+                "Implementei integrações com iFood e Uber Eats."
+              ],
+              "tools": [
+                "PHP",
+                "Laravel",
+                "Angular",
+                "PostgreSQL"
+              ]
             }
-          ]
-        },
-        "education": {
-          "title": "Formação",
-          "items": [
-            {
-              "title": "Análise e Desenvolvimento de Sistemas",
-              "institution": "Faculdade Estácio",
-              "period": "2023 - 2026",
-              "description": "Graduação completa com foco em engenharia de software e desenvolvimento de sistemas."
-            }
-          ]
+          ],
+          "kicker": "Carreira",
+          "description": "Sistemas financeiros, ERPs, meios de pagamento e apps mobile, de 2022 até hoje.",
+          "current": "Atual",
+          "toolsLabel": "Ferramentas",
+          "more": "E mais experiências no",
+          "moreLink": "LinkedIn"
         }
+      },
+      "kicker": "Quem sou",
+      "languagesInfo": {
+        "label": "Idiomas",
+        "value": "Português nativo · Inglês avançado"
       }
     },
     "services": {
@@ -134,15 +221,18 @@
     },
     "skills": {
       "title": "Skills",
-      "description": "Tecnologias e ferramentas que utilizo no dia a dia para criar soluções de alta qualidade.",
+      "description": "Linguagens, frameworks e ferramentas que uso no dia a dia.",
       "categories": {
-        "backend": "Backend",
-        "frontend": "Frontend",
+        "languages": "Linguagens & Frameworks",
         "database": "Banco de Dados",
-        "devops": "DevOps & Cloud",
-        "tools": "Ferramentas",
-        "practices": "Práticas"
-      }
+        "orm": "ORM",
+        "mobile": "Mobile",
+        "frontend": "Front-end / Styling",
+        "tools": "Ferramentas"
+      },
+      "kicker": "Ferramentas",
+      "items": "itens",
+      "total": "tecnologias no total"
     },
     "projects": {
       "title": "Projetos",
@@ -151,27 +241,42 @@
       "viewSite": "Ver site",
       "items": [
         {
-          "title": "style-system",
-          "description": "Um editor visual de design tokens em tempo real. Você escreve YAML no painel esquerdo, clica em Apply, e todos os componentes da tela se atualizam instantaneamente refletindo seus tokens de cores, tipografia, gradientes, sombras, espaçamentos e muito mais.",
-          "tech": ["HTML", "CSS", "JavaScript"],
-          "github": "https://github.com/spardevv/style-system",
-          "link": "https://stylesystem.spardevsvr.online/",
-          "images": ["/images/projects/style-system-landing.webp"]
-        },
-        {
           "title": "Zenkaigym",
           "description": "App Android gratuito e offline para planejamento de treino e dieta, com visual em estilo mangá. Você informa seus dados e o app sugere metas de calorias, divisão de treino e plano de refeições, e você decide aceitar, ajustar ou descartar. Sem login, sem anúncios e com tudo salvo no próprio aparelho.",
-          "tech": ["Kotlin", "Jetpack Compose", "Room"],
+          "tech": [
+            "Kotlin",
+            "Jetpack Compose",
+            "Room"
+          ],
           "github": "https://github.com/spardevv/zenkaigym",
           "link": "https://zenkaigym.spardevsvr.online/",
-          "images": ["/images/projects/zenkaigym.png"]
+          "images": [
+            "/images/projects/zenkaigym.png"
+          ]
+        },
+        {
+          "title": "style-system",
+          "description": "Um editor visual de design tokens em tempo real. Você escreve YAML no painel esquerdo, clica em Apply, e todos os componentes da tela se atualizam instantaneamente refletindo seus tokens de cores, tipografia, gradientes, sombras, espaçamentos e muito mais.",
+          "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ],
+          "github": "https://github.com/spardevv/style-system",
+          "link": "https://stylesystem.spardevsvr.online/",
+          "images": [
+            "/images/projects/style-system-landing.webp"
+          ]
         }
-      ]
+      ],
+      "kicker": "Trabalhos selecionados",
+      "open": "Ver projeto"
     },
     "footer": {
       "cta": "Vamos trabalhar juntos?",
       "rights": "Todos os direitos reservados.",
-      "builtWith": "Feito com Next.js e Tailwind CSS"
+      "builtWith": "Feito com Next.js e Tailwind CSS",
+      "kicker": "Contato"
     }
   },
   "en-US": {
@@ -181,7 +286,8 @@
       "services": "What I Build",
       "skills": "Skills",
       "projects": "Works",
-      "contact": "Contact"
+      "contact": "Contact",
+      "experience": "Journey"
     },
     "a11y": {
       "toggleTheme": "Toggle theme",
@@ -190,37 +296,42 @@
       "backToTop": "Back to top",
       "githubRepo": "GitHub repository"
     },
-    "marquee": ["Serious systems", "Built with method", "Every detail finished"],
+    "marquee": [
+      "Serious systems",
+      "Built with method",
+      "Every detail finished"
+    ],
     "hero": {
       "greeting": "Hello, I'm",
       "name": "Gabriel Fernandes Ramos",
       "role": "Full Stack Developer",
-      "description": "I build efficient, scalable, and secure web and mobile applications, focused on delivering outstanding user experiences.",
+      "description": "For {years}+ years I have been building efficient, scalable and secure web and mobile applications: from financial systems and ERPs to payment apps, using DDD, solid engineering practices and agile methods.",
       "cta": "Explore My Work",
       "downloadCv": "Download Resume",
-      "cue": "scroll down"
+      "cue": "scroll down",
+      "stack": ".NET / C# · Kotlin · React.js · TypeScript",
+      "current": "Currently at UNIVAG",
+      "location": "Cuiabá, MT",
+      "posterTop": "Full Stack",
+      "posterBottom": "Developer."
     },
     "about": {
       "title": "About Me",
-      "subtitle": "Developer passionate about building solutions",
-      "intro": "I am a Full Stack Developer with experience in C#, .NET, Kotlin, React.js, Vue.js, SQL, and Entity Framework. I have worked on web and mobile applications, focusing on delivering efficient, scalable, and secure solutions.",
-      "stripLeft": "Scroll to explore",
-      "stripRight": "My short story",
-      "photoSoon": "photo soon",
+      "subtitle": "Solid software for complex business rules",
+      "intro": "Full Stack Developer with {years}+ years in tech since 2020 and solid experience in C#/.NET, Kotlin, React.js and TypeScript. I work on system maintenance, performance optimization, API integrations and intuitive interfaces, applying Domain-Driven Design (DDD) and Scrum to deliver solutions aligned with business needs.",
       "stats": {
+        "years": "Years of experience",
+        "companies": "Companies",
         "projects": "Projects",
         "languages": "Languages · PT, EN"
       },
       "location": {
         "label": "Location",
-        "value": "Mato Grosso, Brazil"
-      },
-      "experience": {
-        "label": "Experience"
+        "value": "Cuiabá, Mato Grosso, Brazil"
       },
       "education": {
         "label": "Education",
-        "value": "Systems Analysis and Development"
+        "value": "Systems Analysis and Development · Estácio, 12/2025"
       },
       "sections": {
         "trajectory": {
@@ -228,47 +339,128 @@
           "items": [
             {
               "title": "Full Stack Developer",
-              "company": "Ticmais.com",
-              "period": "07/2025 - 01/2026",
-              "description": "Developed a Kotlin-based ticketing application to replace a legacy system, significantly improving usability and performance. Applied Domain-Driven Design (DDD) concepts to structure domain layers with stronger business-rule cohesion. Optimized critical processes, reducing memory consumption and application crashes. Implemented payment routines in the web admin panel with MercadoPago integration and integrated SDKs from PagSeguro, Gertec, and Stone for payment processing and receipt printing."
+              "company": "UNIVAG",
+              "period": "06/2026 – Present",
+              "current": true,
+              "context": "Várzea Grande, MT · Financial module of an ERP",
+              "bullets": [
+                "I build the financial module of an ERP using C#, .NET and Entity Framework.",
+                "I model and handle financial data in MSSQL.",
+                "I use GitLab for version control and the team's development workflow."
+              ],
+              "tools": [
+                "C#",
+                ".NET",
+                "Entity Framework",
+                "MSSQL",
+                "GitLab"
+              ]
+            },
+            {
+              "title": "Full Stack Developer",
+              "company": "Ticpass & Customize sua marca",
+              "period": "06/2025 – 12/2025",
+              "current": false,
+              "context": "Project: Ticpass",
+              "bullets": [
+                "Built a Kotlin ticketing app to replace a legacy system, greatly improving usability and performance.",
+                "Applied Domain-Driven Design (DDD) to structure domain layers with stronger business-rule cohesion.",
+                "Reduced memory overhead and crashes by optimizing critical app processes.",
+                "Implemented the payment flow in the web admin panel with MercadoPago integration.",
+                "Integrated PagSeguro, Gertec and Stone acquirer SDKs for in-app payments and printing."
+              ],
+              "tools": [
+                "Kotlin",
+                "Jetpack Compose",
+                "Room",
+                "GraphQL",
+                "React",
+                "Tailwind",
+                "MercadoPago",
+                "GitLab"
+              ]
             },
             {
               "title": "Full Stack Developer",
               "company": "Pagway",
-              "period": "12/2024 - 06/2025",
-              "description": "Refactored part of a monolithic system by extracting an external service using Remix and React, improving performance and modernizing the interface. Fixed critical fee calculation issues and implemented unit tests to ensure API reliability. Developed a customizable payment link integrated with the Entrepay SDK, increasing transaction security. Optimized POS payment routines, reducing response time when communicating with SDKs. Introduced agile practices within the team, improving delivery flow and reducing production issues."
+              "period": "12/2024 – 05/2025",
+              "current": false,
+              "context": "Cuiabá, MT · Project: Pagway",
+              "bullets": [
+                "Refactored part of the monolith, extracting an external service with Remix and React to improve performance and UI.",
+                "Fixed critical fee calculations and added unit tests to ensure API accuracy.",
+                "Built a customizable payment link integrated with the Entrepay SDK, improving card payment security.",
+                "Optimized the POS payment flow, cutting wait time when talking to the payment and printing SDK.",
+                "Introduced agile practices to the team, improving delivery flow and reducing production errors."
+              ],
+              "tools": [
+                "Remix",
+                "React",
+                "Kotlin",
+                "GraphQL",
+                "Tailwind",
+                "Postman",
+                "GitLab"
+              ]
             },
             {
               "title": "Software Developer Analyst",
               "company": "Agenda Assessoria",
-              "period": "10/2023 - 12/2024",
-              "description": "Worked on continuous system maintenance, fixing bugs and improving application stability and performance. Developed responsive interfaces focused on user experience. Identified performance bottlenecks and implemented optimizations that reduced loading times. Collaborated on the evolution of the front-end architecture, increasing system scalability. Participated in building business rules for payroll loan calculations and conducted security testing that reduced vulnerabilities by 90%."
+              "period": "10/2023 – 12/2024",
+              "current": false,
+              "context": "Cuiabá, MT · Recad Online, ConsigPrev and AgendaPrev",
+              "bullets": [
+                "Maintained the system continuously, fixing bugs and improving stability and performance.",
+                "Built responsive screens and interfaces focused on a smooth user experience.",
+                "Solved performance bottlenecks, reducing load times.",
+                "Helped design payroll-loan calculation flows, ensuring compliance with business rules.",
+                "Ran security tests that reduced system vulnerabilities by 90%."
+              ],
+              "tools": [
+                "Vue.js",
+                "React",
+                "TypeScript",
+                "C#",
+                ".NET",
+                "MySQL",
+                "MongoDB",
+                "Jest",
+                "Azure DevOps",
+                "AWS SDK",
+                "Prisma"
+              ]
             },
             {
               "title": "Web Developer",
               "company": "Datweb Sistemas",
-              "period": "08/2022 - 04/2023",
-              "description": "Worked on developing an ERP system integrated with SEFAZ for invoice issuance. Contributed to web features, API integrations, and internal system improvements. Focused on performance, code organization, and best practices using agile methodologies and collaborative version control."
-            },
-            {
-              "title": "Systems Support",
-              "company": "Datweb Sistemas",
-              "period": "02/2020 - 08/2022",
-              "description": "Provided technical support to clients through chat and phone assistance, training, and system deployment. Developed strong communication, analysis, and problem-solving skills while ensuring an efficient user experience."
+              "period": "08/2022 – 04/2023",
+              "current": false,
+              "context": "Várzea Grande, MT · ERP integrated with SEFAZ",
+              "bullets": [
+                "Built invoice issuing and manifest integrations with SEFAZ.",
+                "Made fixes and improvements to the financial module.",
+                "Implemented iFood and Uber Eats integrations."
+              ],
+              "tools": [
+                "PHP",
+                "Laravel",
+                "Angular",
+                "PostgreSQL"
+              ]
             }
-          ]
-        },
-        "education": {
-          "title": "Education",
-          "items": [
-            {
-              "title": "Systems Analysis and Development",
-              "institution": "Estácio University",
-              "period": "2023 - 2026",
-              "description": "Finished degree focused on software engineering and systems development."
-            }
-          ]
+          ],
+          "kicker": "Career",
+          "description": "Financial systems, ERPs, payment solutions and mobile apps, from 2022 to today.",
+          "current": "Current",
+          "toolsLabel": "Tools",
+          "more": "And more experience on",
+          "moreLink": "LinkedIn"
         }
+      },
+      "kicker": "Who I am",
+      "languagesInfo": {
+        "label": "Languages",
+        "value": "Portuguese (native) · English (advanced)"
       }
     },
     "services": {
@@ -309,15 +501,18 @@
     },
     "skills": {
       "title": "Skills",
-      "description": "Technologies and tools I use daily to create high-quality solutions.",
+      "description": "Languages, frameworks and tools I use every day.",
       "categories": {
-        "backend": "Backend",
-        "frontend": "Frontend",
-        "database": "Database",
-        "devops": "DevOps & Cloud",
-        "tools": "Tools",
-        "practices": "Practices"
-      }
+        "languages": "Languages & Frameworks",
+        "database": "Databases",
+        "orm": "ORM",
+        "mobile": "Mobile",
+        "frontend": "Front-end / Styling",
+        "tools": "Tools"
+      },
+      "kicker": "Toolkit",
+      "items": "items",
+      "total": "technologies in total"
     },
     "projects": {
       "title": "Projects",
@@ -326,27 +521,42 @@
       "viewSite": "Visit site",
       "items": [
         {
-          "title": "style-system",
-          "description": "A real-time visual design token editor. You write YAML in the left panel, click Apply, and every component on the screen instantly updates to reflect your color tokens, typography, gradients, shadows, spacing, and more.",
-          "tech": ["HTML", "CSS", "JavaScript"],
-          "github": "https://github.com/spardevv/style-system",
-          "link": "https://stylesystem.spardevsvr.online/",
-          "images": ["/images/projects/style-system-landing.webp"]
-        },
-        {
           "title": "Zenkaigym",
           "description": "Free, offline Android app for workout and diet planning with a manga-style look. You enter your data and the app suggests calorie targets, a training split, and a meal plan, and you decide whether to accept, adjust, or discard each suggestion. No login, no ads, and everything stays on your device.",
-          "tech": ["Kotlin", "Jetpack Compose", "Room"],
+          "tech": [
+            "Kotlin",
+            "Jetpack Compose",
+            "Room"
+          ],
           "github": "https://github.com/spardevv/zenkaigym",
           "link": "https://zenkaigym.spardevsvr.online/",
-          "images": ["/images/projects/zenkaigym.png"]
+          "images": [
+            "/images/projects/zenkaigym.png"
+          ]
+        },
+        {
+          "title": "style-system",
+          "description": "A real-time visual design token editor. You write YAML in the left panel, click Apply, and every component on the screen instantly updates to reflect your color tokens, typography, gradients, shadows, spacing, and more.",
+          "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ],
+          "github": "https://github.com/spardevv/style-system",
+          "link": "https://stylesystem.spardevsvr.online/",
+          "images": [
+            "/images/projects/style-system-landing.webp"
+          ]
         }
-      ]
+      ],
+      "kicker": "Selected work",
+      "open": "View project"
     },
     "footer": {
       "cta": "Let's work together?",
       "rights": "All rights reserved.",
-      "builtWith": "Built with Next.js and Tailwind CSS"
+      "builtWith": "Built with Next.js and Tailwind CSS",
+      "kicker": "Contact"
     }
   }
 }

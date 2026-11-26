@@ -1,21 +1,33 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans } from "next/font/google";
+import { Oswald, Barlow_Condensed, JetBrains_Mono, Big_Shoulders } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "next-themes";
 import { LocaleProvider } from "@/lib/locale-context";
 import { PageLoader } from "@/components/page-loader";
 import "./globals.css";
 
-const outfit = Outfit({
+const oswald = Oswald({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500"],
-  variable: "--font-outfit",
+  variable: "--font-oswald",
 });
 
-const dmSans = DM_Sans({
+const poster = Big_Shoulders({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-dm-sans",
+  weight: ["800", "900"],
+  variable: "--font-poster",
+});
+
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-barlow",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono-body",
 });
 
 export const metadata: Metadata = {
@@ -121,8 +133,8 @@ const structuredData = {
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f8f8" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
+    { media: "(prefers-color-scheme: light)", color: "#eeeef4" },
+    { media: "(prefers-color-scheme: dark)", color: "#17172c" },
   ],
 };
 
@@ -134,7 +146,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${dmSans.variable} font-sans antialiased`}
+        className={`${oswald.variable} ${poster.variable} ${barlow.variable} ${mono.variable} font-sans antialiased grain`}
       >
         <script
           type="application/ld+json"

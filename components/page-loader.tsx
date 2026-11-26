@@ -1,10 +1,11 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 export function PageLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
+  const reduceMotion = useReducedMotion()
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -44,8 +45,9 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
           <motion.div
             key="loader"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            // Sai como uma cortina subindo (ou só some, com "reduzir movimento")
+            exit={reduceMotion ? { opacity: 0 } : { y: "-100%" }}
+            transition={{ duration: 0.8, ease: [0.7, 0, 0.2, 1] }}
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
           >
             <motion.div
@@ -62,48 +64,26 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
                 className="relative"
               >
                 <motion.span
-                  className="font-display text-4xl font-medium tracking-tight text-foreground"
-                  animate={{
-                    textShadow: [
-                      "0 0 0px var(--primary)",
-                      "0 0 20px var(--primary)",
-                      "0 0 0px var(--primary)",
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  className="font-display text-5xl font-light tracking-[0.01em] text-foreground"
+
                 >
-                  SPAR<span className="text-primary">.DEV_</span>
+                  SPAR<span className="text-accent-soft">.DEV_</span>
                 </motion.span>
               </motion.div>
 
               {/* Progress bar */}
-              <div className="w-48 h-1 bg-muted rounded-full overflow-hidden">
+              <div className="h-px w-56 overflow-hidden bg-border">
                 <motion.div
-                  className="h-full bg-primary rounded-full"
+                  className="h-full bg-accent-soft"
                   initial={{ width: 0 }}
                   animate={{ width: `${Math.min(progress, 100)}%` }}
                   transition={{ duration: 0.1 }}
                 />
               </div>
 
-              {/* Loading dots */}
-              <div className="flex gap-2">
-                {[0, 1, 2].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="w-2 h-2 rounded-full bg-primary"
-                    animate={{
-                      y: [0, -8, 0],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 0.6,
-                      repeat: Infinity,
-                      delay: i * 0.15,
-                    }}
-                  />
-                ))}
-              </div>
+              <span className="label-caps tabular-nums text-muted-foreground">
+                Loading {String(Math.min(Math.round(progress), 100)).padStart(3, "0")}%
+              </span>
             </motion.div>
           </motion.div>
         )}

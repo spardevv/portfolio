@@ -1,15 +1,18 @@
 "use client";
 
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useLocale } from "@/lib/locale-context";
 import { content } from "@/lib/content";
-import { useOverHero } from "@/lib/use-over-hero";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LanguageSwitch } from "@/components/language-switch";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { switchThemeAnimated } from "@/lib/theme-transition";
 
-const sectionIds = ["home", "about", "projects"] as const;
+const sectionIds = ["home", "projects", "skills", "about", "experience"] as const;
 
 function ThemeIcon({ isDark }: { isDark: boolean }) {
   return (
@@ -38,9 +41,10 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
 
   const navItems = [
-    { label: t.home, href: "#home" },
-    { label: t.about, href: "#about" },
     { label: t.projects, href: "#projects" },
+    { label: t.skills, href: "#skills" },
+    { label: t.about, href: "#about" },
+    { label: t.experience, href: "#experience" },
   ];
 
   useEffect(() => {
@@ -71,30 +75,28 @@ export function Header() {
   }, []);
 
   const isActive = (href: string) => activeSection === href.slice(1);
+  const toggleTheme = (e: ReactMouseEvent) =>
+    switchThemeAnimated(resolvedTheme === "dark" ? "light" : "dark", setTheme, { x: e.clientX, y: e.clientY });
   const isDark = mounted && resolvedTheme === "dark";
-  const overHero = useOverHero(80);
-  const onDarkBody = !overHero && isDark;
-  // Texto/ícones do header trocam de cor explicitamente conforme o fundo por baixo dele
-  // (hero sempre claro vs. corpo claro/escuro). Evitamos mix-blend-mode aqui de propósito:
-  // em elementos fixed ele usa um snapshot de scroll desatualizado e deixa o texto quase
-  // invisível (mesmo motivo documentado em useOverHero).
-  const chipClass = onDarkBody
-    ? "bg-primary text-primary-foreground"
-    : "bg-[#111111] text-white";
-  const textClass = onDarkBody ? "text-foreground" : "text-[#111111]";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 md:px-10">
-        <Link
-          href="#home"
-          className={`pointer-events-auto font-display text-[22px] font-medium tracking-[-0.01em] transition-colors duration-300 ${textClass}`}
-        >
-          SPAR.DEV_
-        </Link>
-
-        <div className="pointer-events-auto hidden items-center gap-10 md:flex">
-          <nav className="flex items-center gap-8">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+          scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-transparent"
+        }`}
+      >
+        <ScrollProgress />
+        <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 md:px-10">
+          <nav className="hidden items-center gap-9 md:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
@@ -102,62 +104,72 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setActiveSection(item.href.slice(1))}
-                  className={`group relative font-display text-[17px] font-normal transition-colors duration-300 ${textClass}`}
+                  className={`label-caps relative transition-colors duration-300 hover:text-foreground ${
+                    active ? "text-foreground" : "text-muted-foreground"
+                  }`}
                 >
                   {item.label}
-                  <span
-                    className={`absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover:scale-x-100 ${
-                      active ? "scale-x-100" : ""
-                    }`}
-                  />
+                  {/* Sublinhado único que desliza entre os itens ativos */}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                      className="absolute -bottom-2 left-0 h-px w-full bg-accent-soft"
+                    />
+                  )}
                 </Link>
               );
             })}
           </nav>
+          <span className="md:hidden" />
 
-          <div className="flex items-center gap-1">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <Link
+            href="#home"
+            className="font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground"
+          >
+            SPAR<span className="text-accent-soft">.DEV_</span>
+          </Link>
+
+          <div className="hidden items-center justify-end gap-2 md:flex">
+            <LanguageSwitch />
+            <a
               href="#contact"
-              className={`flex h-[38px] items-center rounded-full px-[18px] font-sans text-sm font-medium transition-colors duration-300 ${chipClass}`}
+              className="label-caps flex h-[38px] items-center rounded-[3px] bg-foreground px-4 text-background transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               {t.contact}
-            </motion.a>
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            </a>
+            <button
+              onClick={(e) => toggleTheme(e)}
               aria-label={a11y.toggleTheme}
-              className={`flex h-[38px] w-[38px] items-center justify-center overflow-hidden rounded-full transition-colors duration-300 ${chipClass}`}
+              className="flex h-[38px] w-[38px] items-center justify-center overflow-hidden rounded-[3px] border border-border-strong bg-background text-foreground transition-colors hover:border-accent-soft hover:text-accent-soft"
             >
               <ThemeIcon isDark={isDark} />
-            </motion.button>
+            </button>
+          </div>
+
+          <div className="flex justify-end md:hidden">
+            <button
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? a11y.closeMenu : a11y.openMenu}
+              aria-expanded={mobileOpen}
+              className="relative z-50 grid h-10 w-10 place-items-center overflow-hidden rounded-[3px] border border-border-strong bg-background text-foreground"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={mobileOpen ? "x" : "menu"}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="flex"
+                >
+                  {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </motion.span>
+              </AnimatePresence>
+            </button>
           </div>
         </div>
-
-        <motion.button
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.92 }}
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label={mobileOpen ? a11y.closeMenu : a11y.openMenu}
-          aria-expanded={mobileOpen}
-          className={`pointer-events-auto grid h-11 w-11 place-items-center overflow-hidden rounded-full transition-colors duration-300 md:hidden ${chipClass}`}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={mobileOpen ? "x" : "menu"}
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="flex"
-            >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </motion.span>
-          </AnimatePresence>
-        </motion.button>
-      </div>
+      </header>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -166,7 +178,7 @@ export function Header() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.5, ease: [0.7, 0, 0.2, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-center gap-3 bg-[#151515] px-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-center gap-3 bg-card px-8 md:hidden"
           >
             {navItems.map((item, index) => (
               <motion.div
@@ -181,8 +193,9 @@ export function Header() {
                     setActiveSection(item.href.slice(1));
                     setMobileOpen(false);
                   }}
-                  className="block font-display text-4xl font-light leading-tight tracking-tight text-white"
+                  className="flex items-baseline gap-4 font-display text-5xl font-light leading-tight tracking-tight text-foreground"
                 >
+                  <span className="label-caps text-accent-soft">#{String(index + 1).padStart(2, "0")}</span>
                   {item.label}
                 </Link>
               </motion.div>
@@ -191,19 +204,20 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-8 flex items-center gap-3 border-t border-white/15 pt-6"
+              className="mt-8 flex items-center gap-3 border-t border-border pt-6"
             >
+              <LanguageSwitch />
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm text-white"
+                className="label-caps rounded-[3px] bg-foreground px-4 py-3 text-background"
               >
                 {t.contact}
               </a>
               <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                onClick={(e) => toggleTheme(e)}
                 aria-label={a11y.toggleTheme}
-                className="overflow-hidden rounded-full bg-white/10 p-2 text-white"
+                className="overflow-hidden rounded-[3px] border border-border-strong p-2.5 text-foreground"
               >
                 <ThemeIcon isDark={isDark} />
               </button>

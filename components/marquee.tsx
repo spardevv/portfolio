@@ -17,7 +17,10 @@ export function Marquee({
   textClassName,
   textStyle,
 }: MarqueeProps) {
-  const loop = [...items, ...items];
+  // Cada metade repete os itens várias vezes para cobrir telas largas;
+  // a animação desloca exatamente uma metade (-50%), então o loop é contínuo.
+  const half = Array.from({ length: Math.max(2, Math.ceil(8 / items.length)) }, () => items).flat();
+  const loop = [...half, ...half];
 
   return (
     <div
@@ -27,8 +30,7 @@ export function Marquee({
       <div
         className="flex flex-none items-center"
         style={{
-          animation: `marquee ${durationSeconds}s linear infinite`,
-          animationDirection: reverse ? "reverse" : "normal",
+          animation: `marquee ${durationSeconds}s linear infinite ${reverse ? "reverse" : "normal"}`,
         }}
       >
         {loop.map((item, i) => (

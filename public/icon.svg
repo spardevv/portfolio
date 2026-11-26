@@ -1,5 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#202020"/>
-  <path d="M338 142c-20-18-46-26-80-26-52 0-86 24-86 62 0 36 28 52 84 64 52 11 78 22 78 52 0 32-30 52-78 52-38 0-68-12-92-36" fill="none" stroke="#ececec" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -26)"/>
-  <rect x="152" y="396" width="208" height="38" rx="19" fill="#3fe6f0"/>
+  <defs>
+    <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1.6" fill="#ffffff" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" rx="56" fill="#17172c"/>
+  <rect width="512" height="512" rx="56" fill="url(#dots)"/>
+  <!-- "S" de pôster: traço pesado e condensado, com terminais nas duas pontas -->
+  <path d="M336 180 V128 H176 V240 H336 V356 H176 V300"
+        fill="none" stroke="#f2f2f6" stroke-width="72" stroke-linejoin="round" stroke-linecap="butt"/>
+  <!-- underscore do SPAR.DEV_ no azul elétrico -->
+  <rect x="140" y="420" width="232" height="34" fill="#2a2aff"/>
 </svg>
