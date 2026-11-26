@@ -79,9 +79,15 @@ export function Header() {
     switchThemeAnimated(resolvedTheme === "dark" ? "light" : "dark", setTheme, { x: e.clientX, y: e.clientY });
   const isDark = mounted && resolvedTheme === "dark";
   const [scrolled, setScrolled] = useState(false);
+  // Depois de sair do hero, no celular o header some e fica só o botão de menu flutuando
+  const [pastHero, setPastHero] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const hero = document.getElementById("home");
+      setPastHero(!!hero && window.scrollY > hero.offsetHeight - 72);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -92,9 +98,14 @@ export function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
           scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-transparent"
+        } ${
+          // Mobile fora do hero: sem fundo, borda nem desfoque — só o botão de menu fica visível
+          pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:border-transparent max-md:bg-transparent max-md:backdrop-blur-none" : ""
         }`}
       >
-        <ScrollProgress />
+        <div className={`transition-opacity duration-300 ${pastHero && !mobileOpen ? "max-md:opacity-0" : ""}`}>
+          <ScrollProgress />
+        </div>
         <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 md:px-10">
           <nav className="hidden items-center gap-9 md:flex">
             {navItems.map((item) => {
@@ -125,7 +136,9 @@ export function Header() {
 
           <Link
             href="#home"
-            className="font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground"
+            className={`font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground transition-all duration-300 ${
+              pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:-translate-y-3 max-md:opacity-0" : ""
+            }`}
           >
             SPAR<span className="text-accent-soft">.DEV_</span>
           </Link>
@@ -152,7 +165,7 @@ export function Header() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? a11y.closeMenu : a11y.openMenu}
               aria-expanded={mobileOpen}
-              className="relative z-50 grid h-10 w-10 place-items-center overflow-hidden rounded-[3px] border border-border-strong bg-background text-foreground"
+              className={`pointer-events-auto relative z-50 grid h-10 w-10 ${pastHero && !mobileOpen ? "shadow-[0_8px_24px_rgba(0,0,0,0.35)]" : ""} place-items-center overflow-hidden rounded-[3px] border border-border-strong bg-background text-foreground`}
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span

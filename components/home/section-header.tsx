@@ -24,14 +24,14 @@ export function SectionHeader({ index, kicker, title, description, action }: Sec
   const chars = Array.from(title);
 
   return (
-    <MotionDiv variants={fadeInUp} className="flex flex-wrap items-end justify-between gap-6">
+    <MotionDiv variants={fadeInUp} className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
       <div>
         <span className="label-caps text-accent-soft">
           #{String(index).padStart(2, "0")} · {kicker}
         </span>
         <h2
           aria-label={title}
-          className="poster mt-3 text-[clamp(56px,14vw,96px)] text-foreground lg:text-[min(8.5vw,12vh,136px)]"
+          className="poster mt-2 text-[clamp(48px,min(14vw,7.5svh),96px)] text-foreground lg:mt-3 lg:text-[min(8.5vw,12vh,136px)]"
         >
           {/* Máscara: cada letra sobe de dentro da linha. O padding extra evita cortar acentos (Ó, É). */}
           {/* O gatilho fica no contêiner: as letras começam fora da máscara (recortadas) e nunca
@@ -54,9 +54,9 @@ export function SectionHeader({ index, kicker, title, description, action }: Sec
             </motion.span>
           </motion.span>
         </h2>
-        {/* Em telas baixas o subtítulo sai para a seção caber inteira na tela */}
+        {/* No celular e em telas baixas o subtítulo sai, para a seção caber inteira na tela */}
         {description && (
-          <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted-foreground lg:[@media(max-height:820px)]:hidden">
+          <p className="mt-4 hidden max-w-xl text-[15px] leading-[1.7] text-muted-foreground lg:block lg:[@media(max-height:820px)]:hidden">
             {description}
           </p>
         )}

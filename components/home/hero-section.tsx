@@ -59,7 +59,7 @@ export function HeroSection() {
   return (
     <section ref={sectionRef} id="home" className="relative isolate overflow-hidden">
       {/* Carruagem bem sutil atrás do texto, do lado oposto à foto */}
-      <SectionBackdrop src="/images/bg/chariot.webp" side="left" position="50% 50%" className="!opacity-40 lg:!w-[55%]" />
+      <SectionBackdrop src="/images/bg/chariot.webp" side="left" position="50% 50%" className="!opacity-40 max-lg:hidden lg:!w-[55%]" />
       {/* Retrato: ocupa a metade direita no desktop, com corte diagonal de pôster */}
       <MotionDiv
         initial={{ opacity: 0, x: 40 }}
@@ -79,6 +79,22 @@ export function HeroSection() {
           className="object-cover object-[0%_40%]"
         />
       </MotionDiv>
+
+      {/* Mobile/tablet: a foto vira o fundo do hero, ocupando a parte de cima da tela.
+          Um degradê para a cor de fundo garante a leitura do texto, que fica na parte de baixo. */}
+      <div aria-hidden="true" className="absolute inset-x-0 -top-[10svh] -z-10 h-[82svh] lg:hidden">
+        <div className="duotone absolute inset-0">
+          <Image src="/images/profile-side.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[0%_0%]" />
+        </div>
+        <div
+          className="absolute inset-0"
+          style={{
+            // Topo escurecido (leitura do header), meio transparente (rosto) e base sólida (texto)
+            background:
+              "linear-gradient(to bottom, color-mix(in srgb, var(--background) 75%, transparent) 9%, color-mix(in srgb, var(--background) 5%, transparent) 26%, color-mix(in srgb, var(--background) 55%, transparent) 55%, var(--background) 88%)",
+          }}
+        />
+      </div>
 
       {/* Cópia branca do título recortada no mesmo formato da foto: onde o título passa
           sobre o retrato, as letras ficam brancas em vez de marinho sobre azul. */}
@@ -101,8 +117,8 @@ export function HeroSection() {
         </div>
       </MotionDiv>
 
-      {/* No desktop o hero inteiro cabe em uma tela (100svh); no mobile ele cresce normalmente. */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-6 pb-8 pt-24 md:px-10 lg:h-[100svh] lg:min-h-[620px] lg:pb-6 lg:pt-[88px]">
+      {/* O hero ocupa uma tela inteira. No mobile o conteúdo fica embaixo, sobre o degradê da foto. */}
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-6 pb-8 pt-24 md:px-10 lg:h-[100svh] lg:justify-start lg:min-h-[620px] lg:pb-6 lg:pt-[88px]">
         <MotionDiv
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,16 +135,11 @@ export function HeroSection() {
 
         <p className="label-caps mt-[clamp(12px,2vh,24px)] text-[15px] tracking-[0.06em] text-foreground">{t.stack}</p>
 
-        {/* Retrato no mobile/tablet, abaixo do título */}
-        <div className="duotone relative mt-8 aspect-[4/3] w-full rounded-[4px] lg:hidden">
-          <Image src="/images/profile-side.jpg" alt="" fill sizes="100vw" className="object-cover object-[0%_38%]" />
-        </div>
-
         <MotionDiv
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-8 flex min-h-0 flex-col gap-[clamp(16px,2.6vh,28px)] lg:mt-[clamp(16px,2.6vh,28px)] lg:max-w-[46%]"
+          className="mt-6 flex min-h-0 flex-col gap-[clamp(16px,2.6vh,28px)] lg:mt-[clamp(16px,2.6vh,28px)] lg:max-w-[46%]"
         >
           <p className="text-pretty text-[15px] leading-[1.7] text-muted-foreground">{withYears(t.description)}</p>
 
@@ -149,11 +160,11 @@ export function HeroSection() {
           </div>
 
           {/* Em telas baixas o terminal sai para o hero continuar cabendo em uma tela */}
-          <Terminal className="max-w-[30rem] lg:[@media(max-height:820px)]:hidden" />
+          <Terminal className="hidden max-w-[30rem] sm:block lg:[@media(max-height:820px)]:hidden" />
         </MotionDiv>
 
-        <div className="label-caps mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 lg:mt-auto lg:max-w-[46%] lg:pt-6">
-          <span className="flex items-center gap-2 text-muted-foreground">
+        <div className="label-caps mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-border pt-5 sm:gap-x-7 lg:mt-auto lg:max-w-[46%] lg:border-0 lg:pt-6">
+          <span className="flex w-full items-center gap-2 text-muted-foreground sm:w-auto">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3ddc84]" />
             {t.current} · {t.location}
           </span>
@@ -168,7 +179,15 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-accent-soft"
               >
                 <Icon className="h-4 w-4" />
-                {s.label}
+                {/* No celular o email vira só "Email" para a linha não quebrar */}
+                {s.id === "email" ? (
+                  <>
+                    <span className="sm:hidden">Email</span>
+                    <span className="hidden sm:inline">{s.label}</span>
+                  </>
+                ) : (
+                  s.label
+                )}
               </a>
             );
           })}

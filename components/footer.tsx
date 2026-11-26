@@ -35,7 +35,7 @@ export function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="relative isolate flex flex-col overflow-hidden border-t border-border bg-card lg:min-h-[calc(100svh-72px)]"
+      className="relative isolate flex flex-col overflow-hidden border-t border-border bg-card min-h-[100svh] lg:min-h-[calc(100svh-72px)]"
     >
       <SectionBackdrop src="/images/bg/warriors.webp" position="50% 50%" />
       <div className="pt-8 lg:pt-[clamp(20px,4vh,48px)]">
@@ -121,7 +121,7 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-6 text-center md:text-left"
+          className="mt-6 text-left"
         >
           <p className="label-caps text-muted-foreground">
             &copy; {new Date().getFullYear()} Gabriel Fernandes Ramos.{" "}

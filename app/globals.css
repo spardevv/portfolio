@@ -145,11 +145,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* Ao parar de rolar perto de uma seção, a página se alinha ao início dela.
-     "proximity" (e não "mandatory") deixa ler à vontade seções mais altas que a tela. */
+  /* Snap em todas as telas: cada seção cabe em uma tela. "proximity" deixa rolar livre no meio. */
   scroll-snap-type: y proximity;
-  /* Desconta o header fixo (72px) no snap e nos links de âncora do menu */
-  scroll-padding-top: 72px;
 }
 
 main > section,
@@ -157,9 +154,26 @@ main > section,
   scroll-snap-align: start;
 }
 
-/* Seções de conteúdo: no desktop ocupam a altura visível abaixo do header e centralizam
-   o conteúdo, para o snap mostrar a seção inteira sem cortes. */
+/* No desktop o header fica fixo (72px) e é descontado no snap e nas âncoras.
+   No celular ele some fora do hero (só o botão de menu flutua), então não há desconto. */
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+  #home {
+    scroll-margin-top: -72px;
+  }
+}
+
+/* Seções de conteúdo: ocupam uma tela inteira (no desktop, descontando o header) e
+   centralizam o conteúdo, para o snap mostrar a seção inteira sem cortes. */
 @utility section-screen {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(44px, 7svh, 64px);
+  padding-bottom: clamp(28px, 5svh, 48px);
   @media (min-width: 1024px) {
     min-height: calc(100svh - 72px);
     display: flex;
@@ -168,11 +182,6 @@ main > section,
     padding-top: clamp(28px, 5vh, 64px);
     padding-bottom: clamp(28px, 5vh, 64px);
   }
-}
-
-/* O hero começa no topo absoluto, sem o desconto do header */
-#home {
-  scroll-margin-top: -72px;
 }
 
 /* Rótulos técnicos: caixa alta condensada com espaçamento aberto (#01 CONNECT) */
@@ -219,6 +228,12 @@ main > section,
   mix-blend-mode: multiply;
 }
 
+/* Seta da dica "Deslize" no carrossel de projetos */
+@keyframes swipe-hint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
 @keyframes grain-shift {
   0% { transform: translate(0, 0); }
   25% { transform: translate(-3%, 2%); }
@@ -235,7 +250,8 @@ main > section,
   clip-path: polygon(0 0, 100% 6%, 100% 100%, 0 94%);
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (max-width: 767px) {
+  /* No celular o grão fica parado: mesmo efeito visual, sem gastar bateria */
   .grain::after { animation: none; }
 }
 

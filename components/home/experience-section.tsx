@@ -9,6 +9,7 @@ import { MotionSection, fadeInUp, staggerContainer } from "@/components/motion";
 import { SectionHeader } from "@/components/home/section-header";
 import { SOCIAL_LINKS } from "@/lib/social";
 import { SectionBackdrop } from "@/components/section-backdrop";
+import { CarouselDots, SNAP_TRACK, useSnapCarousel } from "@/components/snap-carousel";
 
 /** Quantas experiências mostrar; o resto fica no LinkedIn. */
 const VISIBLE_JOBS = 3;
@@ -19,11 +20,13 @@ export function ExperienceSection() {
   const t = content[locale].about.sections.trajectory;
   const nav = content[locale].nav;
   const [open, setOpen] = useState(0);
+  const jobs = t.items.slice(0, VISIBLE_JOBS);
+  const carousel = useSnapCarousel();
 
   return (
     <MotionSection
       id="experience"
-      className="relative isolate overflow-hidden border-t border-border section-screen px-6 py-16 md:px-10"
+      className="relative isolate overflow-hidden border-t border-border section-screen px-6 md:px-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -33,8 +36,58 @@ export function ExperienceSection() {
       <div className="mx-auto w-full max-w-6xl">
         <SectionHeader index={4} kicker={t.kicker} title={nav.experience} description={t.description} />
 
-        <ol className="mt-10 border-t border-border lg:mt-[clamp(20px,4vh,48px)]">
-          {t.items.slice(0, VISIBLE_JOBS).map((job, i) => {
+        {/* Celular: um cartão por experiência, com deslize horizontal */}
+        <div ref={carousel.trackRef} onScroll={carousel.onScroll} className={`mt-6 md:hidden ${SNAP_TRACK}`}>
+          {jobs.map((job) => (
+            <article
+              key={`${job.company}-${job.period}`}
+              className="flex h-[clamp(340px,54svh,470px)] w-[86%] shrink-0 snap-center flex-col overflow-hidden rounded-[4px] border border-border bg-card/80 p-5 backdrop-blur-sm"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <span className="label-caps text-accent-soft">{job.period}</span>
+                {job.current && (
+                  <span className="label-caps rounded-[3px] bg-primary px-2 py-1 text-[11px] text-primary-foreground">
+                    {t.current}
+                  </span>
+                )}
+              </div>
+              <h3 className="mt-3 font-display text-[26px] font-light leading-tight text-foreground">{job.title}</h3>
+              <p className="label-caps mt-2 leading-[1.4] text-muted-foreground">
+                {job.company} · {job.context}
+              </p>
+              <ul className="mt-4 min-h-0 flex-1 space-y-2 overflow-hidden">
+                {job.bullets.map((b) => (
+                  <li key={b} className="flex gap-2.5 text-[13px] leading-[1.55] text-muted-foreground">
+                    <span className="mt-[0.7em] h-px w-2.5 shrink-0 bg-accent-soft" />
+                    <span className="line-clamp-3">{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {job.tools.slice(0, 4).map((tool) => (
+                  <span key={tool} className="rounded-[3px] border border-border-strong px-2 py-0.5 text-[11px] text-foreground">
+                    {tool}
+                  </span>
+                ))}
+                {job.tools.length > 4 && (
+                  <span className="rounded-[3px] px-1 py-0.5 text-[11px] text-muted-foreground">+{job.tools.length - 4}</span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+        <CarouselDots
+          className="mt-4 md:hidden"
+          count={jobs.length}
+          active={carousel.active}
+          onSelect={carousel.goTo}
+          labels={jobs.map((j) => `${j.title} · ${j.company}`)}
+          swipeLabel={t.swipe}
+        />
+
+        {/* Tablet/desktop: lista em acordeão */}
+        <ol className="mt-10 hidden border-t border-border md:block lg:mt-[clamp(20px,4vh,48px)]">
+          {jobs.map((job, i) => {
             const isOpen = open === i;
             return (
               <motion.li key={`${job.company}-${job.period}`} variants={fadeInUp} className="border-b border-border">
@@ -101,7 +154,7 @@ export function ExperienceSection() {
         </ol>
 
         {t.items.length > VISIBLE_JOBS && (
-          <p className="mt-6 text-[14px] text-muted-foreground">
+          <p className="mt-5 text-[13px] text-muted-foreground md:mt-6 md:text-[14px]">
             {t.more}{" "}
             <a
               href={LINKEDIN}

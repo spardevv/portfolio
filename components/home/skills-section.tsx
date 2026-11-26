@@ -41,7 +41,7 @@ export function SkillsSection() {
   return (
     <MotionSection
       id="skills"
-      className="relative isolate overflow-hidden border-t border-border section-screen px-6 py-16 md:px-10"
+      className="relative isolate overflow-hidden border-t border-border section-screen px-6 md:px-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -75,7 +75,7 @@ export function SkillsSection() {
           <div
             role="tablist"
             aria-label={t.title}
-            className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-1 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:border-t lg:border-border lg:px-0 lg:pb-0"
+            className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-1 [mask-image:linear-gradient(to_right,#000_78%,transparent)] [scrollbar-width:none] lg:mx-0 lg:[mask-image:none] lg:flex-col lg:gap-0 lg:overflow-visible lg:border-t lg:border-border lg:px-0 lg:pb-0"
           >
             {CATS.map((c, i) => {
               const on = i === active;
@@ -150,7 +150,7 @@ export function SkillsSection() {
             <AnimatePresence mode="wait">
               <motion.ul
                 key={cat.titleKey}
-                className="mt-auto flex flex-wrap items-baseline gap-x-[0.35em] gap-y-1 pt-8"
+                className="mt-auto flex flex-wrap items-baseline gap-x-4 gap-y-1.5 pt-8 sm:gap-x-[0.35em] sm:gap-y-1"
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -166,10 +166,11 @@ export function SkillsSection() {
                       hidden: { opacity: 0, y: reduceMotion ? 0 : 24 },
                       visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.2, 0.7, 0.2, 1] } },
                     }}
-                    className="poster text-[clamp(34px,min(4.2vw,7vh),68px)] !leading-[1]"
+                    className="poster text-[clamp(28px,8.5vw,40px)] !leading-[1] sm:text-[clamp(34px,min(4.2vw,7vh),68px)]"
                   >
                     {s}
-                    {j < cat.skills.length - 1 && <span className="ml-[0.35em] text-white/35">/</span>}
+                    {/* No celular o separador "/" sobrava no fim das linhas; lá o espaçamento já separa */}
+                    {j < cat.skills.length - 1 && <span className="ml-[0.35em] hidden text-white/35 sm:inline">/</span>}
                   </motion.li>
                 ))}
               </motion.ul>

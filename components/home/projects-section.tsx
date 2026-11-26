@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/locale-context";
 import { content } from "@/lib/content";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Plus } from "lucide-react";
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Plus, X } from "lucide-react";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { MotionSection, MotionDiv, fadeInUp, staggerContainer } from "@/components/motion";
 import { SectionHeader } from "@/components/home/section-header";
 import { TiltCard } from "@/components/tilt-card";
 import { SectionBackdrop } from "@/components/section-backdrop";
+import { CarouselDots, useSnapCarousel } from "@/components/snap-carousel";
 
 type Project = (typeof content)["pt-BR"]["projects"]["items"][number];
 
@@ -54,12 +55,15 @@ export function ProjectsSection() {
   const project = open === null ? null : items[open];
   const total = String(items.length).padStart(2, "0");
 
+  // Carrossel do mobile (deslize horizontal + indicadores)
+  const { trackRef, active: slide, onScroll: onTrackScroll, goTo } = useSnapCarousel();
+
   const step = (dir: 1 | -1) => setOpen((i) => (i === null ? i : (i + dir + items.length) % items.length));
 
   return (
     <MotionSection
       id="projects"
-      className="relative isolate overflow-hidden border-t border-border section-screen px-6 py-16 md:px-10"
+      className="relative isolate overflow-hidden border-t border-border section-screen px-6 md:px-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -77,7 +81,7 @@ export function ProjectsSection() {
               href="https://github.com/spardevv"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-caps inline-flex h-11 items-center gap-2 rounded-[3px] border border-border-strong px-5 text-foreground transition-colors hover:border-accent-soft hover:text-accent-soft"
+              className="label-caps inline-flex h-9 items-center gap-2 rounded-[3px] border border-border-strong px-4 text-foreground lg:h-11 lg:px-5 transition-colors hover:border-accent-soft hover:text-accent-soft"
             >
               <Github className="h-4 w-4" />
               {t.viewAll}
@@ -85,10 +89,19 @@ export function ProjectsSection() {
           }
         />
 
-        {/* Galeria */}
-        <div className="mt-10 grid auto-rows-[clamp(280px,70vw,420px)] grid-cols-1 gap-4 md:auto-rows-[clamp(280px,min(34vw,48vh),480px)] md:grid-cols-12 md:gap-5 lg:mt-[clamp(20px,4vh,48px)]">
+        {/* Galeria: carrossel com deslize horizontal no mobile, grade a partir do tablet.
+            No mobile o próximo cartão "espia" na borda para mostrar que há mais itens. */}
+        <div
+          ref={trackRef}
+          onScroll={onTrackScroll}
+          className="-mx-6 mt-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-1 [scrollbar-width:none] md:mx-0 md:grid md:auto-rows-[clamp(280px,min(34vw,48vh),480px)] md:grid-cols-12 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:mt-[clamp(20px,4vh,48px)]"
+        >
           {items.map((p, index) => (
-            <MotionDiv key={p.title} variants={fadeInUp} className={SPANS[index % SPANS.length]}>
+            <MotionDiv
+              key={p.title}
+              variants={fadeInUp}
+              className={`h-[clamp(300px,52svh,460px)] w-[84%] shrink-0 snap-center md:h-auto md:w-auto ${SPANS[index % SPANS.length]}`}
+            >
               <TiltCard className="h-full">
               <button
                 type="button"
@@ -122,12 +135,31 @@ export function ProjectsSection() {
             </MotionDiv>
           ))}
         </div>
+
+        <CarouselDots
+          className="mt-4 md:hidden"
+          count={items.length}
+          active={slide}
+          onSelect={goTo}
+          labels={items.map((p) => `${t.open}: ${p.title}`)}
+          swipeLabel={t.swipe}
+        />
       </div>
 
       {/* Lightbox com os detalhes do projeto */}
       <Dialog open={project !== null} onOpenChange={(v) => !v && setOpen(null)}>
         {project && open !== null && (
-          <DialogContent className="max-h-[92svh] w-[min(1100px,calc(100%-2rem))] max-w-none gap-0 overflow-y-auto rounded-[4px] border-border bg-card p-0 sm:max-w-none">
+          <DialogContent
+            showCloseButton={false}
+            className="max-h-[92svh] w-[min(1100px,calc(100%-2rem))] max-w-none gap-0 overflow-y-auto rounded-[4px] border-border bg-card p-0 sm:max-w-none"
+          >
+            {/* Fechar com fundo sólido: fica visível mesmo sobre imagens claras */}
+            <DialogClose
+              aria-label={t.close}
+              className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-[3px] bg-background/90 text-foreground backdrop-blur transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              <X className="h-4 w-4" />
+            </DialogClose>
             <div className="grid md:grid-cols-[1.35fr_1fr]">
               <div className="relative aspect-[16/11] bg-black md:aspect-auto md:min-h-[520px]">
                 <RotatingImages images={imagesOf(project)} alt={project.title} />

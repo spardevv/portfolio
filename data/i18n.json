@@ -174,14 +174,17 @@
           "current": "Atual",
           "toolsLabel": "Ferramentas",
           "more": "E mais experiências no",
-          "moreLink": "LinkedIn"
+          "moreLink": "LinkedIn",
+          "swipe": "Deslize"
         }
       },
       "kicker": "Quem sou",
       "languagesInfo": {
         "label": "Idiomas",
         "value": "Português nativo · Inglês avançado"
-      }
+      },
+      "readMore": "Ler mais",
+      "readLess": "Ler menos"
     },
     "services": {
       "title": "O que desenvolvo",
@@ -270,7 +273,9 @@
         }
       ],
       "kicker": "Trabalhos selecionados",
-      "open": "Ver projeto"
+      "open": "Ver projeto",
+      "close": "Fechar",
+      "swipe": "Deslize"
     },
     "footer": {
       "cta": "Vamos trabalhar juntos?",
@@ -454,14 +459,17 @@
           "current": "Current",
           "toolsLabel": "Tools",
           "more": "And more experience on",
-          "moreLink": "LinkedIn"
+          "moreLink": "LinkedIn",
+          "swipe": "Swipe"
         }
       },
       "kicker": "Who I am",
       "languagesInfo": {
         "label": "Languages",
         "value": "Portuguese (native) · English (advanced)"
-      }
+      },
+      "readMore": "Read more",
+      "readLess": "Read less"
     },
     "services": {
       "title": "What I Build",
@@ -550,7 +558,9 @@
         }
       ],
       "kicker": "Selected work",
-      "open": "View project"
+      "open": "View project",
+      "close": "Close",
+      "swipe": "Swipe"
     },
     "footer": {
       "cta": "Let's work together?",
