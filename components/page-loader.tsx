@@ -3,6 +3,7 @@
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { SectionBackdrop } from "@/components/section-backdrop"
+import { GreekMeander } from "@/components/greek-meander"
 
 export function PageLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
@@ -74,14 +75,17 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
                 </motion.span>
               </motion.div>
 
-              {/* Progress bar */}
-              <div className="h-px w-56 overflow-hidden bg-border">
+              {/* Barra de progresso em meandro: a faixa apagada vai sendo preenchida pela clara */}
+              <div className="relative h-[10px] w-56" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.min(Math.round(progress), 100)}>
+                <GreekMeander className="absolute inset-0 text-border" height={10} />
                 <motion.div
-                  className="h-full bg-accent-soft"
+                  className="absolute inset-y-0 left-0 overflow-hidden"
                   initial={{ width: 0 }}
                   animate={{ width: `${Math.min(progress, 100)}%` }}
-                  transition={{ duration: 0.1 }}
-                />
+                  transition={{ duration: reduceMotion ? 0 : 0.1 }}
+                >
+                  <GreekMeander className="w-56 max-w-none text-accent-soft" height={10} />
+                </motion.div>
               </div>
 
               <span className="label-caps tabular-nums text-muted-foreground">
