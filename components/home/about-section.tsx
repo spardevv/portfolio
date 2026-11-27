@@ -5,6 +5,7 @@ import { useLocale } from "@/lib/locale-context";
 import { content } from "@/lib/content";
 import { MotionDiv, Counter, fadeInUp, staggerContainer } from "@/components/motion";
 import { SectionHeader } from "@/components/home/section-header";
+import { GreekMeander } from "@/components/greek-meander";
 import { SectionBackdrop } from "@/components/section-backdrop";
 import { yearsOfExperience, withYears } from "@/lib/career";
 
@@ -28,7 +29,8 @@ export function AboutSection() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="about" className="relative isolate overflow-hidden border-t border-border bg-card section-screen px-6 md:px-10">
+    <section id="about" className="relative isolate overflow-hidden bg-card section-screen px-6 md:px-10">
+      <GreekMeander className="pointer-events-none absolute inset-x-0 top-0 z-10 text-foreground/25" height={8} />
       <SectionBackdrop src="/images/bg/discobolus.webp" position="50% 25%" />
       <MotionDiv
         initial="hidden"

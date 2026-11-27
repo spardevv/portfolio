@@ -7,6 +7,7 @@ import { content } from "@/lib/content";
 import { motion } from "framer-motion";
 import { MotionSection, fadeInUp, staggerContainer } from "@/components/motion";
 import { SectionHeader } from "@/components/home/section-header";
+import { GreekMeander } from "@/components/greek-meander";
 import { SOCIAL_LINKS } from "@/lib/social";
 import { SectionBackdrop } from "@/components/section-backdrop";
 import { CarouselDots, SNAP_TRACK, useSnapCarousel } from "@/components/snap-carousel";
@@ -26,12 +27,13 @@ export function ExperienceSection() {
   return (
     <MotionSection
       id="experience"
-      className="relative isolate overflow-hidden border-t border-border section-screen px-6 md:px-10"
+      className="relative isolate overflow-hidden section-screen px-6 md:px-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={staggerContainer}
     >
+      <GreekMeander className="pointer-events-none absolute inset-x-0 top-0 z-10 text-foreground/25" height={8} />
       <SectionBackdrop src="/images/bg/amphora.webp" side="left" position="50% 50%" />
       <div className="mx-auto w-full max-w-6xl">
         <SectionHeader index={4} kicker={t.kicker} title={nav.experience} description={t.description} />

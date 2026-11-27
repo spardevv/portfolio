@@ -6,6 +6,7 @@ import { useLocale } from "@/lib/locale-context";
 import { content, skillsData } from "@/lib/content";
 import { MotionSection, MotionDiv, fadeInUp, staggerContainer } from "@/components/motion";
 import { SectionHeader } from "@/components/home/section-header";
+import { GreekMeander } from "@/components/greek-meander";
 import { SectionBackdrop } from "@/components/section-backdrop";
 
 const CATS = skillsData.categories;
@@ -41,12 +42,13 @@ export function SkillsSection() {
   return (
     <MotionSection
       id="skills"
-      className="relative isolate overflow-hidden border-t border-border section-screen px-6 md:px-10"
+      className="relative isolate overflow-hidden section-screen px-6 md:px-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={staggerContainer}
     >
+      <GreekMeander className="pointer-events-none absolute inset-x-0 top-0 z-10 text-foreground/25" height={8} />
       <SectionBackdrop src="/images/bg/books.webp" side="left" position="40% 50%" />
       <SectionBackdrop src="/images/bg/athena.webp" position="50% 30%" />
       <div className="mx-auto w-full max-w-6xl">

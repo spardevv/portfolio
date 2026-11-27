@@ -3,6 +3,8 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { MotionDiv, fadeInUp } from "@/components/motion";
+import { GreekMeander } from "@/components/greek-meander";
+import { toRoman } from "@/lib/roman";
 
 interface SectionHeaderProps {
   index: number;
@@ -18,7 +20,7 @@ const LETTER = {
   visible: { y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
-/** Cabeçalho padrão das seções: rótulo numerado (#01 · KICKER), título editorial e ação opcional à direita. */
+/** Cabeçalho padrão das seções: rótulo numerado (I · KICKER), título editorial e ação opcional à direita. */
 export function SectionHeader({ index, kicker, title, description, action }: SectionHeaderProps) {
   const reduceMotion = useReducedMotion();
   const chars = Array.from(title);
@@ -26,8 +28,11 @@ export function SectionHeader({ index, kicker, title, description, action }: Sec
   return (
     <MotionDiv variants={fadeInUp} className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
       <div>
-        <span className="label-caps text-accent-soft">
-          #{String(index).padStart(2, "0")} · {kicker}
+        <span className="label-caps flex items-center gap-3 text-accent-soft">
+          <span>
+            {toRoman(index)} · {kicker}
+          </span>
+          <GreekMeander className="w-14 shrink-0 opacity-70" height={8} />
         </span>
         <h2
           aria-label={title}
