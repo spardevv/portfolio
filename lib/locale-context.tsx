@@ -6,12 +6,15 @@ import type { Locale } from "@/lib/content"
 type LocaleContextType = {
   locale: Locale
   toggleLocale: () => void
+  /** Sobe a cada troca feita pelo usuário (não na restauração do idioma salvo); usado para animar o texto. */
+  changeId: number
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("pt-BR")
+  const [changeId, setChangeId] = useState(0)
 
   useEffect(() => {
     const saved = window.localStorage.getItem("portfolio-locale") as Locale | null
@@ -25,6 +28,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }, [locale])
 
   const toggleLocale = () => {
+    setChangeId((n) => n + 1)
     setLocale((prev) => {
       const next = prev === "pt-BR" ? "en-US" : "pt-BR"
       window.localStorage.setItem("portfolio-locale", next)
@@ -33,7 +37,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <LocaleContext.Provider value={{ locale, toggleLocale }}>
+    <LocaleContext.Provider value={{ locale, toggleLocale, changeId }}>
       {children}
     </LocaleContext.Provider>
   )

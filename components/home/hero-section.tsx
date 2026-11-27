@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDownRight, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useLocale } from "@/lib/locale-context";
@@ -49,7 +49,6 @@ function HeroTitle({ top, bottom, role, inverse = false }: { top: string; bottom
 export function HeroSection() {
   const { locale } = useLocale();
   const t = content[locale].hero;
-  const nav = content[locale].nav;
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   // Parallax: ao rolar para fora do hero, a foto desce mais devagar que a página
@@ -68,7 +67,7 @@ export function HeroSection() {
         className="duotone cut-left absolute inset-y-0 right-0 hidden w-[48%] lg:block"
       >
         <MotionImage
-          src="/images/profile-side.jpg"
+          src="/images/profile-hero.webp"
           alt="Gabriel Fernandes Ramos"
           fill
           priority
@@ -84,7 +83,7 @@ export function HeroSection() {
           Um degradê para a cor de fundo garante a leitura do texto, que fica na parte de baixo. */}
       <div aria-hidden="true" className="absolute inset-x-0 -top-[10svh] -z-10 h-[82svh] lg:hidden">
         <div className="duotone absolute inset-0">
-          <Image src="/images/profile-side.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[0%_0%]" />
+          <Image src="/images/profile-hero.webp" alt="" fill priority sizes="100vw" className="object-cover object-[0%_0%]" />
         </div>
         <div
           className="absolute inset-0"
@@ -143,21 +142,6 @@ export function HeroSection() {
         >
           <p className="text-pretty text-[15px] leading-[1.7] text-muted-foreground">{withYears(t.description)}</p>
 
-          <div className="flex flex-wrap items-center gap-5">
-            <a
-              href="#projects"
-              className="label-caps inline-flex h-12 items-center gap-2 rounded-[3px] bg-primary px-6 text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
-            >
-              {t.cta}
-              <ArrowDownRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#contact"
-              className="label-caps inline-flex h-12 items-center border-b-2 border-foreground px-1 text-foreground transition-colors hover:border-accent-soft hover:text-accent-soft"
-            >
-              {nav.contact}
-            </a>
-          </div>
 
           {/* Em telas baixas o terminal sai para o hero continuar cabendo em uma tela */}
           <Terminal className="hidden max-w-[30rem] sm:block lg:[@media(max-height:820px)]:hidden" />

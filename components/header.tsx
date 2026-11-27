@@ -74,6 +74,14 @@ export function Header() {
     };
   }, []);
 
+  // O Link do Next faz o salto para a âncora sem a rolagem suave (e com atraso). Aqui a rolagem é direta.
+  const goTo = (e: ReactMouseEvent, href: string) => {
+    const target = document.getElementById(href.slice(1));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", href);
+  };
   const isActive = (href: string) => activeSection === href.slice(1);
   const toggleTheme = (e: ReactMouseEvent) =>
     switchThemeAnimated(resolvedTheme === "dark" ? "light" : "dark", setTheme, { x: e.clientX, y: e.clientY });
@@ -107,14 +115,31 @@ export function Header() {
           <ScrollProgress />
         </div>
         <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 md:px-10">
-          <nav className="hidden items-center gap-9 md:flex">
+          <Link
+            href="#home"
+            onClick={(e) => goTo(e, "#home")}
+            className={`group col-start-1 justify-self-start font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground transition-all duration-300 ${
+              pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:-translate-y-3 max-md:opacity-0" : ""
+            }`}
+          >
+            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-px">
+              SPAR<span className="text-accent-soft transition-colors duration-300 group-hover:text-primary dark:group-hover:text-foreground">.DEV</span>
+              {/* O "_" vira um cursor de terminal piscando no hover */}
+              <span className="text-accent-soft group-hover:animate-[caret-blink_0.9s_steps(1)_infinite] motion-reduce:animate-none">_</span>
+            </span>
+          </Link>
+
+          <nav className="col-start-2 hidden items-center gap-9 md:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setActiveSection(item.href.slice(1))}
+                  onClick={(e) => {
+                    setActiveSection(item.href.slice(1));
+                    goTo(e, item.href);
+                  }}
                   className={`label-caps relative transition-colors duration-300 hover:text-foreground ${
                     active ? "text-foreground" : "text-muted-foreground"
                   }`}
@@ -132,18 +157,8 @@ export function Header() {
               );
             })}
           </nav>
-          <span className="md:hidden" />
 
-          <Link
-            href="#home"
-            className={`font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground transition-all duration-300 ${
-              pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:-translate-y-3 max-md:opacity-0" : ""
-            }`}
-          >
-            SPAR<span className="text-accent-soft">.DEV_</span>
-          </Link>
-
-          <div className="hidden items-center justify-end gap-2 md:flex">
+          <div className="col-start-3 hidden items-center justify-end gap-2 md:flex">
             <LanguageSwitch />
             <a
               href="#contact"
@@ -160,7 +175,7 @@ export function Header() {
             </button>
           </div>
 
-          <div className="flex justify-end md:hidden">
+          <div className="col-start-3 flex justify-end md:hidden">
             <button
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? a11y.closeMenu : a11y.openMenu}

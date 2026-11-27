@@ -5,7 +5,6 @@ import { content } from "@/lib/content";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "@/lib/social";
-import { MarqueeBand } from "@/components/home/marquee-band";
 import { SectionBackdrop } from "@/components/section-backdrop";
 
 const EMAIL = "spardevv@gmail.com";
@@ -38,9 +37,6 @@ export function Footer() {
       className="relative isolate flex flex-col overflow-hidden border-t border-border bg-card min-h-[100svh] lg:min-h-[calc(100svh-72px)]"
     >
       <SectionBackdrop src="/images/bg/warriors.webp" position="50% 50%" />
-      <div className="pt-8 lg:pt-[clamp(20px,4vh,48px)]">
-        <MarqueeBand />
-      </div>
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-6 pt-12 md:px-10 lg:pb-[clamp(8px,1.5vh,16px)] lg:pt-[clamp(24px,5vh,56px)]">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -63,7 +59,7 @@ export function Footer() {
           {EMAIL}
         </motion.a>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-8 border-t border-border pt-6 md:flex-row md:items-end lg:mt-[clamp(20px,4vh,48px)]">
+        <div className="mt-10 flex flex-col items-start justify-between gap-8 pt-6 md:flex-row md:items-end lg:mt-[clamp(20px,4vh,48px)]">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

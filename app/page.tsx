@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { LocaleTyping } from "@/components/locale-typing";
 import { BackToTop } from "@/components/back-to-top";
 import { HeroSection } from "@/components/home/hero-section";
 import { AboutSection } from "@/components/home/about-section";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Header />
       <BackToTop />
+      <LocaleTyping />
       <main>
         <HeroSection />
         <ProjectsSection />
