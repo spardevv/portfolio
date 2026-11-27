@@ -115,7 +115,7 @@ export function Header() {
         <div className={`transition-opacity duration-300 ${!pastHero ? "opacity-0" : ""} ${pastHero && !mobileOpen ? "max-md:opacity-0" : ""}`}>
           <ScrollProgress />
         </div>
-        <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 md:px-10">
+        <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[auto_1fr_auto] items-center px-6 md:px-10">
           <Link
             href="#home"
             onClick={(e) => goTo(e, "#home")}
@@ -130,7 +130,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="col-start-2 hidden items-center gap-10 md:flex">
+          <nav className="col-start-2 ml-12 hidden items-center gap-10 justify-self-start md:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
