@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { SectionBackdrop } from "@/components/section-backdrop"
 
 export function PageLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,8 +49,10 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
             // Sai como uma cortina subindo (ou só some, com "reduzir movimento")
             exit={reduceMotion ? { opacity: 0 } : { y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.7, 0, 0.2, 1] }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
+            className="fixed inset-0 z-[100] isolate flex flex-col items-center justify-center overflow-hidden bg-background"
           >
+            {/* Papel de parede no mesmo estilo dos fundos das seções */}
+            <SectionBackdrop src="/images/bg/kylix.webp" side="right" position="50% 40%" className="md:!w-[75%] lg:!w-[65%]" />
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

@@ -12,7 +12,7 @@ import { LanguageSwitch } from "@/components/language-switch";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { switchThemeAnimated } from "@/lib/theme-transition";
 
-const sectionIds = ["home", "projects", "skills", "about", "experience"] as const;
+const sectionIds = ["home", "projects", "skills", "about", "experience", "contact"] as const;
 
 function ThemeIcon({ isDark }: { isDark: boolean }) {
   return (
@@ -45,6 +45,7 @@ export function Header() {
     { label: t.skills, href: "#skills" },
     { label: t.about, href: "#about" },
     { label: t.experience, href: "#experience" },
+    { label: t.contact, href: "#contact" },
   ];
 
   useEffect(() => {
@@ -104,21 +105,21 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-          scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 border-b bg-clip-padding transition-colors duration-300 ${
+          scrolled ? `${pastHero ? "border-border" : "border-transparent"} bg-background/85 backdrop-blur-md` : "border-transparent bg-gradient-to-b from-background/85 via-background/45 to-transparent"
         } ${
           // Mobile fora do hero: sem fundo, borda nem desfoque — só o botão de menu fica visível
           pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:border-transparent max-md:bg-transparent max-md:backdrop-blur-none" : ""
         }`}
       >
-        <div className={`transition-opacity duration-300 ${pastHero && !mobileOpen ? "max-md:opacity-0" : ""}`}>
+        <div className={`transition-opacity duration-300 ${!pastHero ? "opacity-0" : ""} ${pastHero && !mobileOpen ? "max-md:opacity-0" : ""}`}>
           <ScrollProgress />
         </div>
         <div className="mx-auto grid h-[72px] max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 md:px-10">
           <Link
             href="#home"
             onClick={(e) => goTo(e, "#home")}
-            className={`group col-start-1 justify-self-start font-display text-[22px] font-normal leading-none tracking-[0.01em] text-foreground transition-all duration-300 ${
+            className={`group col-start-1 justify-self-start font-display text-[30px] font-normal leading-none tracking-[0.01em] text-foreground transition-all duration-300 ${
               pastHero && !mobileOpen ? "max-md:pointer-events-none max-md:-translate-y-3 max-md:opacity-0" : ""
             }`}
           >
@@ -129,7 +130,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="col-start-2 hidden items-center gap-9 md:flex">
+          <nav className="col-start-2 hidden items-center gap-10 md:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
@@ -140,17 +141,21 @@ export function Header() {
                     setActiveSection(item.href.slice(1));
                     goTo(e, item.href);
                   }}
-                  className={`label-caps relative transition-colors duration-300 hover:text-foreground ${
-                    active ? "text-foreground" : "text-muted-foreground"
+                  className={`label-caps group/nav relative !text-[15px] !font-semibold !tracking-[0.12em] [text-shadow:0_1px_10px_rgb(8_8_28/0.85)] transition-colors duration-300 hover:text-accent-soft ${
+                    active ? "text-foreground" : "text-foreground/75"
                   }`}
                 >
                   {item.label}
+                  {/* Sublinhado de hover: cresce da esquerda nos itens inativos */}
+                  {!active && (
+                    <span className="absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-accent-soft/70 transition-transform duration-300 group-hover/nav:scale-x-100" />
+                  )}
                   {/* Sublinhado único que desliza entre os itens ativos */}
                   {active && (
                     <motion.span
                       layoutId="nav-underline"
                       transition={{ type: "spring", stiffness: 420, damping: 36 }}
-                      className="absolute -bottom-2 left-0 h-px w-full bg-accent-soft"
+                      className="absolute -bottom-2 left-0 h-0.5 w-full bg-accent-soft"
                     />
                   )}
                 </Link>
@@ -160,12 +165,6 @@ export function Header() {
 
           <div className="col-start-3 hidden items-center justify-end gap-2 md:flex">
             <LanguageSwitch />
-            <a
-              href="#contact"
-              className="label-caps flex h-[38px] items-center rounded-[3px] bg-foreground px-4 text-background transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              {t.contact}
-            </a>
             <button
               onClick={(e) => toggleTheme(e)}
               aria-label={a11y.toggleTheme}
@@ -235,13 +234,6 @@ export function Header() {
               className="mt-8 flex items-center gap-3 border-t border-border pt-6"
             >
               <LanguageSwitch />
-              <a
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="label-caps rounded-[3px] bg-foreground px-4 py-3 text-background"
-              >
-                {t.contact}
-              </a>
               <button
                 onClick={(e) => toggleTheme(e)}
                 aria-label={a11y.toggleTheme}

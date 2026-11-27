@@ -12,3 +12,4 @@ Os arquivos aqui foram reduzidos, convertidos para tons de cinza/WebP e, nos cas
 | `warriors.webp` | [Terracotta neck-amphora (jar), The Met — DP229115](https://commons.wikimedia.org/wiki/File:Terracotta_neck-amphora_(jar)_MET_DP229115.jpg) | CC0 | recorte, cinza, contraste |
 | `athena.webp` | [Terracotta neck-amphora of Panathenaic shape, The Met — DP155167](https://commons.wikimedia.org/wiki/File:Terracotta_neck-amphora_of_Panathenaic_shape_(jar)_MET_DP155167.jpg) | CC0 | recorte, cinza, contraste |
 | `chariot.webp` | [Terracotta neck-amphora (jar), The Met — DP273729](https://commons.wikimedia.org/wiki/File:Terracotta_neck-amphora_(jar)_MET_DP273729.jpg) | CC0 | recorte, cinza, contraste |
+| `kylix.webp` | [Terracotta kylix (drinking cup), The Met — DT11643](https://commons.wikimedia.org/wiki/File:Terracotta_kylix_(drinking_cup)_MET_DT11643.jpg) | CC0 | cinza, contraste (usado no pre-loader) |
