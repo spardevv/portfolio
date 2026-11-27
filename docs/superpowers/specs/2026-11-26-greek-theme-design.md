@@ -1,6 +1,6 @@
 # Temática grega no portfólio — design (Opção A: ornamentos)
 
-Data: 2026-11-26 · Status: aguardando aprovação
+Data: 2026-11-26 · Status: implementado
 
 ## Intenção e porquê
 O usuário quer que o site tenha uma estética de Grécia antiga, por razão **estética**: combinar com as gravuras de
