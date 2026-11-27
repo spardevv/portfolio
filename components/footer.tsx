@@ -6,8 +6,6 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "@/lib/social";
 import { SectionBackdrop } from "@/components/section-backdrop";
-import { GreekMeander } from "@/components/greek-meander";
-import { toRoman } from "@/lib/roman";
 
 const EMAIL = "spardevv@gmail.com";
 
@@ -36,9 +34,8 @@ export function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="relative isolate flex flex-col overflow-hidden bg-card min-h-[100svh] lg:min-h-[calc(100svh-72px)]"
+      className="relative isolate flex flex-col overflow-hidden border-t border-border bg-card min-h-[100svh] lg:min-h-[calc(100svh-72px)]"
     >
-      <GreekMeander className="pointer-events-none absolute inset-x-0 top-0 z-10 text-foreground/25" height={8} />
       <SectionBackdrop src="/images/bg/warriors.webp" position="50% 50%" />
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-6 pt-12 md:px-10 lg:pb-[clamp(8px,1.5vh,16px)] lg:pt-[clamp(24px,5vh,56px)]">
         <motion.h2
@@ -48,12 +45,7 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="display-tight text-[clamp(44px,8vw,112px)] leading-[1] text-foreground lg:text-[min(7vw,11vh,112px)]"
         >
-          <span className="label-caps mb-4 flex items-center gap-3 text-accent-soft">
-            <span>
-              {toRoman(5)} · {t.kicker}
-            </span>
-            <GreekMeander className="w-14 shrink-0 opacity-70" height={8} />
-          </span>
+          <span className="label-caps mb-4 block text-accent-soft">#05 · {t.kicker}</span>
           {t.cta}
         </motion.h2>
         <motion.a

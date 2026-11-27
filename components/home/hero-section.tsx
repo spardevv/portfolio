@@ -11,7 +11,6 @@ import { Terminal } from "@/components/terminal";
 import { SOCIAL_LINKS } from "@/lib/social";
 import { withYears } from "@/lib/career";
 import { SectionBackdrop } from "@/components/section-backdrop";
-import { GreekMeander } from "@/components/greek-meander";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 const ICONS = { github: Github, linkedin: Linkedin, email: Mail };
@@ -109,7 +108,7 @@ export function HeroSection() {
         <div className="absolute right-0 top-0 w-[calc(100%/0.48)]">
           <div className="mx-auto max-w-6xl px-6 pt-24 md:px-10 lg:pt-[88px]">
             <div className="label-caps invisible flex items-center gap-3">
-              <GreekMeander className="w-10" height={8} />
+              <span>#00</span>
               <span>&nbsp;</span>
             </div>
             <HeroTitle top={t.posterTop} bottom={t.posterBottom} inverse />
@@ -125,7 +124,7 @@ export function HeroSection() {
           transition={{ duration: 0.5 }}
           className="label-caps flex items-center gap-3 text-muted-foreground"
         >
-          <GreekMeander className="w-10 text-accent-soft" height={8} />
+          <span className="text-accent-soft">#00</span>
           <span>
             {t.greeting} {t.name}
           </span>
